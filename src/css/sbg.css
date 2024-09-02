@@ -1,0 +1,33 @@
+.section-background {
+    background-color: rgba(19, 19, 19, 0.74); 
+    background-image: url('https://i.postimg.cc/Xv0z28HK/bgss-tv.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+}
+@media (max-width: 600px) {
+    .section-background {
+        background-image: url('https://i.postimg.cc/Sx9P75rN/bgss-small.jpg');
+    }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+    .section-background {
+        background-image: url('https://i.postimg.cc/Xv0z28HK/bgss-tv.jpg');
+    }
+}
+
+@media (min-width: 1025px) {
+    .section-background {
+        background-image: url('https://i.postimg.cc/Xv0z28HK/bgss-tv.jpg');
+    }
+}
+/* .section-background a:link{
+    color: #ffffff;
+}
+.section-background a:hover{
+    color: #9e9c9cec;
+}
+.section-background nav:hover{
+    text-decoration: underline;
+} */

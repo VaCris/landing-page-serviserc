@@ -1,0 +1,15 @@
+{
+  "name": "serviserc",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {},
+  "devDependencies": {
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "serviserc": "file:"
+  }
+}

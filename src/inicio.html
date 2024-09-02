@@ -1,0 +1,548 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERVISERC S.A.C</title>
+    <link rel="icon" href="/public/img/lg.png"/>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/src/assets/dist/output.css">
+    <link rel="stylesheet" href="/src/assets/styles/swiper.css">
+    <link rel="stylesheet" href="/src/css/wsp.css">
+    <link rel="stylesheet" href="/src/css/form.css">
+    <link rel="stylesheet" href="/src/css/card_service.css">
+    <link rel="stylesheet" href="/src/css/sbg.css">
+    <link rel="stylesheet" href="/src/css/carga.css">
+    <style>
+      @media (min-width: 3840px) {
+          body h2 {
+              font-size: 4rem !important; 
+          }
+          body h3 {
+              font-size: 3rem !important; 
+          }
+          body h4 {
+              font-size: 2rem !important;
+          }
+          a {
+              font-size: 2.5rem !important; 
+          }
+          body p {
+              font-size: 50px !important;
+          }
+          #content_sedes p {
+              font-size: 1.8rem !important;
+          }
+      }
+      @media (max-width: 640px) {
+          nav.sm\:flex {
+              display: none;
+          }
+          #menu-toggle {
+              position: fixed;
+              top: 10px;
+              right: 10px;
+              z-index: 100;
+          }
+      }
+      nav ul {
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        
+      }
+      nav li {
+          height: 55px;
+          width: 400px;
+      }
+      nav a {
+          height:  100%;
+          padding: 0 30px;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          color: #0f0f0fd8;
+      }
+      nav a:hover {
+          background-color: #ee1818bb;
+          color:#ffffff;
+      }
+      #menu-toggle {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 100;
+      }
+      .menu-open .desktop-nav{
+        display: none;
+      }
+      #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px; /* w sdb */
+        height: 100vh; /* h sdb */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(236, 165, 13, 0.9);
+        /* transform: translateY(-100%); */
+        transition: transform 0.3s ease-in-out;
+        z-index: 50;
+      }
+      #sidebar.open {
+        transform: translateY(0);
+      }
+      #sidebar a {
+        text-align: center;
+        padding: 15px;
+        font-size: 18px;
+        color: #ffffff;
+        text-decoration: none;
+      }
+      #close-sidebar {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none; 
+        border: none; 
+        cursor: pointer; 
+      }
+      body.menu-open {
+          overflow: hidden;
+      }
+      .desktop-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f3f4f6; 
+        height: 64px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        transition: display 0.3s ease-in-out;
+      }
+      @media (max-width: 640px) {
+        #content_sedes {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- loader -->
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
+    <!-- main  -->
+    <main class="flex flex-col min-h-screen">  
+        <!-- fondo -->
+      <div id="content" class="content">
+        <section class="w-full text-white p-8 text-center section-background">
+          <header class="bg-primary text-primary-foreground py-4 px-6 flex items-center justify-between">
+              <a href="/src/inicio.html" style="cursor: pointer;" class="text-3xl font-bold flex items-center">
+                  <span class="mr-2 bg-blue p-1 rounded">
+                      <img src="/public/img/images-removebg-preview.png" class="w-12 h-12">
+                  </span>
+                  SERVISERC
+              </a>
+
+            <!-- menubar -->
+            <button id="menu-toggle" class="block sm:hidden p-4 text-white hover:text-gray-300" >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+          </button>
+
+            <!-- sidebar -->
+            <nav id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-gray-800 text-white p-4 transform -translate-y-full transition-transform duration-300 ease-in-out">
+              <button id="close-sidebar" class="absolute top-4 right-4">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+              </button>
+              <ul>
+                  <li><a href="#content_service" class="block py-2 px-4 text-gray-300">Servicios</a></li>
+                  <li><a href="#content_equipo" class="block py-2 px-4 text-gray-300">Equipo</a></li>
+                  <li><a href="#content_contacto" class="block py-2 px-4 text-gray-300">Contacto</a></li>
+                  <li><a href="#content_sedes" class="block py-2 px-4 text-gray-300">Sedes</a></li>
+              </ul>
+          </nav>
+
+          <!-- desktop -->
+          <nav class="desktop-nav bg-gray-100 shadow-md">
+            <ul class="flex justify-around w-full h-full m-0 p-0 list-none">
+                <li><a href="#content_service" class="block py-2 px-4 rounded">Servicios</a></li>
+                <li><a href="#content_equipo" class="block py-2 px-4 rounded">Equipo</a></li>
+                <li><a href="#content_contacto" class="block py-2 px-4 rounded">Contacto</a></li>
+                <li><a href="#content_sedes" class="block py-2 px-4 rounded">Sedes</a></li>
+            </ul>
+          </nav>
+        </header>
+
+          <!-- c_central -->
+          <div class="mt-12 px-4">
+            <h2 class="text-3xl sm:text-4xl font-bold">Consultoria Empresarial</h2>
+            <p class="mt-4 text-base sm:text-lg">Confianza y experiencia para tu negocio.</p>
+            <button onclick="location.href='#content_contacto'" class="mt-6 bg-white text-red-600 px-6 py-2 rounded-lg font-semibold hover:bg-red-500 hover:text-white hover:shadow-lg focus:outline-none transition ease-in-out duration-300">
+                Contactar
+            </button>
+          </div>
+        </section>
+        <section id="content_service" class="w-full text-center py-12 bg-white">
+          <h3 class="text-3xl font-bold mb-8">Nuestros Servicios</h3>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <!-- 1 -->
+              <div class="swiper-slide bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto service-card">
+                <div class="service flex items-center justify-center text-red-600">
+                <!-- icon -->
+                <svg xmlns="#" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25v8.25a1.5 1.5 0 01-1.5 1.5h-12a1.5 1.5 0 01-1.5-1.5V8.25m15-1.5h-15m0 0a2.25 2.25 0 00-2.25 2.25v8.25a2.25 2.25 0 002.25 2.25h12a2.25 2.25 0 002.25-2.25V8.25a2.25 2.25 0 00-2.25-2.25z" />
+                </svg>
+                </div>
+                <h4 class="mt-4 text-xl font-semibold">Constitución de Empresas</h4>
+                <p class="mt-2 text-gray-600">Te ayudamos a constituir tu empresa de manera eficiente y conforme a la ley.</p>
+              </div>
+        
+              <div class="swiper-slide bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto service-card">
+                <div class="service flex items-center justify-center text-red-600">
+                  <!-- icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12H3m18 0c0-4.97-4.03-9-9-9m9 9c0 4.97-4.03 9-9 9m9 0H3m0 0c0-4.97 4.03-9 9-9m-9 0c0-4.97 4.03-9 9-9" />
+                  </svg>
+                </div>
+                <h4 class="mt-4 text-xl font-semibold">Asesoría Contable, Laboral y Tributaria</h4>
+                <p class="mt-2 text-gray-600">Te brindamos asesoría para que cumplas con tus obligaciones contables, laborales y tributarias.</p>
+              </div>        
+              <!-- 3 -->
+              <div class="swiper-slide bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto service-card">
+                <div class="service flex items-center justify-center text-red-600">
+                  <!-- icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5h18M3 12h18M3 16.5h18M4.5 4.5h15m-15 15h15" />
+                  </svg>
+                </div>
+                <h4 class="mt-4 text-xl font-semibold">Planeamiento Tributario</h4>
+                <p class="mt-2 text-gray-600">Desarrollamos estrategias tributarias para optimizar tu carga fiscal.</p>
+              </div>
+
+              <div class="swiper-slide bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto service-card">
+                <div class="service flex items-center justify-center text-red-600">
+                  <!-- icono -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12l1.5 1.5 3-3m-1.5 4.5L9 12m6 0h6m-9-3h3m-1.5 3l3 3M12 6h9" />
+                  </svg>
+                </div>
+                <h4 class="mt-4 text-xl font-semibold">Contabilidad Computarizada y Electrónica</h4>
+                <p class="mt-2 text-gray-600">Implementamos sistemas contables computarizados para mayor precisión y eficiencia.</p>
+              </div>
+
+              <div class="swiper-slide bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto service-card">
+                <div class="service flex items-center justify-center text-red-600">
+                  <!-- icono -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 4.5h15m-15 15h15M4.5 4.5V12m0 7.5V12m15 7.5V12m0-7.5V12M3 12h18M12 21v-6.75M12 21v-6.75M12 12v-1.5M12 12v1.5" />
+                  </svg>
+                </div>
+                <h4 class="mt-4 text-xl font-semibold">Facturación Electrónica</h4>
+                <p class="mt-2 text-gray-600">Automatizamos tu proceso de facturación para mayor control y eficiencia.</p>
+              </div>
+
+              <div class="swiper-slide bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto service-card">
+                <div class="service flex items-center justify-center text-red-600">
+                  <!-- icono -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 4.5h15m-15 15h15M4.5 4.5V12m0 7.5V12m15 7.5V12m0-7.5V12M3 12h18M12 21v-6.75M12 21v-6.75M12 12v-1.5M12 12v1.5" />
+                  </svg>
+                </div>
+                <h4 class="mt-4 text-xl font-semibold">Actualización y Llenado de Libros Contables</h4>
+                <p class="mt-2 text-gray-600">Nos encargamos de mantener al día tus libros contables según las normativas vigentes.</p>
+              </div>
+
+              <div class="swiper-slide bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto service-card">
+                <div class="service flex items-center justify-center text-red-600">
+                  <!-- icono -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 9v6h6V9H9zM7.5 6h9v12h-9V6z" />
+                  </svg>
+                </div>
+                <h4 class="mt-4 text-xl font-semibold">Solicitud de Devolución del IGV</h4>
+                <p class="mt-2 text-gray-600">Gestionamos la devolución del IGV por detracciones, retenciones, y otros conceptos.</p>
+              </div>
+
+              <div class="swiper-slide bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto service-card">
+                <div class="service flex items-center justify-center text-red-600">
+                  <!-- icono -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M12 6v6m0 0v6" />
+                  </svg>
+                </div>
+                <h4 class="mt-4 text-xl font-semibold">Elaboración de Declara Fácil - PLAME 601 SIRE</h4>
+                <p class="mt-2 text-gray-600">Nos encargamos de la correcta elaboración de tus declaraciones electrónicas.</p>
+              </div>
+
+              <div class="swiper-slide bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto service-card">
+                <div class="service flex items-center justify-center text-red-600">
+                  <!-- icono -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 6h15m-15 15h15M4.5 6v12m15-12v12M4.5 18H12v-3H4.5m15 3h-4.5v-3H19.5" />
+                  </svg>
+                </div>
+                <h4 class="mt-4 text-xl font-semibold">Presentación de Solicitudes de Reclamación y Apelación</h4>
+                <p class="mt-2 text-gray-600">Asistimos en la presentación de solicitudes de reclamación ante la SUNAT y el Tribunal Fiscal.</p>
+              </div>
+
+              <div class="swiper-slide bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto service-card">
+                <div class="service flex items-center justify-center text-red-600">
+                  <!-- icono -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 6h15m-15 15h15M4.5 6v12m15-12v12M4.5 18H12v-3H4.5m15 3h-4.5v-3H19.5" />
+                  </svg>
+                </div>
+                <h4 class="mt-4 text-xl font-semibold">Venta de Libros Contables y Legalización</h4>
+                <p class="mt-2 text-gray-600">Ofrecemos la venta de libros contables y su legalización ante las autoridades competentes.</p>
+              </div>
+              <!-- + -->
+            </div>
+            <!-- controles -->
+            <div class="swiper-button-next  sm:block"></div>
+            <div class="swiper-button-prev  sm:block"></div>
+            <!-- pagina -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </section>
+        <!-- <section id="content_equipo" class="w-full text-center py-12 bg-white">
+          <div class="p-6 rounded-lg mx-auto">
+            <div class="bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto text-red-600">
+              <h3 class="mt-4 text-xl font-semibold"></h3>
+              <p  class="mt-2 text-gray-600">Asesora Contable</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto text-red-600">
+              <h3 class="mt-4 text-xl font-semibold">lorem</h3>
+              <p  class="mt-2 text-gray-600">Asistente Contable</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto text-red-600">
+              <h3 class="mt-4 text-xl font-semibold">lorem</h3>
+              <p  class="mt-2 text-gray-600">Asistente Contable</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto text-red-600">
+              <h3 class="mt-4 text-xl font-semibold">lorem</h3>
+              <p  class="mt-2 text-gray-600">Asistente Contable</p>
+            </div>
+            </div>
+        </section> -->
+        <!-- contacto-->
+        <section id="content_contacto" class="py-8">
+          <div class="container mx-auto">
+            <div class="flex justify-center">
+              <form id="contact-form" name="formulario" method="post" action="/src/auth/send_email.php" class="contact-form w-full max-w-lg p-5 rounded shadow-sm bg-white">
+                <h2 class="text-center text-2xl font-semibold mb-4">Contáctenos ahora</h2>
+                <p class="text-center mb-5 text-gray-600">Ingrese todos los datos, nos ayudará a entender su requerimiento.</p>
+            
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <input type="text" required name="nom" id="nombre" 
+                      class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100" 
+                      placeholder="Nombre">
+                  </div>
+                  <div>
+                    <input type="tel" required name="tel" id="telefono" 
+                      class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100" 
+                      placeholder="Teléfono" pattern="[0-9]{7,15}">
+                  </div>
+                  <div>
+                    <input type="email" required name="email" id="email" 
+                      class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100" 
+                      placeholder="Correo Electrónico" pattern="r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'">
+                  </div>
+                  <div>
+                    <input type="text" required name="asunto" id="asunto" 
+                      class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100" 
+                      placeholder="Asunto">
+                  </div>
+                </div>
+            
+                <div class="mt-4">
+                  <textarea required name="mensaje" id="mensaje" cols="45" rows="12"  class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100" placeholder="¿Cómo podemos ayudarlo? " required minlength="0" maxlength="300" ></textarea>
+                </div>
+            
+                <div class="my-3">
+                  <div id="loading" class="hidden">Cargando...</div>
+                  <div id="error-message" class="hidden text-red-600"></div>
+                  <div id="sent-message" class="hidden text-green-600">Su mensaje ha sido enviado. Muchas gracias.</div>
+                </div>
+            
+                <div class="mt-6 text-center">
+                  <button type="submit" class="bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-500 focus:outline-none focus:bg-red-700">
+                    Enviar Consulta
+                  </button>
+                </div>
+            </form>
+            </div>
+          </div>
+        </section>
+
+        <section id="content_sedes" class="w-full text-center py-12 bg-white">
+          <h3 class="text-3xl font-bold mb-8">Nuestras Sedes</h3>
+          <div class="flex flex-col md:flex-row justify-center items-start md:items-center gap-8">
+              <div class="w-full md:w-1/4 shadow-lg">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.807805772875!2d-77.0695886102817!3d-11.958486741152038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105ce260b2e13bb%3A0x61277e4d3af94e0d!2sSERVISERC%20S.R.L.!5e0!3m2!1sen!2spe!4v1723509758437!5m2!1sen!2spe" width="100%" height="350" class="rounded-t-lg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <div class="p-4">
+                      <p class="mt-3 font-semibold">Av.Alfredo Mendiola MZ. J LT. 13-B Urb.Santa Luisa 2</p>
+                      <p class="text-sm">(Al lado de la SUNAT de VILLASOL - LOS OLIVOS)</p>
+                  </div>
+              </div>
+              <!-- U2 -->
+              <div class="w-full md:w-1/4 shadow-lg">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1801452578547!2d-77.0261631237209!3d-12.09981681477695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c86ee6498aa3%3A0xc0d0b388e3b29fa9!2sAv.%20P.%C2%BA%20de%20la%20Rep%C3%BAblica%203557%2C%20San%20Isidro%2015047!5e0!3m2!1ses-419!2spe!4v1723557564924!5m2!1ses-419!2spe" width="100%" height="350" class="rounded-t-lg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <div class="p-4">
+                      <p class="mt-3 font-semibold">Paseo de la Republica 3557 OF. 701 - Lima</p>
+                      <p class="text-sm">(Entre Puente Canaval y Moreyra y Aramburú al frente de Plaza Vea)</p>
+                  </div>
+              </div>
+              <!-- U3 -->
+              <div class="w-full md:w-1/4 shadow-lg">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d410.4052586486841!2d-77.02658130748145!3d-11.873384532598825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDUyJzI0LjMiUyA3N8KwMDEnMzQuNyJX!5e0!3m2!1ses-419!2spe!4v1723603830990!5m2!1ses-419!2spe" width="100%" height="350" class="rounded-t-lg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <div class="p-4">
+                      <p class="mt-3 font-semibold">Jr. Huaylas Mz.E Lt.20 Urb. Chavin de Huantar 1</p>
+                      <p class="text-sm">(Entre Av.Camino Real con Av.Santo Domingo)</p>
+                  </div>
+              </div>
+          </div>
+        </section>
+       
+        <div class="nav-bottom">
+          <button type="button" id="whats-openPopup" class="whatsapp-button" aria-label="Abrir chat de WhatsApp">
+            <a href="https://wa.me/send?phone=51984899387&text=Quiero consultar sobre..." target="_blank" rel="noopener noreferrer"><img class="icon-whatsapp" src="/public/img/Whatsapp_37229.ico" alt="WhatsApp"></a>
+          </button>           
+          <div class="circle-anime"></div>
+        </div>
+      </div>    
+</main>
+    <footer class="w-full bg-red-600 text-white p-2 text-center">
+      Copyright &#160;2024&#160; &#169; SERVISERC &#160;S.A.C &#160;&#160;&#160;Todos los derechos reservados.
+    </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="/js/data_msg.js"></script> -->
+    <script src="/src/js/sdb.js"></script>
+    <script>
+      const MIN_LOADER_TIME = 1000;
+      window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        content.classList.add('visible');
+        }, MIN_LOADER_TIME);
+      });
+    </script> 
+    <script>
+      const swiper = new Swiper('.swiper', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          320:{
+            slidesPerView: 1,
+            spaceBetween: 90,
+          },
+          375:{
+            slidesPerView: 1,
+            spaceBetween: 90,
+          },
+          392:{
+            slidesPerView: 1,
+            spaceBetween: 100,
+          },
+          425:{
+            slidesPerView: 1,
+            spaceBetween: 120,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          650:{
+            slidesPerView: 2,
+            spaceBetween: 80,
+          },
+          660:{
+            slidesPerView: 2,
+            spaceBetween: 80,
+          },
+          670:{
+            slidesPerView: 2,
+            spaceBetween: 90,
+          },
+          680:{
+            slidesPerView: 2,
+            spaceBetween: 90,
+          },
+          768:{
+            slidesPerView: 2,
+            spaceBetween: 80,
+          },
+          950:{
+            slidesPerView: 2,
+            spaceBetween: 90,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 80,
+          },
+        },
+      });
+    </script>
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        var formData = new FormData(this);
+        var loading = document.getElementById('loading');
+        var errorMessage = document.getElementById('error-message');
+        var sentMessage = document.getElementById('sent-message');
+    
+        loading.classList.remove('hidden');
+        errorMessage.classList.add('hidden');
+        sentMessage.classList.add('hidden');
+    
+        fetch('/src/auth/send_email.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            loading.classList.add('hidden');
+            if (data.success) {
+                sentMessage.classList.remove('hidden');
+                this.reset();
+            } else {
+                errorMessage.classList.remove('hidden');
+                errorMessage.textContent = data.message;
+            }
+        })
+        .catch(error => {
+            loading.classList.add('hidden');
+            errorMessage.classList.remove('hidden');
+            errorMessage.textContent = 'Error de red o del servidor.';
+        });
+      });    
+    </script>
+</body>
+</html>
