@@ -1,5 +1,5 @@
 .section-background {
-    background-color: rgba(19, 19, 19, 0.74); 
+    background-color: rgba(19, 19, 19, 0.589); 
     background-image: url('https://i.postimg.cc/Xv0z28HK/bgss-tv.jpg');
     background-size: cover; 
     background-position: center; 
@@ -22,12 +22,3 @@
         background-image: url('https://i.postimg.cc/Xv0z28HK/bgss-tv.jpg');
     }
 }
-/* .section-background a:link{
-    color: #ffffff;
-}
-.section-background a:hover{
-    color: #9e9c9cec;
-}
-.section-background nav:hover{
-    text-decoration: underline;
-} */
