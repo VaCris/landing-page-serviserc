@@ -68,7 +68,6 @@
   background-color: #77bb4a;
   animation: pulse 1.5s 3.0s ease ;
 }
-
 .popup-whatsapp {
   display: none;
   position: absolute;
@@ -119,16 +118,13 @@
   width: 24px;
   height: 24px;
 }
-
 .icon-whatsapp {
   width: 45px;
   height: 45px;
 }
-
 .icon-font-color {
   color: #ffffff;
 }
-
 .icon-font-color--black {
   color: #333333;
 }

@@ -10,7 +10,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     errorMessage.classList.add('hidden');
     sentMessage.classList.add('hidden');
 
-    fetch('/auth/send_email.php', {
+    fetch('/src/auth/send_email.php', {
         method: 'POST',
         body: formData
     })

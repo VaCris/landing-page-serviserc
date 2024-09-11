@@ -1,31 +1,29 @@
 .service-card {
     text-align: center;
     margin: 0 auto;
-    padding: 1rem;
-    max-width: 280px;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-.service-card:hover {
-    box-shadow: 0 10px 20px rgba(99, 94, 94, 0.562);
-    transform: scale(1.05);
-}
-.service {
-    flex: 1;
-    margin: 0.5rem;
-    text-align: center;
-  }
 .service-card img {
     height: auto;
     transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.service-card:hover {
+    box-shadow: 0 10px 20px rgba(99, 94, 94, 0.2);
+    transform: scale(1.05);
 }
 .service-card:hover img {
     transform: scale(1.1);
     opacity: 0.9;
 }
-.service svg {
+.service {
+    flex: 1;
+    margin: 0.5rem;
+    text-align: center;
+}
+/* .service svg {
     width: 3rem; 
     height: 3rem;
 }
 .service-card h4{
     font-size: 1.20rem;
-}
+} */

@@ -27,11 +27,11 @@ try {
     foreach ($recipients as $recipient) {
         $mail->addAddress(trim($recipient));
     }
-    $nombre = trim($_POST['nom']) ? trim($_POST['nom']) : '';
-    $telefono = trim($_POST['tel']) ? trim($_POST['tel']) : '';
-    $email = trim($_POST['email']) ? trim($_POST['email']):'';
-    $asunto = trim($_POST['asunto']);
-    $mensaje = trim($_POST['mensaje']);
+    $nombre = htmlspecialchars(trim($_POST['nom']), ENT_QUOTES, 'UTF-8');
+    $telefono = htmlspecialchars(trim($_POST['tel']), ENT_QUOTES, 'UTF-8');
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    $asunto = htmlspecialchars(trim($_POST['asunto']), ENT_QUOTES, 'UTF-8');
+    $mensaje = htmlspecialchars(trim($_POST['mensaje']), ENT_QUOTES, 'UTF-8');
 
     if (empty($nombre) || empty($telefono) || empty($email) || empty($asunto) || empty($mensaje)) {
         echo 'Todos los campos son requeridos.';
@@ -79,13 +79,13 @@ try {
     </head>
     <body>
         <div class="container">
-            <h1>Detalles de la Solicitud</h1>
-            <p><strong>Nombre:</strong> ' . htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8') . '</p>
-            <p><strong>Teléfono:</strong> ' . htmlspecialchars($telefono, ENT_QUOTES, 'UTF-8') . '</p>
-            <p><strong>Correo Electrónico:</strong> ' . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . '</p>
-            <p><strong>Asunto:</strong> ' . htmlspecialchars($asunto, ENT_QUOTES, 'UTF-8') . '</p>
+            <h1>Detalles de la Consulta</h1>
+            <p><strong>Nombre:</strong> ' . $nombre . '</p>
+            <p><strong>Teléfono:</strong> ' . $telefono . '</p>
+            <p><strong>Correo Electrónico:</strong> ' . $email . '</p>
+            <p><strong>Asunto:</strong> ' . $asunto . '</p>
             <p><strong>Mensaje:</strong></p>
-            <p>' . nl2br(htmlspecialchars($mensaje, ENT_QUOTES, 'UTF-8')) . '</p>
+            <p>' . nl2br($mensaje) . '</p>
             <div class="footer">
                 Este es un correo automatizado. Por favor, no responda a este mensaje.
             </div>
@@ -94,13 +94,13 @@ try {
     </html>
     ';
     $mail->AltBody = '
-    Detalles de la Solicitud
-    Nombre: ' . htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8') . '
-    Teléfono: ' . htmlspecialchars($telefono, ENT_QUOTES, 'UTF-8') . '
-    Correo Electrónico: ' . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . '
-    Asunto: ' . htmlspecialchars($asunto, ENT_QUOTES, 'UTF-8') . '
+    Detalles de la Consulta
+    Nombre: ' . $nombre . '
+    Teléfono: ' . $telefono . '
+    Correo Electrónico: ' . $email . '
+    Asunto: ' . $asunto . '
     Mensaje:
-    ' . htmlspecialchars($mensaje, ENT_QUOTES, 'UTF-8') . '
+    ' . $mensaje . '
 
     Este es un correo automatizado. Por favor, no responda a este mensaje.
     ';
