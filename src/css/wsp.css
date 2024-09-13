@@ -82,7 +82,6 @@
   transition: .2s;
   border-radius: 10px;
   background-color: white;
-  /* offset-x > | offset-y ^| blur-radius | spread-radius | color */
   -webkit-box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);
   -moz-box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);
   box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);

@@ -1,11 +1,12 @@
 <?php
+header('Content-Type: application/json');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Dotenv\Dotenv;
 
 require '/serviserc/vendor/autoload.php';
 
-$dotenv = Dotenv::createImmutable(__DIR__ , 'ecrytp.env');
+$dotenv = Dotenv::createImmutable(__DIR__, 'ecrytp.env');
 $dotenv->load();
 
 $mail = new PHPMailer(true);
@@ -13,12 +14,37 @@ $response = [
     'success' => false,
     'message' => ''
 ];
+
+if (isset($_POST['g-recaptcha-response'])) {
+    $recaptchaSecret = $_ENV['RECAPTCHA_SECRET_KEY']; 
+    $recaptchaResponse = $_POST['g-recaptcha-response'];
+    $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret=$recaptchaSecret&response=$recaptchaResponse";
+    $recaptchaResponse = file_get_contents($recaptchaUrl);
+    $responseKeys = json_decode($recaptchaResponse, true);
+
+    if (
+        !isset($responseKeys['success']) || 
+        !$responseKeys['success'] || 
+        $responseKeys['score'] < 0.5 || 
+        $responseKeys['action'] !== 'submit'
+    ) {
+        $response['message'] = 'Verificación de reCAPTCHA fallida. Por favor, intente de nuevo.';
+        echo json_encode($response);
+        exit;
+    }
+} else {
+    $response['message'] = 'El reCAPTCHA es requerido.';
+    echo json_encode($response);
+    exit;
+}
+
 try {
+    $mail->SMTPDebug = 0;
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = $_ENV['CORREO_USER']; 
-    $mail->Password = $_ENV['CORREO_PASS']; 
+    $mail->Username = $_ENV['CORREO_USER'];
+    $mail->Password = $_ENV['CORREO_PASS'];
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
@@ -27,6 +53,7 @@ try {
     foreach ($recipients as $recipient) {
         $mail->addAddress(trim($recipient));
     }
+
     $nombre = htmlspecialchars(trim($_POST['nom']), ENT_QUOTES, 'UTF-8');
     $telefono = htmlspecialchars(trim($_POST['tel']), ENT_QUOTES, 'UTF-8');
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
@@ -34,17 +61,19 @@ try {
     $mensaje = htmlspecialchars(trim($_POST['mensaje']), ENT_QUOTES, 'UTF-8');
 
     if (empty($nombre) || empty($telefono) || empty($email) || empty($asunto) || empty($mensaje)) {
-        echo 'Todos los campos son requeridos.';
+        $response['message'] = 'Todos los campos son requeridos.';
+        echo json_encode($response);
         exit;
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo 'El correo electrónico no es válido.';
+        $response['message'] = 'El correo electrónico no es válido.';
+        echo json_encode($response);
         exit;
     }
 
     $mail->isHTML(true);
     $mail->CharSet = 'UTF-8';
-    $mail->Subject = htmlspecialchars($asunto);
+    $mail->Subject = htmlspecialchars(trim($asunto), ENT_QUOTES, 'UTF-8');
     $mail->Body = '
     <html>
     <head>
@@ -108,6 +137,7 @@ try {
     $response['success'] = true;
     $response['message'] = 'Su mensaje ha sido enviado. Muchas gracias.';
 } catch (Exception $e) {
-    $response['message'] = "No se pudo enviar el mensaje. Error de Mailer: {$mail->ErrorInfo}";
+    error_log("Error al enviar el correo: {$mail->ErrorInfo}");
+    $response['message'] = 'No se pudo enviar el mensaje. Inténtelo de nuevo más tarde.';
 }
-    echo json_encode($response);
+echo json_encode($response);
