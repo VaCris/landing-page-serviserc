@@ -16,19 +16,26 @@ $response = [
 ];
 
 if (isset($_POST['g-recaptcha-response'])) {
-    $recaptchaSecret = $_ENV['RECAPTCHA_SECRET_KEY']; 
+    $recaptchaSecret = $_ENV['RECAPTCHA_SECRET_KEY'];
     $recaptchaResponse = $_POST['g-recaptcha-response'];
-    $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify?secret=$recaptchaSecret&response=$recaptchaResponse";
-    $recaptchaResponse = file_get_contents($recaptchaUrl);
+    $remoteAddr = $_SERVER['REMOTE_ADDR'];
+    
+    $recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify";
+    $recaptchaParams = [
+        'secret' => $recaptchaSecret,
+        'response' => $recaptchaResponse,
+        'remoteip' => $remoteAddr
+    ];
+    $recaptchaResponse = file_get_contents($recaptchaUrl . '?' . http_build_query($recaptchaParams));
     $responseKeys = json_decode($recaptchaResponse, true);
 
     if (
         !isset($responseKeys['success']) || 
-        !$responseKeys['success'] || 
-        $responseKeys['score'] < 0.5 || 
-        $responseKeys['action'] !== 'submit'
+        !$responseKeys['success'] ||
+        (isset($responseKeys['score']) && $responseKeys['score'] < 0.5) ||
+        (isset($responseKeys['action']) && $responseKeys['action'] !== 'submit')
     ) {
-        $response['message'] = 'Verificación de reCAPTCHA fallida. Por favor, intente de nuevo.';
+        $response['message'] = 'Comprueba que no eres un robot.';
         echo json_encode($response);
         exit;
     }

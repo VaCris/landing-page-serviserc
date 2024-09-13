@@ -1,370 +1,314 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SERVISERC S.A.C</title>
-    <link rel="icon" lazy href="/public/img/lg.png" />
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeSY0IqAAAAAGrYK_3qzoNBr6czaEQusD0ArEps"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link rel="stylesheet" href="/src/assets/dist/output.css" />
-    <link rel="stylesheet" href="/src/assets/styles/swiper.css" />
-    <link rel="stylesheet" href="/src/css/wsp.css" />
-    <link rel="stylesheet" href="/src/css/form.css" />
-    <link rel="stylesheet" href="/src/css/card_service.css" />
-    <link rel="stylesheet" href="/src/css/sbg.css" />
-    <!-- <link rel="stylesheet" href="/src/css/carga.css"> -->
-    <style>
-      html {
-        scroll-behavior: smooth;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SERVISERC S.A.C</title>
+  <link rel="icon" lazy href="/public/img/lg.png" />
+  <script src="https://www.google.com/recaptcha/api.js?render=6LczmEIqAAAAABDFEe3YHuhnQzISGDlA1epFilU_" async
+    defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="/src/assets/dist/output.css" />
+  <link rel="stylesheet" href="/src/assets/styles/swiper.css" />
+  <link rel="stylesheet" href="/src/css/wsp.css" />
+  <link rel="stylesheet" href="/src/css/form.css" />
+  <link rel="stylesheet" href="/src/css/card_service.css" />
+  <link rel="stylesheet" href="/src/css/sbg.css" />
+  <!-- <link rel="stylesheet" href="/src/css/carga.css"> -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (min-width: 3840px) {
+      body h2 {
+        font-size: 4rem !important;
       }
 
-      @media (min-width: 3840px) {
-        body h2 {
-          font-size: 4rem !important;
-        }
-
-        body h3 {
-          font-size: 3rem !important;
-        }
-
-        body h4 {
-          font-size: 2rem !important;
-        }
-
-        a {
-          font-size: 2.5rem !important;
-        }
-
-        body p {
-          font-size: 50px !important;
-        }
-
-        #content_sedes p {
-          font-size: 1.8rem !important;
-        }
+      body h3 {
+        font-size: 3rem !important;
       }
 
-      @media (max-width: 640px) {
-        nav.sm\:flex {
-          display: none;
-        }
-
-        #menu-toggle {
-          position: fixed;
-          top: 14px;
-          right: 19px;
-          z-index: 100;
-        }
-
-        #content_sedes {
-          padding-left: 1rem;
-          padding-right: 1rem;
-        }
+      body h4 {
+        font-size: 2rem !important;
       }
 
-      @media (min-width: 641px) and (max-width: 768px) {
-        nav.sm\:flex {
-          display: block;
-        }
-
-        #menu-toggle {
-          position: relative;
-          top: auto;
-          right: auto;
-          z-index: auto;
-        }
-
-        #content_sedes {
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-        }
+      a {
+        font-size: 2.5rem !important;
       }
 
-      @media (min-width: 769px) {
-        nav.sm\:flex {
-          display: block;
-        }
-
-        #menu-toggle {
-          display: none;
-        }
-
-        #content_sedes {
-          padding-left: 2rem;
-          padding-right: 2rem;
-        }
+      body p {
+        font-size: 50px !important;
       }
 
-      nav ul {
-        width: 100%;
-        list-style: none;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
+      #content_sedes p {
+        font-size: 1.8rem !important;
       }
+    }
 
-      nav li {
-        height: 100%;
-        width: 100%;
-      }
-
-      nav a {
-        padding: 0 30px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        color: #0f0f0fd8;
-      }
-
-      nav a:hover {
-        background-color: #ee1818a2;
-        color: #ffffff;
-      }
-
-      #sidebar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transform: translateY(-200%);
-        transition: transform 0.3s ease-in-out;
-        background: rgb(240, 24, 24);
-        justify-content: center;
-      }
-
-      #sidebar.open {
-        transform: translateY(0);
-      }
-
-      #sidebar a {
-        text-align: center;
-        padding: 15px;
-        font-size: 18px;
-        color: #ffffff;
-      }
-
-      #close-sidebar {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        color: #f3f4f6;
-      }
-
-      .nav-open {
-        transform: translateY(0);
-      }
-
-      body.menu-open {
-        overflow: hidden;
-      }
-
-      #menu-toggle {
-        background-color: rgb(30, 30, 30, 0.5);
-        width: 2rem;
-        height: 2rem;
-        padding: 0.25rem;
-      }
-
-      .desktop-nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #f3f4f6;
-        height: 64px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 90;
-        transform: translateY(-100%);
-        opacity: 0;
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-      }
-
-      .swiper-slide {
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-      }
-
-      .swiper-button-next,
-      .swiper-button-prev {
-        color: rgba(230, 10, 10, 0.5);
-        text-decoration: none;
-      }
-
-      .swiper-slide svg {
-        width: 3rem;
-        height: 3rem;
-        color: rgba(230, 10, 10, 0.8);
-      }
-
-      :root {
-        --swiper-theme-color: rgba(230, 10, 10, 0.8);
-      }
-
-      :root {
-        --swiper-navigation-size: 30px;
-      }
-
-      .hidden {
+    @media (max-width: 640px) {
+      nav.sm\:flex {
         display: none;
       }
 
-      header {
-        background-color: #f3f4f600;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease,
-          padding 0.3s ease;
-      }
-
-      .sticky {
+      #menu-toggle {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #f71f1f;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.39);
-        z-index: 1000;
-        padding: -1px 0;
+        top: 14px;
+        right: 19px;
+        z-index: 100;
       }
 
-      .sticky .logo-text {
-        transform: translateX(-30px);
+      #content_sedes {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+
+    @media (min-width: 641px) and (max-width: 768px) {
+      nav.sm\:flex {
+        display: block;
       }
 
-      .sticky.shrink {
-        padding: 5px 0;
+      #menu-toggle {
+        position: relative;
+        top: auto;
+        right: auto;
+        z-index: auto;
       }
 
-      .sticky + main {
-        padding-top: 64px;
+      #content_sedes {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
       }
-    </style>
-  </head>
+    }
 
-  <body>
-    <div id="loader">
-      <div class="spinner"></div>
-    </div>
+    @media (min-width: 769px) {
+      nav.sm\:flex {
+        display: block;
+      }
 
-    <main class="flex flex-col items-center justify-between">
-      <section class="w-full text-white p-8 text-center section-background">
-        <header
-          class="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8"
-        >
-          <div class="logo-text flex items-center">
-            <a
-              id="lg-name"
-              href="/src/inicio.html"
-              style="cursor: pointer"
-              class="text-3xl font-bold flex items-center"
-            >
-              <span class="mr-2 bg-blue p-1 rounded">
-                <img src="·" class="w-12 h-12" alt="-" />
-              </span>
-              SERVISERC
-            </a>
-          </div>
-          <button
-            id="menu-toggle"
-            class="block sm:hidden p-4 text-gray-300 hover:text-red-500"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
+      #menu-toggle {
+        display: none;
+      }
+
+      #content_sedes {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+
+    nav ul {
+      width: 100%;
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    nav li {
+      height: 100%;
+      width: 100%;
+    }
+
+    nav a {
+      padding: 0 30px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      color: #0f0f0fd8;
+    }
+
+    nav a:hover {
+      background-color: #ee1818a2;
+      color: #ffffff;
+    }
+
+    #sidebar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(-200%);
+      transition: transform 0.3s ease-in-out;
+      background: rgb(240, 24, 24);
+      justify-content: center;
+    }
+
+    #sidebar.open {
+      transform: translateY(0);
+    }
+
+    #sidebar a {
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    #close-sidebar {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #f3f4f6;
+    }
+
+    .nav-open {
+      transform: translateY(0);
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    #menu-toggle {
+      background-color: rgb(30, 30, 30, 0.5);
+      width: 2rem;
+      height: 2rem;
+      padding: 0.25rem;
+    }
+
+    .desktop-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f3f4f6;
+      height: 64px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 90;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    .swiper-slide {
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: rgba(230, 10, 10, 0.5);
+      text-decoration: none;
+    }
+
+    .swiper-slide svg {
+      width: 3rem;
+      height: 3rem;
+      color: rgba(230, 10, 10, 0.8);
+    }
+
+    :root {
+      --swiper-theme-color: rgba(230, 10, 10, 0.8);
+    }
+
+    :root {
+      --swiper-navigation-size: 30px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    header {
+      background-color: #f3f4f600;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease,
+        padding 0.3s ease;
+    }
+
+    .sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f71f1f;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.39);
+      z-index: 1000;
+      padding: -1px 0;
+    }
+
+    .sticky .logo-text {
+      transform: translateX(-30px);
+    }
+
+    .sticky.shrink {
+      padding: 5px 0;
+    }
+
+    .sticky+main {
+      padding-top: 64px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <main class="flex flex-col items-center justify-between">
+    <section class="w-full text-white p-8 text-center section-background">
+      <header class="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8">
+        <div class="logo-text flex items-center">
+          <a id="lg-name" href="/src/inicio.html" style="cursor: pointer" class="text-3xl font-bold flex items-center">
+            <span class="mr-2 bg-blue p-1 rounded">
+              <img src="·" class="w-12 h-12" alt="-" />
+            </span>
+            SERVISERC
+          </a>
+        </div>
+        <button id="menu-toggle" class="block sm:hidden p-4 text-gray-300 hover:text-red-500">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+        <nav
+          class="fixed top-0 left-0 w-full h-full text-white p-4 transform -translate-y-full transition-transform duration-300 ease-in-out sm:relative sm:translate-y-0 sm:w-auto sm:h-auto shadow-lg z-50"
+          id="sidebar">
+          <button id="close-sidebar" class="block p-2 text-gray-600 ml-auto">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <nav
-            class="fixed top-0 left-0 w-full h-full text-white p-4 transform -translate-y-full transition-transform duration-300 ease-in-out sm:relative sm:translate-y-0 sm:w-auto sm:h-auto shadow-lg z-50"
-            id="sidebar"
-          >
-            <button id="close-sidebar" class="block p-2 text-gray-600 ml-auto">
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-            <a
-              href="#content_service"
-              class="block py-2 px-4 text-gray-300 rounded"
-              >Servicios</a
-            >
-            <a
-              href="#content_contacto"
-              class="block py-2 px-4 text-gray-300 rounded"
-              >Contacto</a
-            >
-            <a
-              href="#content_sedes"
-              class="block py-2 px-4 text-gray-300 rounded"
-              >Sedes</a
-            >
-          </nav>
-          <nav
-            class="hidden desktop-nav sm:flex sm:flex-row gap-4 mt-4 sm:mt-0"
-          >
-            <ul class="flex justify-around w-full h-full list-none m-0 p-0">
-              <li>
-                <a href="#content_service" class="block py-2 px-4">Servicios</a>
-              </li>
-              <li>
-                <a href="#content_contacto" class="block py-2 px-4">Contacto</a>
-              </li>
-              <li>
-                <a href="#content_sedes" class="block py-2 px-4">Sedes</a>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <div class="mt-12 px-4">
-          <h2 class="text-3xl sm:text-4xl font-bold">
-            Consultoria Empresarial
-          </h2>
-          <p class="mt-4 text-base sm:text-lg">
-            Confianza y experiencia para tu negocio.
-          </p>
-          <button
-            onclick="location.href='#content_contacto'"
-            class="mt-6 bg-white text-red-600 px-6 py-2 rounded-lg font-semibold hover:bg-red-500 hover:text-white hover:shadow-lg focus:outline-none transition ease-in-out duration-300"
-          >
-            Contactar
-          </button>
-        </div>
-      </section>
+          <a href="#content_service" class="block py-2 px-4 text-gray-300 rounded">Servicios</a>
+          <a href="#content_contacto" class="block py-2 px-4 text-gray-300 rounded">Contacto</a>
+          <a href="#content_sedes" class="block py-2 px-4 text-gray-300 rounded">Sedes</a>
+        </nav>
+        <nav class="hidden desktop-nav sm:flex sm:flex-row gap-4 mt-4 sm:mt-0">
+          <ul class="flex justify-around w-full h-full list-none m-0 p-0">
+            <li>
+              <a href="#content_service" class="block py-2 px-4">Servicios</a>
+            </li>
+            <li>
+              <a href="#content_contacto" class="block py-2 px-4">Contacto</a>
+            </li>
+            <li>
+              <a href="#content_sedes" class="block py-2 px-4">Sedes</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div class="mt-12 px-4">
+        <h2 class="text-3xl sm:text-4xl font-bold">
+          Consultoria Empresarial
+        </h2>
+        <p class="mt-4 text-base sm:text-lg">
+          Confianza y experiencia para tu negocio.
+        </p>
+        <button onclick="location.href='#content_contacto'"
+          class="mt-6 bg-white text-red-600 px-6 py-2 rounded-lg font-semibold hover:bg-red-500 hover:text-white hover:shadow-lg focus:outline-none transition ease-in-out duration-300">
+          Contactar
+        </button>
+      </div>
+    </section>
 
-      <!-- <section id="content_service" class="w-full text-center py-12 bg-white">
+    <!-- <section id="content_service" class="w-full text-center py-12 bg-white">
         <h3 class="text-3xl font-bold mb-8">Nuestros Servicios</h3>
         <div class="swiper">
           <div class="swiper-wrapper">
@@ -681,7 +625,7 @@
         </div>
       </section> -->
 
-      <!-- <section id="content_equipo" class="w-full text-center py-12 bg-white">
+    <!-- <section id="content_equipo" class="w-full text-center py-12 bg-white">
         <div class="p-6 rounded-lg mx-auto">
           <div
             class="bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto text-red-600"
@@ -710,189 +654,132 @@
         </div>
       </section> -->
 
-      <section id="content_contacto" class="py-8">
-        <div class="container mx-auto">
-          <div class="flex justify-center">
-            <form
-              id="contact-form"
-              name="formulario"
-              class="contact-form w-full max-w-lg p-5 rounded shadow-sm bg-white"
-            >
-              <h2 class="text-center text-2xl font-semibold mb-4">
-                Contáctenos ahora
-              </h2>
-              <p class="text-center mb-5 text-gray-600">
-                Ingrese todos los datos, nos ayudará a entender su
-                requerimiento.
-              </p>
+    <section id="content_contacto" class="py-8">
+      <div class="container mx-auto">
+        <div class="flex justify-center">
+          <form id="contact-form" name="formulario" class="contact-form w-full max-w-lg p-5 rounded shadow-sm bg-white">
+            <h2 class="text-center text-2xl font-semibold mb-4">
+              Contáctenos ahora
+            </h2>
+            <p class="text-center mb-5 text-gray-600">
+              Ingrese todos los datos, nos ayudará a entender su
+              requerimiento.
+            </p>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <input
-                    type="text"
-                    required
-                    name="nom"
-                    id="nombre"
-                    class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100"
-                    placeholder="Nombre"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    required
-                    name="tel"
-                    id="telefono"
-                    class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100"
-                    placeholder="Teléfono"
-                    pattern="[0-9]{7,15}"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    required
-                    name="email"
-                    id="email"
-                    class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100"
-                    placeholder="Correo Electrónico"
-                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    required
-                    name="asunto"
-                    id="asunto"
-                    class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100"
-                    placeholder="Asunto"
-                  />
-                </div>
-              </div>
-
-              <div class="mt-4">
-                <textarea
-                  required
-                  name="mensaje"
-                  id="mensaje"
-                  cols="45"
-                  rows="12"
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <input type="text" required name="nom" id="nombre"
                   class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100"
-                  placeholder="¿Cómo podemos ayudarlo?"
-                  required
-                  minlength="0"
-                  maxlength="300"
-                ></textarea>
+                  placeholder="Nombre" />
               </div>
+              <div>
+                <input type="tel" required name="tel" id="telefono"
+                  class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100"
+                  placeholder="Teléfono" pattern="[0-9]{7,15}" />
+              </div>
+              <div>
+                <input type="email" required name="email" id="email"
+                  class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100"
+                  placeholder="Correo Electrónico" />
+              </div>
+              <div>
+                <input type="text" required name="asunto" id="asunto"
+                  class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100"
+                  placeholder="Asunto" />
+              </div>
+            </div>
 
-              <div class="my-3">
-                <div id="loading" class="hidden">Cargando...</div>
-                <div id="error-message" class="hidden text-red-600"></div>
-                <div id="sent-message" class="hidden text-green-600">
-                  Su mensaje ha sido enviado. Muchas gracias.
-                </div>
-              </div>
+            <div class="mt-4">
+              <textarea required name="mensaje" id="mensaje" cols="45" rows="12"
+                class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100"
+                placeholder="¿Cómo podemos ayudarlo?" required minlength="0" maxlength="300"></textarea>
+            </div>
 
-              <div class="mt-6 text-center">
-                <button
-                  type="button"
-                  class="g-recaptcha bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-500 focus:outline-none focus:bg-red-700"
-                  data-sitekey="6LeSY0IqAAAAAGrYK_3qzoNBr6czaEQusD0ArEps"
-                  data-callback="onSubmit"
-                  data-action="submit"
-                >
-                  Enviar Consulta
-                </button>
+            <div class="g-recaptcha" data-sitekey="6LczmEIqAAAAABDFEe3YHuhnQzISGDlA1epFilU_"></div>
+
+            <div class="my-3">
+              <div id="loading" class="hidden">Cargando...</div>
+              <div id="error-message" class="hidden text-red-600"></div>
+              <div id="sent-message" class="hidden text-green-600">
+                Su mensaje ha sido enviado. Muchas gracias.
               </div>
-            </form>
+            </div>
+
+            <div class="mt-6 text-center">
+              <button type="submit" id="btn-enviar"
+                class="bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-500 focus:outline-none focus:bg-red-700">
+                Enviar Consulta
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="content_sedes" class="w-full text-center py-12 bg-white">
+      <h3 class="text-3xl font-bold mb-8">Nuestras Sedes</h3>
+      <div class="flex flex-col md:flex-row justify-center items-start md:items-center gap-8">
+        <div class="w-full md:w-1/4 shadow-lg">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.807805772875!2d-77.0695886102817!3d-11.958486741152038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105ce260b2e13bb%3A0x61277e4d3af94e0d!2sSERVISERC%20S.R.L.!5e0!3m2!1sen!2spe!4v1723509758437!5m2!1sen!2spe"
+            width="100%" height="350" class="rounded-t-lg" style="border: 0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="p-4">
+            <p class="mt-3 font-semibold">
+              Av.Alfredo Mendiola MZ. J LT. 13-B Urb.Santa Luisa 2
+            </p>
+            <p class="text-sm">
+              (Al lado de la SUNAT de VILLASOL - LOS OLIVOS)
+            </p>
           </div>
         </div>
-      </section>
-
-      <section id="content_sedes" class="w-full text-center py-12 bg-white">
-        <h3 class="text-3xl font-bold mb-8">Nuestras Sedes</h3>
-        <div
-          class="flex flex-col md:flex-row justify-center items-start md:items-center gap-8"
-        >
-          <div class="w-full md:w-1/4 shadow-lg">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.807805772875!2d-77.0695886102817!3d-11.958486741152038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105ce260b2e13bb%3A0x61277e4d3af94e0d!2sSERVISERC%20S.R.L.!5e0!3m2!1sen!2spe!4v1723509758437!5m2!1sen!2spe"
-              width="100%"
-              height="350"
-              class="rounded-t-lg"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-            <div class="p-4">
-              <p class="mt-3 font-semibold">
-                Av.Alfredo Mendiola MZ. J LT. 13-B Urb.Santa Luisa 2
-              </p>
-              <p class="text-sm">
-                (Al lado de la SUNAT de VILLASOL - LOS OLIVOS)
-              </p>
-            </div>
-          </div>
-          <div class="w-full md:w-1/4 shadow-lg">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1801452578547!2d-77.0261631237209!3d-12.09981681477695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c86ee6498aa3%3A0xc0d0b388e3b29fa9!2sAv.%20P.%C2%BA%20de%20la%20Rep%C3%BAblica%203557%2C%20San%20Isidro%2015047!5e0!3m2!1ses-419!2spe!4v1723557564924!5m2!1ses-419!2spe"
-              width="100%"
-              height="350"
-              class="rounded-t-lg"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-            <div class="p-4">
-              <p class="mt-3 font-semibold">
-                Paseo de la Republica 3557 OF. 701 - Lima
-              </p>
-              <p class="text-sm">
-                (Entre Puente Canaval y Moreyra y Aramburú al frente de Plaza
-                Vea)
-              </p>
-            </div>
-          </div>
-          <div class="w-full md:w-1/4 shadow-lg">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d410.4052586486841!2d-77.02658130748145!3d-11.873384532598825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDUyJzI0LjMiUyA3N8KwMDEnMzQuNyJX!5e0!3m2!1ses-419!2spe!4v1723603830990!5m2!1ses-419!2spe"
-              width="100%"
-              height="350"
-              class="rounded-t-lg"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-            <div class="p-4">
-              <p class="mt-3 font-semibold">
-                Jr. Huaylas Mz.E Lt.20 Urb. Chavin de Huantar 1
-              </p>
-              <p class="text-sm">(Entre Av.Camino Real con Av.Santo Domingo)</p>
-            </div>
+        <div class="w-full md:w-1/4 shadow-lg">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1801452578547!2d-77.0261631237209!3d-12.09981681477695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c86ee6498aa3%3A0xc0d0b388e3b29fa9!2sAv.%20P.%C2%BA%20de%20la%20Rep%C3%BAblica%203557%2C%20San%20Isidro%2015047!5e0!3m2!1ses-419!2spe!4v1723557564924!5m2!1ses-419!2spe"
+            width="100%" height="350" class="rounded-t-lg" style="border: 0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="p-4">
+            <p class="mt-3 font-semibold">
+              Paseo de la Republica 3557 OF. 701 - Lima
+            </p>
+            <p class="text-sm">
+              (Entre Puente Canaval y Moreyra y Aramburú al frente de Plaza
+              Vea)
+            </p>
           </div>
         </div>
-      </section>
+        <div class="w-full md:w-1/4 shadow-lg">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d410.4052586486841!2d-77.02658130748145!3d-11.873384532598825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDUyJzI0LjMiUyA3N8KwMDEnMzQuNyJX!5e0!3m2!1ses-419!2spe!4v1723603830990!5m2!1ses-419!2spe"
+            width="100%" height="350" class="rounded-t-lg" style="border: 0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="p-4">
+            <p class="mt-3 font-semibold">
+              Jr. Huaylas Mz.E Lt.20 Urb. Chavin de Huantar 1
+            </p>
+            <p class="text-sm">(Entre Av.Camino Real con Av.Santo Domingo)</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <!-- <div class="nav-bottom">
+    <!-- <div class="nav-bottom">
           <button type="button" id="whats-openPopup" class="whatsapp-button" aria-label="Abrir chat de WhatsApp">
             <a href="https://wa.me/send?phone=51984899387&text=Quiero consultar sobre..." target="_blank" rel="noopener noreferrer"><img class="icon-whatsapp" src="/public/img/Whatsapp_37229.ico" alt="WhatsApp"></a>
           </button>           
           <div class="circle-anime"></div>
         </div> -->
-    </main>
-    <footer class="w-full bg-red-600 text-white p-2 text-center">
-      Copyright &#160;2024&#160; &#169; SERVISERC &#160;S.A.C &#160;Todos los
-      derechos reservados.
-    </footer>
-    <script src="/src/js/data_msg.js"></script>
-    <script src="/src/js/sdb.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <script>
+  </main>
+  <footer class="w-full bg-red-600 text-white p-2 text-center">
+    Copyright &#160;2024&#160; &#169; SERVISERC &#160;S.A.C &#160;Todos los
+    derechos reservados.
+  </footer>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="/src/js/data_msg.js"></script>
+  <script src="/src/js/sdb.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- <script>
       const MIN_LOADER_TIME = 5000;
       window.addEventListener('load', () => {
       const loader = document.getElementById('loader');
@@ -902,7 +789,7 @@
         }, MIN_LOADER_TIME);
       });
     </script> -->
-    <!-- <script>
+  <!-- <script>
     document.addEventListener("DOMContentLoaded", () => {
       const navbar = document.querySelector("header");
 
@@ -937,69 +824,70 @@
       window.addEventListener("scroll", debouncedHandleScroll);
     });
   </script> -->
-    <script>
-      var swiper = new Swiper(".swiper", {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+  <script>
+    var swiper = new Swiper(".swiper", {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 90,
         },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
+        375: {
+          slidesPerView: 1,
+          spaceBetween: 90,
         },
-        breakpoints: {
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 90,
-          },
-          375: {
-            slidesPerView: 1,
-            spaceBetween: 90,
-          },
-          392: {
-            slidesPerView: 1,
-            spaceBetween: 100,
-          },
-          425: {
-            slidesPerView: 1,
-            spaceBetween: 120,
-          },
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          650: {
-            slidesPerView: 2,
-            spaceBetween: 80,
-          },
-          660: {
-            slidesPerView: 2,
-            spaceBetween: 80,
-          },
-          670: {
-            slidesPerView: 2,
-            spaceBetween: 90,
-          },
-          680: {
-            slidesPerView: 2,
-            spaceBetween: 90,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 80,
-          },
-          950: {
-            slidesPerView: 2,
-            spaceBetween: 90,
-          },
-          1024: {
-            slidesPerView: 2,
-            spaceBetween: 80,
-          },
+        392: {
+          slidesPerView: 1,
+          spaceBetween: 100,
         },
-      });
-    </script>
-  </body>
+        425: {
+          slidesPerView: 1,
+          spaceBetween: 120,
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        650: {
+          slidesPerView: 2,
+          spaceBetween: 80,
+        },
+        660: {
+          slidesPerView: 2,
+          spaceBetween: 80,
+        },
+        670: {
+          slidesPerView: 2,
+          spaceBetween: 90,
+        },
+        680: {
+          slidesPerView: 2,
+          spaceBetween: 90,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 80,
+        },
+        950: {
+          slidesPerView: 2,
+          spaceBetween: 90,
+        },
+        1024: {
+          slidesPerView: 2,
+          spaceBetween: 80,
+        },
+      },
+    });
+  </script>
+</body>
+
 </html>
