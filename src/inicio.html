@@ -1,14 +1,26 @@
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SERVISERC S.A.C</title>
-  <link rel="icon" lazy href="/public/img/lg.png" />
-  <script src="https://www.google.com/recaptcha/api.js?render=6LczmEIqAAAAABDFEe3YHuhnQzISGDlA1epFilU_" async
-    defer></script>
+  <title>Servicios de Asesoría Contable y Tributaria - SERVISERC S.A.C</title>
+  <meta name="description" content="Servicios de asesoría contable, laboral y tributaria. Te ayudamos a constituir tu empresa y a cumplir con tus obligaciones fiscales.">
+  <meta name="keywords" content="consultoria peru,asesoría contable, tributaria, planeamiento tributario, facturación electrónica, constitución de empresas">
+  <link rel="canonical" href="*">
+  <!-- Og -->
+  <meta property="og:title" content="Servicios de Asesoría Contable y Tributaria - SERVISERC S.A.C">
+  <meta property="og:description" content="Te ayudamos a constituir tu empresa y a cumplir con tus obligaciones fiscales.">
+  <meta property="og:image" content="https://iili.io/d6MdEcQ.webp">
+  <meta property="og:url" content="*">
+  <meta property="og:type" content="website">
+  <!-- twt -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Servicios de Asesoría Contable y Tributaria - SERVISERC S.A.C">
+  <meta name="twitter:description" content="Te ayudamos a constituir tu empresa y a cumplir con tus obligaciones fiscales.">
+  <meta name="twitter:image" content="https://iili.io/d6MdEcQ.webp">
+  <meta name="twitter:url" content="*">
+  <!--  -->
+  <link rel="icon" href="https://iili.io/d6M9OP4.webp"/>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="/src/assets/dist/output.css" />
   <link rel="stylesheet" href="/src/assets/styles/swiper.css" />
@@ -237,10 +249,15 @@
       p {
         font-size: 1.1rem;
       }
-
-      nav a {
-        padding: 0 20px;
-        font-size: 1.3rem;
+      #menu-toggle {
+        position: fixed;
+        top: 10px;
+        right: 15px;
+        z-index: 100;
+      }
+      #content_sedes {
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
     }
 
@@ -347,22 +364,24 @@
     <div class="spinner"></div>
   </div>
 
-  <main class="flex flex-col items-center justify-between">
+  <main id="inicio" class="flex flex-col items-center justify-between">
     <section class="w-full text-white p-8 text-center section-background">
       <header class="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8">
         <div class="logo-text flex items-center">
-          <a id="lg-name" href="/src/inicio.html" style="cursor: pointer" class="text-3xl font-bold flex items-center">
+          <a href="#inicio" href="/src/inicio.html" style="cursor: pointer" class="text-3xl font-bold flex items-center">
             <span class="mr-2 bg-blue p-1 rounded">
-              <img src="." class="w-12 h-12" alt="-" />
+              <img src="https://iili.io/d6MdEcQ.webp" class="w-12 h-12" alt="Logo SERVISERC S.A.C" />
             </span>
             SERVISERC
           </a>
         </div>
+
         <button id="menu-toggle" class="block sm:hidden p-4 text-gray-300 hover:text-red-500">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>
+
         <nav
           class="fixed top-0 left-0 w-full h-full text-white p-4 transform -translate-y-full transition-transform duration-300 ease-in-out sm:relative sm:translate-y-0 sm:w-auto sm:h-auto shadow-lg z-50"
           id="sidebar">
@@ -404,7 +423,7 @@
       </div>
     </section>
 
-    <!-- <section id="content_service" class="w-full text-center py-12 bg-white">
+    <section id="content_service" class="w-full text-center py-12 bg-white">
         <h3 class="text-3xl font-bold mb-8">Nuestros Servicios</h3>
         <div class="swiper">
           <div class="swiper-wrapper">
@@ -714,12 +733,12 @@
             </div>
           </div>
 
-          <div class="swiper-button-next sm:block"></div>
-          <div class="swiper-button-prev sm:block"></div>
+          <div class="swiper-button-next sm:block" aria-label="Siguiente"></div>
+          <div class="swiper-button-prev sm:block" aria-label="Anterior"></div>
 
           <div class="swiper-pagination"></div>
         </div>
-      </section> -->
+      </section> 
 
     <!-- <section id="content_equipo" class="w-full text-center py-12 bg-white">
         <div class="p-6 rounded-lg mx-auto">
@@ -859,12 +878,12 @@
       </div>
     </section>
 
-    <!-- <div class="nav-bottom">
-          <button type="button" id="whats-openPopup" class="whatsapp-button" aria-label="Abrir chat de WhatsApp">
-            <a href="https://wa.me/send?phone=51984899387&text=Quiero consultar sobre..." target="_blank" rel="noopener noreferrer"><img class="icon-whatsapp" src="/public/img/Whatsapp_37229.ico" alt="WhatsApp"></a>
-          </button>           
-          <div class="circle-anime"></div>
-        </div> -->
+    <div class="nav-bottom">
+      <button type="button" id="whats-openPopup" class="whatsapp-button" aria-label="Abrir chat de WhatsApp">
+        <a href="https://wa.me/send?phone=51984899387&text=Quiero consultar sobre..." target="_blank" rel="noopener noreferrer"><img class="icon-whatsapp" src="/public/img/Whatsapp_37229.ico" alt="WhatsApp"></a>
+      </button>           
+      <div class="circle-anime"></div>
+    </div> 
   </main>
   <footer class="w-full bg-red-600 text-white p-2 text-center">
     Copyright &#160;2024&#160; &#169; SERVISERC &#160;S.A.C &#160;Todos los
