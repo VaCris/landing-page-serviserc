@@ -18,85 +18,25 @@
   <link rel="stylesheet" href="/src/css/sbg.css" />
   <!-- <link rel="stylesheet" href="/src/css/carga.css"> -->
   <style>
-    html {
-      scroll-behavior: smooth;
+    body {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+      margin: 0;
+      padding: 0;
     }
 
-    @media (min-width: 3840px) {
-      body h2 {
-        font-size: 4rem !important;
-      }
-
-      body h3 {
-        font-size: 3rem !important;
-      }
-
-      body h4 {
-        font-size: 2rem !important;
-      }
-
-      a {
-        font-size: 2.5rem !important;
-      }
-
-      body p {
-        font-size: 50px !important;
-      }
-
-      #content_sedes p {
-        font-size: 1.8rem !important;
-      }
+    h1,
+    h2,
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
     }
 
-    @media (max-width: 640px) {
-      nav.sm\:flex {
-        display: none;
-      }
-
-      #menu-toggle {
-        position: fixed;
-        top: 14px;
-        right: 19px;
-        z-index: 100;
-      }
-
-      #content_sedes {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-    }
-
-    @media (min-width: 641px) and (max-width: 768px) {
-      nav.sm\:flex {
-        display: block;
-      }
-
-      #menu-toggle {
-        position: relative;
-        top: auto;
-        right: auto;
-        z-index: auto;
-      }
-
-      #content_sedes {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-    }
-
-    @media (min-width: 769px) {
-      nav.sm\:flex {
-        display: block;
-      }
-
-      #menu-toggle {
-        display: none;
-      }
-
-      #content_sedes {
-        padding-left: 2rem;
-        padding-right: 2rem;
-      }
+    p {
+      font-family: 'Arial', sans-serif;
+      margin: 0 0 15px;
+      font-size: 1rem;
     }
 
     nav ul {
@@ -118,6 +58,7 @@
       display: flex;
       align-items: center;
       color: #0f0f0fd8;
+      background-color: transparent;
     }
 
     nav a:hover {
@@ -179,10 +120,22 @@
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 90;
+      z-index: 1000;
       transform: translateY(-100%);
       opacity: 0;
       transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    .desktop-nav ul {
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .desktop-nav li {
+      margin: 0;
     }
 
     .swiper-slide {
@@ -216,7 +169,6 @@
     }
 
     header {
-      background-color: #f3f4f600;
       transition: background-color 0.3s ease, box-shadow 0.3s ease,
         padding 0.3s ease;
     }
@@ -227,21 +179,165 @@
       left: 0;
       width: 100%;
       background-color: #f71f1f;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.39);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       z-index: 1000;
-      padding: -1px 0;
     }
 
     .sticky .logo-text {
-      transform: translateX(-30px);
+      transform: translateX(-10px);
     }
 
     .sticky.shrink {
       padding: 5px 0;
+     
     }
 
     .sticky+main {
       padding-top: 64px;
+    }
+
+    /*movil - 480*/
+    @media(max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      h3 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      nav a {
+        padding: 0 15px;
+        font-size: 1.2rem;
+      }
+    }
+
+    /*movil - 481 a 640*/
+    @media (min-width: 481px) and (max-width: 640px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      h3 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+
+      nav a {
+        padding: 0 20px;
+        font-size: 1.3rem;
+      }
+    }
+
+    /*tablet - 641 a 768 */
+    @media (min-width: 641px) and (max-width: 768px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+
+      nav a {
+        padding: 0 25px;
+        font-size: 1.4rem;
+      }
+    }
+
+    /*tablets - 768 a 1024*/
+    @media (min-width: 769px) and (max-width: 1024px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      h2 {
+        font-size: 2.4rem;
+      }
+
+      h3 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.3rem;
+      }
+
+      nav a {
+        padding: 0 30px;
+        font-size: 1.4rem;
+      }
+    }
+
+    /*Pg - 1024 a 1440*/
+    @media (min-width: 1025px) and (max-width: 1440px) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-size: 2.6rem;
+      }
+
+      h3 {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+      }
+
+      nav a {
+        padding: 0 35px;
+        font-size: 1.5rem;
+      }
+    }
+
+    /*pg - 1441 a .. */
+    @media (min-width: 1441px) {
+      h1 {
+        font-size: 3.4rem;
+      }
+
+      h2 {
+        font-size: 3rem;
+      }
+
+      h3 {
+        font-size: 2.4rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+
+      nav a {
+        padding: 0 40px;
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
@@ -257,7 +353,7 @@
         <div class="logo-text flex items-center">
           <a id="lg-name" href="/src/inicio.html" style="cursor: pointer" class="text-3xl font-bold flex items-center">
             <span class="mr-2 bg-blue p-1 rounded">
-              <img src="·" class="w-12 h-12" alt="-" />
+              <img src="." class="w-12 h-12" alt="-" />
             </span>
             SERVISERC
           </a>
@@ -789,13 +885,13 @@
         }, MIN_LOADER_TIME);
       });
     </script> -->
-  <!-- <script>
+    <script>
     document.addEventListener("DOMContentLoaded", () => {
       const navbar = document.querySelector("header");
 
       function debounce(func, wait) {
         let timeout;
-        return function(...args) {
+        return function (...args) {
           clearTimeout(timeout);
           timeout = setTimeout(() => func.apply(this, args), wait);
         };
@@ -823,7 +919,7 @@
       const debouncedHandleScroll = debounce(handleScrollWithRAF, 10);
       window.addEventListener("scroll", debouncedHandleScroll);
     });
-  </script> -->
+  </script> 
   <script>
     var swiper = new Swiper(".swiper", {
       slidesPerView: 1,
