@@ -121,7 +121,7 @@
     }
 
     #menu-toggle {
-      margin-left: auto;
+      margin-left: 10px;
       margin-right: 15px;
       background-color: rgb(30, 30, 30, 0.5);
       width: 2.5rem;
@@ -216,7 +216,10 @@
     .sticky+main {
       padding-top: 64px;
     }
+    /* 320 */
+    @media (max-width: 320px){
 
+    }
     /*movil - 480*/
     @media(max-width: 480px) {
       h1 {
@@ -234,9 +237,13 @@
       p {
         font-size: 1rem;
       }
-
+      #menu-toggle {
+        margin-left: 370px;
+        margin-right: 10px;
+        margin-top: -50px;
+      }
       nav a {
-        padding: 0 15px;
+        padding: 0 16px;
         font-size: 1.2rem;
       }
     }
