@@ -1,4 +1,6 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,6 +32,9 @@
   <link rel="stylesheet" href="/src/css/sbg.css" />
   <!-- <link rel="stylesheet" href="/src/css/carga.css"> -->
   <style>
+    html{
+      scroll-behavior: smooth;
+    }
     body {
       font-size: 16px;
       line-height: 1.5;
@@ -116,10 +121,12 @@
     }
 
     #menu-toggle {
+      margin-left: auto;
+      margin-right: 15px;
       background-color: rgb(30, 30, 30, 0.5);
-      width: 2rem;
-      height: 2rem;
-      padding: 0.25rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0.5rem;
     }
 
     .desktop-nav {
@@ -181,8 +188,10 @@
     }
 
     header {
+      display: flex;
       transition: background-color 0.3s ease, box-shadow 0.3s ease,
         padding 0.3s ease;
+      align-items: center;
     }
 
     .sticky {
@@ -259,6 +268,7 @@
         padding-left: 1rem;
         padding-right: 1rem;
       }
+      
     }
 
     /*tablet - 641 a 768 */
@@ -282,6 +292,12 @@
       nav a {
         padding: 0 25px;
         font-size: 1.4rem;
+      }
+      #menu-toggle{
+        position: fixed;
+        top: 10px;
+        right: 15px;
+        z-index: 100;
       }
     }
 
@@ -391,20 +407,24 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <a href="#content_service" class="block py-2 px-4 text-gray-300 rounded">Servicios</a>
-          <a href="#content_contacto" class="block py-2 px-4 text-gray-300 rounded">Contacto</a>
-          <a href="#content_sedes" class="block py-2 px-4 text-gray-300 rounded">Sedes</a>
+          <a href="#servicios" class="block py-2 px-4 text-gray-300 rounded">Servicios</a>
+          <a href="#nosotros" class="block py-2 px-4 text-gray-300 rounded">Sobre Nosotros</a>
+          <a href="#contacto" class="block py-2 px-4 text-gray-300 rounded">Contacto</a>
+          <a href="#sedes" class="block py-2 px-4 text-gray-300 rounded">Sedes</a>
         </nav>
         <nav class="hidden desktop-nav sm:flex sm:flex-row gap-4 mt-4 sm:mt-0">
           <ul class="flex justify-around w-full h-full list-none m-0 p-0">
             <li>
-              <a href="#content_service" class="block py-2 px-4">Servicios</a>
+              <a href="#servicios" class="block py-2 px-4">Servicios</a>
+            </li>
+            <li></li>
+              <a href="#nosotros" class="block py-2 px-4">Sobre Nosotros</a>
             </li>
             <li>
-              <a href="#content_contacto" class="block py-2 px-4">Contacto</a>
+              <a href="#contacto" class="block py-2 px-4">Contacto</a>
             </li>
             <li>
-              <a href="#content_sedes" class="block py-2 px-4">Sedes</a>
+              <a href="#sedes" class="block py-2 px-4">Sedes</a>
             </li>
           </ul>
         </nav>
@@ -414,16 +434,16 @@
           Consultoria Empresarial
         </h2>
         <p class="mt-4 text-base sm:text-lg">
-          Confianza y experiencia para tu negocio.
+          Haz crecer tu <b>negocio</b>, haz crecer tu <b>imagen</b>
         </p>
-        <button onclick="location.href='#content_contacto'"
+        <button onclick="location.href='#contacto'"
           class="mt-6 bg-white text-red-600 px-6 py-2 rounded-lg font-semibold hover:bg-red-500 hover:text-white hover:shadow-lg focus:outline-none transition ease-in-out duration-300">
           Contactar
         </button>
       </div>
     </section>
 
-    <section id="content_service" class="w-full text-center py-12 bg-white">
+    <section id="servicios" class="w-full text-center py-12 bg-white">
         <h3 class="text-3xl font-bold mb-8">Nuestros Servicios</h3>
         <div class="swiper">
           <div class="swiper-wrapper">
@@ -733,43 +753,32 @@
             </div>
           </div>
 
-          <div class="swiper-button-next sm:block" aria-label="Siguiente"></div>
-          <div class="swiper-button-prev sm:block" aria-label="Anterior"></div>
-
+          <div class="swiper-button-next sm:block" ></div>
+          <div class="swiper-button-prev sm:block" ></div>
           <div class="swiper-pagination"></div>
         </div>
       </section> 
 
-    <!-- <section id="content_equipo" class="w-full text-center py-12 bg-white">
-        <div class="p-6 rounded-lg mx-auto">
-          <div
-            class="bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto text-red-600"
-          >
-            <h3 class="mt-4 text-xl font-semibold"></h3>
-            <p class="mt-2 text-gray-600">Asesora Contable</p>
-          </div>
-          <div
-            class="bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto text-red-600"
-          >
-            <h3 class="mt-4 text-xl font-semibold">lorem</h3>
-            <p class="mt-2 text-gray-600">Asistente Contable</p>
-          </div>
-          <div
-            class="bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto text-red-600"
-          >
-            <h3 class="mt-4 text-xl font-semibold">lorem</h3>
-            <p class="mt-2 text-gray-600">Asistente Contable</p>
-          </div>
-          <div
-            class="bg-gray-50 p-6 rounded-lg shadow-lg max-w-xs mx-auto text-red-600"
-          >
-            <h3 class="mt-4 text-xl font-semibold">lorem</h3>
-            <p class="mt-2 text-gray-600">Asistente Contable</p>
-          </div>
+      <section id="nosotros" class="flex flex-col md:flex-row w-full py-16 bg-gray-100">
+        <div class="md:w-1/2 max-w-lg mx-auto text-center md:text-left px-4 mb-6 md:mb-0">
+          <h3 class="text-4xl font-bold mb-6">Sobre Nosotros</h3>
+          <p class="text-lg mb-4 text-gray-700">
+            En SERVISERC S.A.C, nos dedicamos a ofrecer soluciones contables inmediatas, enfocándonos en resolver sus dudas y contratiempos con la SUNAT.
+          </p>
+          <p class="text-lg mb-4 text-gray-700">
+            Nuestra misión es simplificar la gestión financiera de su negocio, asegurando el cumplimiento de las normativas vigentes mientras optimizamos sus procesos contables.
+          </p>
         </div>
-      </section> -->
+        <div class="md:w-1/2 flex justify-center">
+          <img src="/public/img/gettyimages-1406932329-2048x2048.webp" alt="Sobre Serviserc" class="w-full h-auto rounded-lg shadow-md max-w-xl">
+        </div>
+      </section>
+      
+      
+      
 
-    <section id="content_contacto" class="py-8">
+
+    <section id="contacto" class="py-8">
       <div class="container mx-auto">
         <div class="flex justify-center">
           <form id="contact-form" name="formulario" class="contact-form w-full max-w-lg p-5 rounded shadow-sm bg-white">
@@ -809,7 +818,7 @@
                 class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100"
                 placeholder="¿Cómo podemos ayudarlo?" required minlength="0" maxlength="300"></textarea>
             </div>
-
+            <br>
             <div class="g-recaptcha" data-sitekey="6LczmEIqAAAAABDFEe3YHuhnQzISGDlA1epFilU_"></div>
 
             <div class="my-3">
@@ -831,7 +840,7 @@
       </div>
     </section>
 
-    <section id="content_sedes" class="w-full text-center py-12 bg-white">
+    <section id="sedes" class="w-full text-center py-12 bg-white">
       <h3 class="text-3xl font-bold mb-8">Nuestras Sedes</h3>
       <div class="flex flex-col md:flex-row justify-center items-start md:items-center gap-8">
         <div class="w-full md:w-1/4 shadow-lg">
@@ -885,9 +894,10 @@
       <div class="circle-anime"></div>
     </div> 
   </main>
-  <footer class="w-full bg-red-600 text-white p-2 text-center">
-    Copyright &#160;2024&#160; &#169; SERVISERC &#160;S.A.C &#160;Todos los
-    derechos reservados.
+  <footer class="w-full bg-red-600 text-white p-4 text-center">
+    <p class="text-sm">
+      Copyright &#169; 2024 SERVISERC S.A.C. Todos los derechos reservados.
+    </p>
   </footer>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="/src/js/data_msg.js"></script>
