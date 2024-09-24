@@ -25,6 +25,7 @@
   <!--  -->
   <link rel="icon" href="https://iili.io/d6M9OP4.webp" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -50,16 +51,20 @@
       line-height: 1.6;
     }
 
+    .mt-12 {
+      margin-top: 15rem;
+    }
+
     .header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      width: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      z-index: 1000;
       padding: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       transition: background-color 0.3s, box-shadow 0.3s;
-      z-index: 1000;
     }
 
     .header.scrolled {
@@ -88,7 +93,7 @@
       height: 100%;
       background-color: #f44336;
       transition: left 0.3s ease-in-out;
-      z-index: 1001;
+      z-index: 100;
     }
 
     .sidebar.open {
@@ -122,6 +127,53 @@
       display: none;
     }
 
+    @media (min-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar-brand {
+        margin-bottom: 1em;
+      }
+
+      .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar-nav li {
+        margin-bottom: 1em;
+      }
+
+      .navbar-toggle {
+        display: block;
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        background-color: #333;
+        border: none;
+        padding: 0.5em;
+        cursor: pointer;
+      }
+
+      .navbar-toggle span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: #fff;
+        margin-bottom: 5px;
+      }
+
+      .desktop-nav {
+        display: flex;
+      }
+
+      .mobile-nav {
+        display: none;
+      }
+    }
+
     nav ul {
       width: 100%;
       list-style: none;
@@ -141,7 +193,7 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      color: #0f0f0fd8;
+      color: #e2dfdfd8;
       background-color: transparent;
     }
 
@@ -176,7 +228,14 @@
 
     .section {
       background-color: #f7fafc;
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      min-height: 500px;
+    }
+
+    #servicios {
+      margin: 2rem 0;
     }
 
     .pagination {
@@ -190,16 +249,11 @@
       background-color: #ffffff;
       border-radius: 50%;
       opacity: 0.5;
-      transition: opacity 0.3s;
+      transition: opacity 1s;
     }
 
     .dot.active {
       opacity: 1;
-    }
-
-    .section {
-      opacity: 0;
-      transition: opacity 0.5s ease;
     }
 
     .section.visible {
@@ -252,6 +306,57 @@
         transform: translateX(0);
         opacity: 1;
       }
+    }
+
+    .scroll-indicator {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2.5s infinite;
+      cursor: pointer;
+      color: #f7fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .material-icons {
+      font-size: 100px;
+      margin: 0px -47px 5px;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-7px);
+      }
+
+      60% {
+        transform: translateY(-3px);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .entrada {
+      animation: fadeIn 2.5s ease-in-out;
     }
 
     @media (max-width: 480px) {
@@ -352,10 +457,11 @@
   </div>
 
   <main id="inicio" class="flex flex-col items-center justify-between">
-    <section class="w-full text-white p-8 text-center section-background slide-left">
+    <section class="slide-left w-full text-white p-8 text-center section-background">
       <header class="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8">
         <div class="logo-text flex items-center">
-          <a href="#inicio" href="./inicio.html" style="cursor: pointer" class="text-3xl font-bold flex items-center">
+          <a data-aos="fade-up" href="#inicio" href="./inicio.html" style="cursor: pointer"
+            class="text-3xl font-bold flex items-center">
             SERVISERC
           </a>
         </div>
@@ -364,15 +470,16 @@
           <div id="menu-icon"></div>
         </div>
 
-        <!-- <nav id="sidebar"
-          class="fixed top-0 left-0 w-full h-full text-white p-4 transform -translate-y-full transition-transform duration-300 ease-in-out sm:relative sm:translate-y-0 sm:w-auto sm:h-auto shadow-lg z-50">
+        <nav id="sidebar"
+          class="fixed top-0 left-0 w-full h-full text-white p-4 transform -translate-y-full transition-transform duration-300 ease-in-out sm:hidden">
           <a href="#servicios" class="block py-2 px-4 text-gray-300 rounded">Servicios</a>
           <a href="#nosotros" class="block py-2 px-4 text-gray-300 rounded">Sobre Nosotros</a>
           <a href="#contacto" class="block py-2 px-4 text-gray-300 rounded">Contáctanos</a>
           <a href="#sedes" class="block py-2 px-4 text-gray-300 rounded">Sedes</a>
-        </nav> -->
+        </nav>
 
-        <nav class="hidden desktop-nav sm:flex sm:flex-row gap-4 mt-4 sm:mt-0">
+
+        <nav data-aos="fade-up" class="hidden desktop-nav sm:flex sm:flex-row gap-4 mt-4 sm:mt-0">
           <ul class="flex justify-around w-full h-full list-none m-0 p-0">
             <li>
               <a href="#servicios" class="block py-2 px-4">Servicios</a>
@@ -391,15 +498,16 @@
       </header>
 
       <div class="mt-12 px-4">
-        <h2 class="text-3xl sm:text-4xl font-bold">Consultoria Empresarial</h2>
-        <p class="mt-4 text-base sm:text-lg">Haz crecer tu <b>negocio</b>, haz crecer tu <b>imagen</b></p>
-        <button onclick="location.href='#contacto'"
-          class="mt-6 bg-white text-red-600 px-6 py-2 rounded-lg font-semibold hover:bg-red-500 hover:text-white hover:shadow-lg focus:outline-none transition ease-in-out duration-300">
+        <h2 data-aos="fade-up" class="entrada text-3xl sm:text-4xl font-bold">Consultoria Empresarial</h2>
+        <p data-aos="fade-up" class="entrada  mt-4 text-base sm:text-lg">Haz crecer tu negocio, haz crecer tu
+          imagen</p>
+        <button onclick="location.href='#contacto'" data-aos="fade-up"
+          class="entrada mt-6 bg-white text-red-600 px-6 py-2 rounded-lg font-semibold hover:bg-red-500 hover:text-white hover:shadow-lg focus:outline-none transition ease-in-out duration-300">
           Contactar
         </button>
       </div>
 
-      <div class="pagination flex justify-center mt-4">
+      <div data-aos="fade-up" class="pagination flex justify-center mt-4">
         <span class="dot active"></span>
         <span class="dot"></span>
         <span class="dot"></span>
@@ -407,7 +515,11 @@
       </div>
     </section>
 
-    <section id="servicios" class="section w-full text-center py-12 bg-white slide-left">
+    <div onclick="smoothScroll('#servicios')" class="scroll-indicator">
+      <span data-aos="fade-up" class="material-icons">expand_more</span>
+    </div>
+
+    <section id="servicios" class="section w-full text-center py-12 bg-white">
       <h3 class="text-3xl font-bold mb-8">Servicios</h3>
       <div class="swiper">
         <div class="swiper-wrapper">
@@ -421,7 +533,7 @@
       </div>
     </section>
 
-    <section id="nosotros" class="section flex flex-col md:flex-row w-full py-12 bg-white slide-up">
+    <section id="nosotros" class="section flex flex-col md:flex-row w-full py-12 bg-white">
       <div id="textContainer"
         class="text-container md:w-1/2 max-w-lg mx-auto text-center md:text-left px-4 md:px-6 mb-4 md:mb-0 flex flex-col justify-center">
         <h3 class="text-4xl font-bold mb-4 text-gray-900">Sobre nosotros</h3>
@@ -443,17 +555,18 @@
       </div>
     </section>
 
-    <section id="contacto" class="section py-8 slide-right">
+    <section id="contacto" class="section py-8">
       <div class="container mx-auto px-4 md:px-6 lg:px-8">
         <div class="flex justify-center">
-          <form id="contact-form" name="formulario" class="contact-form w-full max-w-lg p-6 rounded-lg shadow-md bg-white border border-gray-200">
+          <form id="contact-form" name="formulario"
+            class="contact-form w-full max-w-lg p-6 rounded-lg shadow-md bg-white border border-gray-200">
             <h2 class="text-center text-3xl font-semibold mb-4 text-red-600">
               Contáctenos ahora
             </h2>
             <p class="text-center mb-6 text-gray-500">
               Ingrese todos los datos, nos ayudará a entender su requerimiento.
             </p>
-    
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label for="nombre" class="block mb-1 text-gray-700">Nombre</label>
@@ -480,16 +593,16 @@
                   placeholder="Asunto" />
               </div>
             </div>
-    
+
             <div class="mt-4">
               <label for="mensaje" class="block mb-1 text-gray-700">Mensaje</label>
               <textarea required name="mensaje" id="mensaje" cols="45" rows="6"
                 class="w-full py-3 px-4 border rounded-lg focus:outline-none focus:border-red-500 focus:ring focus:ring-red-200 focus:ring-opacity-50 bg-gray-100"
                 placeholder="¿Cómo podemos ayudarlo?" maxlength="300"></textarea>
             </div>
-    
+
             <div class="g-recaptcha my-4" data-sitekey="6LczmEIqAAAAABDFEe3YHuhnQzISGDlA1epFilU_"></div>
-    
+
             <div class="my-3">
               <div id="loading" class="hidden">Cargando...</div>
               <div id="error-message" class="hidden text-red-600"></div>
@@ -497,7 +610,7 @@
                 Su mensaje ha sido enviado. Muchas gracias.
               </div>
             </div>
-    
+
             <div class="mt-6 text-center">
               <button type="submit" id="btn-enviar"
                 class="bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-500 focus:outline-none focus:bg-red-700 transition duration-300">
@@ -509,7 +622,7 @@
       </div>
     </section>
 
-    <section id="sedes" class="section w-full text-center py-12 bg-white slide-left">
+    <section id="sedes" class="section w-full text-center py-12 bg-white">
       <h3 class="text-3xl font-bold mb-8">Nuestras Sedes</h3>
       <div class="flex flex-col md:flex-row justify-center items-start md:items-center gap-8">
         <div class="w-full md:w-1/4 shadow-lg">
@@ -572,7 +685,7 @@
   </footer>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.5/lottie.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="/src/js/service.js"></script>
   <script src="/src/js/sdb.js"></script>
   <script src="/src/js/data_msg.js"></script>
@@ -589,11 +702,42 @@
       });
     </script> -->
   <script>
+    AOS.init();
+  </script>
+  <script>
+    function smoothScroll(target, duration = 1000) {
+      const element = document.querySelector(target);
+      if (!element) return; // Comprobar si el elemento existe
+
+      const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      let start = null;
+
+      const easeInOutQuad = (t) => {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      };
+
+      window.requestAnimationFrame(step);
+
+      function step(timestamp) {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        const progressPercentage = Math.min(progress / duration, 1);
+        const easeProgress = easeInOutQuad(progressPercentage);
+        window.scrollTo(0, startPosition + distance * easeProgress);
+        if (progress < duration) {
+          window.requestAnimationFrame(step);
+        }
+      }
+    }
+  </script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       const sections = document.querySelectorAll('.section');
 
       function revealSections() {
-        const triggerBottom = window.innerHeight * 0.4;
+        const triggerBottom = window.innerHeight * 0.6;
 
         sections.forEach(section => {
           const sectionTop = section.getBoundingClientRect().top;
@@ -605,12 +749,11 @@
               section.classList.add('slide-left');
             } else if (section.id === 'contacto') {
               section.classList.add('slide-right');
-            } else {
+            } else if (section.id == 'contacto') {
               section.classList.add('slide-up');
+            } else {
+              section.classList.add('slide-left');
             }
-          } else {
-            section.classList.remove('visible');
-            section.classList.remove('slide-up', 'slide-left', 'slide-right');
           }
         });
       }
@@ -658,7 +801,7 @@
         }, 500);
       }
 
-      setInterval(updateBackground, 5000);
+      setInterval(updateBackground, 5500);
     });
   </script>
   <script>
