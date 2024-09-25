@@ -1,63 +1,69 @@
 .section-background {
-    position: relative;
-    background-color: rgba(240, 40, 40, 0.658); 
-    background-image: url('');
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    background-blend-mode: overlay;
-    overflow: hidden;
-    padding: 3rem;    
+  position: relative;
+  background-color: rgba(66, 62, 62, 0.945);
+  background-image: url('/public/img/fondogettyimages-1455701949-2048x2048.webp');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  overflow: hidden;
+  padding: 3rem;
+  transition: background-image 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  height: 100vh;
 }
-.section-background::before{
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2rem;
-    background: linear-gradient(to bottom, rgba(235, 39, 39, 0.089)0%, rgb(255, 255, 255) 100%);
-    pointer-events: none;
-    z-index: 10;
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
-.section-background >*{
-    z-index: 10;
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
-@media (max-width: 600px) {
-    .section-background {
-        background-image: url('');
-    }
+
+.section-background::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  background: linear-gradient(to bottom, rgba(233, 229, 229, 0), rgba(155, 16, 16, 0.26));
+  pointer-events: none;
+  z-index: 1;
 }
-@media (min-width: 601px) and (max-width: 1024px) {
-    .section-background {
-        background-image: url('');
-    }
+
+.section-background > * {
+  position: relative;
+  z-index: 2;
 }
+
+@media (max-width: 480px) {
+  .section-background {
+    background-size: cover;
+    background-position: center top;
+    min-height: 80vh;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .section-background {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .section-background {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 @media (min-width: 1025px) {
-    .section-background {
-        background-image: url('');
-    }
-}
-@media (min-width: 320px){
-    .section-background{
-        background-size: auto;
-        background-position: cover;
-    }
-}
-@media (max-width: 768px){
-    .section-background{
-        background-size: 102% 200%;
-        background-position: cover;
-    }
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-    .section-background {
-        background-size: 100% 200%;
-        background-position: cover;
-    }
-}
-@media (min-width: 1025px) {
-    .section-background {
-        background-size: cover;
-    }
+  .section-background {
+    background-size: cover;
+    background-position: center;
+  }
 }
