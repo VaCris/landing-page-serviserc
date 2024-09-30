@@ -1,7 +1,8 @@
 .service-card {
     text-align: center;
-    margin: 0 auto;
+    margin: 1rem;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    
 }
 .service-card img {
     height: auto;
@@ -19,4 +20,12 @@
     flex: 1;
     margin: 0.5rem;
     text-align: center;
+}
+@media (max-width: 768px) {
+    .service-card {
+        max-width: 50%;
+    }
+}
+.pulse {
+    animation: pulse 1.5s ease-in-out infinite;
 }

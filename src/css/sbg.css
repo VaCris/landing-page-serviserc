@@ -8,7 +8,7 @@
   background-blend-mode: overlay;
   overflow: hidden;
   padding: 3rem;
-  transition: background-image 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: background-image 5.5s ease-in-out, opacity 5.5s ease-in-out;
   height: 100vh;
 }
 
