@@ -16,7 +16,7 @@
     visibility: hidden;
   }
 .spinner {
-    border: 15px solid #f3f3f3;
+    border: 15px solid #dad2d2;
     border-top: 15px solid #3498db;
     border-radius: 50%;
     width: 120px;
