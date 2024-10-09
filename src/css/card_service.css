@@ -39,10 +39,9 @@
     margin-bottom: 1rem;
     line-height: 1.2;
     letter-spacing: 0.5px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow: hidden; 
+    max-width: 100%;
 }
-
 .service-card p {
     font-size: var(--font-size-p);
     margin-bottom: 2rem;
@@ -54,7 +53,7 @@
     animation: pulse 1.5s ease-in-out infinite;
 }
 
-@media (max-width: 1024px) and (max-height: 1366px) {
+@media only screen and (max-width: 1024px) and (max-height: 1366px) {
     .service-card {
         flex-basis: 30%;
         margin: 1.5rem;
@@ -63,6 +62,9 @@
 
     .service-card h4 {
         font-size: 1.4rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+        max-width: 90%;
     }
 
     .service-card p {
@@ -70,27 +72,15 @@
     }
 }
 
-@media (max-width: 1024px) {
-    .service-card {
-        flex-basis: 33.33%;
-    }
-
-    .service-card h4 {
-        font-size: 1.5rem;
-    }
-
-    .service-card p {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 950px) {
+@media only screen and (max-width: 950px) {
     .service-card {
         flex-basis: 40%;
     }
 
     .service-card h4 {
         font-size: 1.1rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;  
     }
 
     .service-card p {
@@ -98,41 +88,32 @@
     }
 }
 
-@media (max-width: 940px) {
-    .service-card {
-        flex-basis: 40%;
-    }
-
-    .service-card h4 {
-        font-size: 1rem;
-    }
-
-    .service-card p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .service-card {
         flex-basis: 50%;
     }
 
     .service-card h4 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+        max-width: 90%;
     }
 
     .service-card p {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 }
 
-@media (max-width: 480px) {
+@media only screen and (max-width: 480px) {
     .service-card {
         flex-basis: 100%;
     }
 
     .service-card h4 {
         font-size: 0.8rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
     }
 
     .service-card p {
@@ -140,9 +121,11 @@
     }
 }
 
-@media(max-width: 412px) {
+@media only screen and (max-width: 412px) {
     .service-card h4 {
         font-size: 1.3rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
     }
 
     .service-card p {
@@ -150,9 +133,11 @@
     }
 }
 
-@media(max-width:360px) {
+@media only screen and (max-width: 360px) {
     .service-card h4 {
         font-size: 1.2rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
     }
 
     .service-card p {

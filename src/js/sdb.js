@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuIcon = document.getElementById('menu-icon');
 
     if (!menuToggle || !sidebar || !menuIcon) {
-        console.error("Uno o más elementos no se encontraron.");
+        console.error("no encuentra icono");
         return;
     }
 
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuToggle.addEventListener('click', () => {
         if (isOpen) {
-            menuAnimation.setDirection(-1); 
+            menuAnimation.setDirection(-1);
             menuAnimation.play();
             sidebar.classList.remove('translate-y-0');
             sidebar.classList.add('-translate-y-full');

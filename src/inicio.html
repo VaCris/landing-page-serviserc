@@ -15,19 +15,12 @@
   <meta property="og:image" content="https://iili.io/d6MdEcQ.webp" />
   <meta property="og:url" content="*" />
   <meta property="og:type" content="website" />
-  <!-- twt -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Servicios de Asesoría Contable y Tributaria - SERVISERC S.A.C" />
-  <meta name="twitter:description"
-    content="Servicios de contabilidad y asesoría financiera en Perú. SERVISERC S.A.C ofrece soluciones personalizadas para optimizar su gestión contable y fiscal." />
-  <meta name="twitter:image" content="https://iili.io/d6MdEcQ.webp" />
-  <meta name="twitter:url" content="*" />
-  <!--  -->
   <link rel="icon" href="https://iili.io/d6M9OP4.webp" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="/src/assets/styles/swiper.css" />
   <link rel="stylesheet" href="/src/css/wsp.css" />
@@ -47,29 +40,26 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 1.6;
     }
 
-    .mt-12 {
-      margin-top: 15rem;
-    }
-
     .header {
-      position: sticky;
+      position: fixed;
       top: 0;
       background-color: rgba(255, 255, 255, 0.9);
-      z-index: 1000;
       padding: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       transition: background-color 0.3s, box-shadow 0.3s;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .header.scrolled {
       background: rgba(0, 0, 0, 0.9);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .logo {
@@ -78,100 +68,22 @@
       color: #333;
     }
 
-    .menu-toggle {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      font-size: 1.5rem;
+    .menu-icon {
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background-color: #f44336;
-      transition: left 0.3s ease-in-out;
-      z-index: 100;
+    .menu-icon.open {
+      transform: rotate(0deg);
+      opacity: 1;
     }
 
-    .sidebar.open {
-      left: 0;
-    }
-
-    .sidebar-nav {
-      padding: 2rem;
-    }
-
-    .sidebar-nav a {
-      display: block;
-      padding: 0.5rem 0;
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
-
-    .close-sidebar {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      cursor: pointer;
+    .menu-icon.close {
+      transform: rotate(90deg);
+      opacity: 0;
     }
 
     .desktop-nav {
       display: none;
-    }
-
-    @media (min-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .navbar-brand {
-        margin-bottom: 1em;
-      }
-
-      .navbar-nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .navbar-nav li {
-        margin-bottom: 1em;
-      }
-
-      .navbar-toggle {
-        display: block;
-        position: absolute;
-        top: 1em;
-        right: 1em;
-        background-color: #333;
-        border: none;
-        padding: 0.5em;
-        cursor: pointer;
-      }
-
-      .navbar-toggle span {
-        display: block;
-        width: 20px;
-        height: 2px;
-        background-color: #fff;
-        margin-bottom: 5px;
-      }
-
-      .desktop-nav {
-        display: flex;
-      }
-
-      .mobile-nav {
-        display: none;
-      }
     }
 
     nav ul {
@@ -200,10 +112,12 @@
     nav a:hover {
       background-color: #ee1818a2;
       color: #ffffff;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     .desktop-nav ul {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
       padding: 0;
       margin: 0;
@@ -216,26 +130,26 @@
       margin: 0 auto;
     }
 
-    .sticky {
-      position: fixed;
+    #mobile-menu {
+      position: absolute;
       top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #f71f1f;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
+      left: -100%;
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      max-height: 80vh;
+      overflow-y: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    #mobile-menu.open {
+      transform: translateX(0);
+      display: block;
     }
 
     .section {
-      background-color: #f7fafc;
-      padding: 6rem 2rem;
+      padding: 10% 5%;
       opacity: 0;
       transition: opacity 0.5s ease;
       min-height: 500px;
-    }
-
-    #servicios {
-      margin: 2rem 0;
     }
 
     .pagination {
@@ -249,7 +163,7 @@
       background-color: #ffffff;
       border-radius: 50%;
       opacity: 0.5;
-      transition: opacity 1s;
+      transition: opacity 2s;
     }
 
     .dot.active {
@@ -316,7 +230,7 @@
       animation: bounce 2.5s infinite;
       cursor: pointer;
       color: #f7fafc;
-      display: flex;
+      display: none;
       justify-content: center;
       align-items: center;
     }
@@ -361,37 +275,236 @@
 
     @media (max-width: 480px) {
       h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
       }
 
       h2 {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
       }
 
       h3 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
 
       p {
-        font-size: 0.9rem;
+        font-size: 1rem;
+      }
+
+      .logo-text {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-form {
+        padding: 1rem;
+      }
+
+      .contact-form .grid {
+        grid-template-columns: 1fr;
+      }
+
+      #servicios .swiper-slide {
+        padding: 0 1rem;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: none;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 1rem;
+      }
+
+      nav a {
+        padding: 0 20px;
+        font-size: 1.2rem;
+        color: #e2dfdfd8;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      nav a:hover {
+        background-color: #ee1818a2;
+        color: #ffffff;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #menu-toggle {
+        align-self: flex-end;
+        margin-top: -1rem;
+      }
+
+      #nosotros {
+        flex-direction: column-reverse;
+      }
+
+      #textContainer,
+      #imageContainer {
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .scroll-indicator {
+        display: none;
+      }
+
+      .logo-text {
+        margin-bottom: 1rem;
+      }
+
+      .logo-text img {
+        width: 50px;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      #menu-toggle {
+        align-items: flex-end;
+        margin-top: -2.5rem;
+      }
+
+      #menu-toggle span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: #fff;
+        margin-bottom: 5px;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: center;
       }
     }
 
     @media (min-width: 481px) and (max-width: 640px) {
       h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       h3 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
       }
 
       p {
         font-size: 1.1rem;
+      }
+
+      .contact-form {
+        padding: 1rem;
+      }
+
+      .contact-form .grid {
+        grid-template-columns: 1fr;
+      }
+
+      #servicios .swiper-slide {
+        padding: 0 1rem;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: none;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 1rem;
+      }
+
+      nav a {
+        padding: 0 20px;
+        font-size: 1.2rem;
+        color: #e2dfdfd8;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      nav a:hover {
+        background-color: #ee1818a2;
+        color: #ffffff;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #menu-toggle {
+        align-self: flex-end;
+        margin-top: -1rem;
+      }
+
+      #nosotros {
+        flex-direction: column-reverse;
+      }
+
+      #textContainer,
+      #imageContainer {
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .scroll-indicator {
+        display: none;
+      }
+
+      .logo-text {
+        margin-bottom: 1rem;
+      }
+
+      .logo-text img {
+        width: 50px;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      #mobile-menu {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        flex-direction: column;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      #mobile-menu.open {
+        transform: translateY(0);
+
       }
     }
 
@@ -401,15 +514,89 @@
       }
 
       h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       h3 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       p {
         font-size: 1.2rem;
+      }
+
+      .contact-form {
+        padding: 1rem;
+      }
+
+      .contact-form .grid {
+        grid-template-columns: 1fr;
+      }
+
+      #servicios .swiper-slide {
+        padding: 0 1rem;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: none;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 1rem;
+      }
+
+      nav a {
+        padding: 0 20px;
+        font-size: 1.2rem;
+        color: #e2dfdfd8;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      nav a:hover {
+        background-color: #ee1818a2;
+        color: #ffffff;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #nosotros {
+        flex-direction: column-reverse;
+      }
+
+      #textContainer,
+      #imageContainer {
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .scroll-indicator {
+        display: none;
+      }
+
+      .logo-text {
+        margin-bottom: 1rem;
+      }
+
+      .logo-text img {
+        width: 50px;
+      }
+
+      nav a {
+        font-size: 1rem;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: center;
       }
     }
 
@@ -423,15 +610,28 @@
       }
 
       h3 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       p {
         font-size: 1.3rem;
       }
+
+      .scroll-indicator {
+        display: flex;
+      }
+
+      .desktop-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .desktop-nav li {
+        margin: 0.5rem;
+      }
     }
 
-    @media (min-width: 1025px) {
+    @media (min-width: 1024px) {
       h1 {
         font-size: 3rem;
       }
@@ -441,11 +641,24 @@
       }
 
       h3 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
       }
 
       p {
         font-size: 1.4rem;
+      }
+
+      .scroll-indicator {
+        display: flex;
+      }
+
+      .swiper-slide {
+        width: 30%;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: block;
       }
     }
   </style>
@@ -458,51 +671,50 @@
 
   <main id="inicio" class="flex flex-col items-center justify-between">
     <section class="slide-left w-full text-white p-8 text-center section-background">
-      <header class="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8">
+      <header class="flex justify-between items-center p-6">
         <div class="logo-text flex items-center">
-          <a data-aos="fade-up" href="#inicio" href="./inicio.html" style="cursor: pointer"
-            class="text-3xl font-bold flex items-center">
+          <a data-aos="fade-up" href="./inicio.html" aria-label="Ir a inicio" style="cursor: pointer"
+            class="text-3xl sm:text-4xl font-bold flex items-center">
+            <img src="/public/img/172728779273.webp" alt="Logo Serviserc" style="width: 100px;">
             SERVISERC
           </a>
         </div>
 
-        <div id="menu-toggle" class="block sm:hidden p-4 text-gray-300 hover:text-red-500">
-          <div id="menu-icon"></div>
-        </div>
-
-        <nav id="sidebar"
-          class="fixed top-0 left-0 w-full h-full text-white p-4 transform -translate-y-full transition-transform duration-300 ease-in-out sm:hidden">
-          <a href="#servicios" class="block py-2 px-4 text-gray-300 rounded">Servicios</a>
-          <a href="#nosotros" class="block py-2 px-4 text-gray-300 rounded">Sobre Nosotros</a>
-          <a href="#contacto" class="block py-2 px-4 text-gray-300 rounded">Contáctanos</a>
-          <a href="#sedes" class="block py-2 px-4 text-gray-300 rounded">Sedes</a>
-        </nav>
-
-
-        <nav data-aos="fade-up" class="hidden desktop-nav sm:flex sm:flex-row gap-4 mt-4 sm:mt-0">
+        <nav class="hidden desktop-nav md:flex space-x-8 text-white">
           <ul class="flex justify-around w-full h-full list-none m-0 p-0">
-            <li>
-              <a href="#servicios" class="block py-2 px-4">Servicios</a>
-            </li>
-            <li>
-              <a href="#nosotros" class="block py-2 px-4">Sobre Nosotros</a>
-            </li>
-            <li>
-              <a href="#contacto" class="block py-2 px-4">Contacto</a>
-            </li>
-            <li>
-              <a href="#sedes" class="block py-2 px-4">Sedes</a>
-            </li>
+            <li><a href="#servicios" onclick="smoothScroll('#servicios'); return false;"
+                class="block py-2 px-4">Servicios</a></li>
+            <li><a href="#nosotros" onclick="smoothScroll('#nosotros'); return false;" class="block py-2 px-4">Sobre
+                Nosotros</a></li>
+            <li><a href="#contacto" onclick="smoothScroll('#contacto'); return false;"
+                class="block py-2 px-4">Contacto</a></li>
+            <li><a href="#sedes" onclick="smoothScroll('#sedes'); return false;" class="block py-2 px-4">Sedes</a></li>
           </ul>
         </nav>
+
+        <div class="md:hidden">
+          <button id="menu-button" class="text-white text-2xl focus:outline-none">
+            <i class="fas menu-icon fa-bars"></i>
+          </button>
+          <button id="menu-close" class="text-white text-2xl focus:outline-none hidden">
+            <i class="fas menu-icon fa-times"></i>
+          </button>
+        </div>
       </header>
+
+      <div id="mobile-menu" class="block md:hidden flex-col items-center space-y-4 text-white bg-red-500 p-4">
+        <a class="block py-2 px-4" href="#servicios" onclick="smoothScroll('#servicios'); return false;">Servicios</a>
+        <a class="block py-2 px-4" href="#nosotros" onclick="smoothScroll('#nosotros'); return false;">Sobre Nosotros</a>
+        <a class="block py-2 px-4" href="#contacto" onclick="smoothScroll('#contacto'); return false;">Contacto</a>
+        <a class="block py-2 px-4" href="#sedes" onclick="smoothScroll('#sedes'); return false;">Sedes</a>
+      </div>
 
       <div class="mt-12 px-4">
         <h2 data-aos="fade-up" class="entrada text-3xl sm:text-4xl font-bold">Consultoria Empresarial</h2>
         <p data-aos="fade-up" class="entrada  mt-4 text-base sm:text-lg">Haz crecer tu negocio, haz crecer tu
           imagen</p>
         <button onclick="location.href='#contacto'" data-aos="fade-up"
-          class="entrada mt-6 bg-white text-red-600 px-6 py-2 rounded-lg font-semibold hover:bg-red-500 hover:text-white hover:shadow-lg focus:outline-none transition ease-in-out duration-300">
+          class="entrada mt-6 bg-red-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-red-500 hover:shadow-lg focus:outline-none transition">
           Contactar
         </button>
       </div>
@@ -537,13 +749,13 @@
       <div id="textContainer"
         class="text-container md:w-1/2 max-w-lg mx-auto text-center md:text-left px-4 md:px-6 mb-4 md:mb-0 flex flex-col justify-center">
         <h3 class="text-4xl font-bold mb-4 text-gray-900">Sobre nosotros</h3>
-        <p class="text-lg mb-3 text-gray-700">
+        <p class="text-base md:text-lg mb-3 text-gray-700">
           En SERVISERC S.A.C, nos especializamos en brindar soluciones contables integrales para empresas de diversos
           tamaños y sectores.
           Con años de experiencia en el mercado, nuestro equipo de profesionales está dedicado a ofrecer un servicio
           personalizado y eficiente para satisfacer todas sus necesidades contables.
         </p>
-        <p class="text-lg mb-3 text-gray-700">
+        <p class="text-base md:text-lg mb-3 text-gray-700">
           Nuestra misión es facilitar la gestión financiera de su negocio, asegurándonos de que cumpla con todas las
           normativas vigentes y optimizando sus procesos contables.
           En SERVISERC S.A.C, usted encontrará un socio confiable que le ayudará a alcanzar sus objetivos financieros.
@@ -684,30 +896,57 @@
     </p>
   </footer>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.5/lottie.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="/src/js/service.js"></script>
-  <script src="/src/js/sdb.js"></script>
   <script src="/src/js/data_msg.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- <script>
-      const MIN_LOADER_TIME = 5000;
-      window.addEventListener('load', () => {
+    const MIN_LOADER_TIME = 3000;
+
+    window.addEventListener('load', () => {
       const loader = document.getElementById('loader');
+      const content = document.querySelector('main');
+
       setTimeout(() => {
         loader.classList.add('hidden');
+        content.classList.remove('hidden');
         content.classList.add('visible');
-        }, MIN_LOADER_TIME);
-      });
-    </script> -->
+
+        AOS.init();
+        initScrollAnimations();
+        initBackgroundUpdater();
+        initIntersectionObserver();
+        initStickyNavbar();
+      }, MIN_LOADER_TIME);
+    });
+  </script> -->
   <script>
-    AOS.init();
+    var menuButton = document.getElementById('menu-button');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var menuIcon = document.getElementById('menu-button').querySelector('.menu-icon');
+
+    menuButton.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+
+      if (mobileMenu.classList.contains('hidden')) {
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+      } else {
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-times');
+      }
+    });
   </script>
   <script>
+    AOS.init();
+    initScrollAnimations();
+    initBackgroundUpdater();
+    initIntersectionObserver();
     function smoothScroll(target, duration = 1000) {
       const element = document.querySelector(target);
-      if (!element) return; // Comprobar si el elemento existe
+      if (!element) return;
 
       const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const startPosition = window.pageYOffset;
@@ -731,9 +970,8 @@
         }
       }
     }
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
+
+    function initScrollAnimations() {
       const sections = document.querySelectorAll('.section');
 
       function revealSections() {
@@ -745,14 +983,15 @@
           if (sectionTop < triggerBottom) {
             section.classList.add('visible');
 
-            if (section.id === 'servicios') {
-              section.classList.add('slide-left');
-            } else if (section.id === 'contacto') {
-              section.classList.add('slide-right');
-            } else if (section.id == 'contacto') {
-              section.classList.add('slide-up');
-            } else {
-              section.classList.add('slide-left');
+            switch (section.id) {
+              case 'servicios':
+                section.classList.add('slide-left');
+                break;
+              case 'contacto':
+                section.classList.add('slide-right');
+                break;
+              default:
+                section.classList.add('slide-left');
             }
           }
         });
@@ -760,11 +999,9 @@
 
       window.addEventListener('scroll', revealSections);
       revealSections();
-    });
+    }
 
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    function initBackgroundUpdater() {
       const sectionBackground = document.querySelector('.section-background');
       const dots = document.querySelectorAll('.dot');
       const images = [
@@ -775,7 +1012,7 @@
       ];
       let currentIndex = 0;
 
-      //precarga
+      // precarga
       images.forEach(src => {
         const img = new Image();
         img.src = src;
@@ -797,38 +1034,39 @@
 
           setTimeout(() => {
             sectionBackground.classList.remove('fade-in');
-          }, 500);
-        }, 500);
+          }, 1000);
+        }, 1000);
       }
 
       setInterval(updateBackground, 5500);
-    });
+    }
+
+    function initIntersectionObserver() {
+      const options = {
+        root: null,
+        rootMargin: '1px',
+        threshold: 0.1
+      };
+
+      const callback = (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(callback, options);
+      const textContainer = document.getElementById('textContainer');
+      const imageContainer = document.getElementById('imageContainer');
+
+      if (textContainer) observer.observe(textContainer);
+      if (imageContainer) observer.observe(imageContainer);
+    }
   </script>
   <script>
-    const textContainer = document.getElementById('textContainer');
-    const imageContainer = document.getElementById('imageContainer');
-
-    const options = {
-      root: null,
-      rootMargin: '0px 0px 20px 0px',
-      threshold: 0.1
-    };
-
-    const callback = (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(callback, options);
-    observer.observe(textContainer);
-    observer.observe(imageContainer);
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    function initStickyNavbar() {
       const navbar = document.querySelector("header");
 
       function debounce(func, wait) {
@@ -854,13 +1092,13 @@
         }
       }
 
-      function handleScrollWithRAF() {
+      const debouncedHandleScroll = debounce(() => {
         window.requestAnimationFrame(handleScroll);
-      }
+      }, 10);
 
-      const debouncedHandleScroll = debounce(handleScrollWithRAF, 10);
       window.addEventListener("scroll", debouncedHandleScroll);
-    });
+    }
+    initStickyNavbar(); 
   </script>
   <script>
     var swiper = new Swiper(".swiper", {
@@ -875,54 +1113,62 @@
         clickable: true,
       },
       breakpoints: {
+        280: {
+          slidesPerView: 1,
+          spaceBetween: 130
+        },
         320: {
           slidesPerView: 1,
-          spaceBetween: 90,
+          spaceBetween: 150,
         },
         375: {
           slidesPerView: 1,
-          spaceBetween: 90,
+          spaceBetween: 90
+        },
+        390: {
+          slidesPerView: 1,
+          spaceBetween: 180
         },
         392: {
           slidesPerView: 1,
-          spaceBetween: 100,
+          spaceBetween: 100
+        },
+        412: {
+          slidesPerView: 1,
+          spaceBetween: 180
         },
         425: {
           slidesPerView: 1,
-          spaceBetween: 120,
+          spaceBetween: 120
         },
         640: {
           slidesPerView: 2,
-          spaceBetween: 90,
-        },
-        650: {
-          slidesPerView: 2,
-          spaceBetween: 80,
-        },
-        660: {
-          slidesPerView: 2,
-          spaceBetween: 80,
-        },
-        670: {
-          slidesPerView: 2,
-          spaceBetween: 90,
-        },
-        680: {
-          slidesPerView: 2,
-          spaceBetween: 90,
+          spaceBetween: 90
         },
         768: {
           slidesPerView: 2,
-          spaceBetween: 80,
+          spaceBetween: 100
+        },
+        940: {
+          slidesPerView: 2,
+          spaceBetween: 120
         },
         950: {
           slidesPerView: 2,
-          spaceBetween: 90,
+          spaceBetween: 130
+        },
+        960: {
+          slidesPerView: 2,
+          spaceBetween: 140
         },
         1024: {
           slidesPerView: 2,
-          spaceBetween: 80,
+          spaceBetween: 80
         },
+        1440: {
+          slidesPerView: 2,
+          spaceBetween: 120
+        }
       },
     });
   </script>
