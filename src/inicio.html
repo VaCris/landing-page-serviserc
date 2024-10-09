@@ -131,17 +131,45 @@
     }
 
     #mobile-menu {
-      position: absolute;
+      position: fixed;
       top: 0;
-      left: -100%;
-      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-      max-height: 80vh;
-      overflow-y: auto;
+      left: 0;
+      width: 100%;
+      height: 30vh;
+      padding: 1rem;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+      display: none;
+      z-index: 1000;
+    }
+
+    #mobile-menu {
       transition: transform 0.3s ease-in-out;
+      transform: translateY(-100%);
     }
 
     #mobile-menu.open {
-      transform: translateX(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    #mobile-menu.open {
+      display: block;
+    }
+
+    #menu-button {
+      display: block;
+    }
+
+    #menu-close {
+      display: none;
+    }
+
+    #mobile-menu.open #menu-button {
+      display: none !important;
+    }
+
+    #mobile-menu.open #menu-close {
       display: block;
     }
 
@@ -369,19 +397,6 @@
         font-size: 1rem;
       }
 
-      #menu-toggle {
-        align-items: flex-end;
-        margin-top: -2.5rem;
-      }
-
-      #menu-toggle span {
-        display: block;
-        width: 20px;
-        height: 2px;
-        background-color: #fff;
-        margin-bottom: 5px;
-      }
-
       .header {
         flex-direction: column;
         align-items: center;
@@ -448,11 +463,6 @@
         align-items: center;
       }
 
-      #menu-toggle {
-        align-self: flex-end;
-        margin-top: -1rem;
-      }
-
       #nosotros {
         flex-direction: column-reverse;
       }
@@ -491,14 +501,12 @@
       }
 
       #mobile-menu {
-        display: block;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         padding: 1rem;
         flex-direction: column;
-        transform: translateY(-100%);
         transition: transform 0.3s ease-in-out;
       }
 
@@ -696,7 +704,7 @@
           <button id="menu-button" class="text-white text-2xl focus:outline-none">
             <i class="fas menu-icon fa-bars"></i>
           </button>
-          <button id="menu-close" class="text-white text-2xl focus:outline-none hidden">
+          <button id="menu-close" class="text-white text-2xl focus:outline-none">
             <i class="fas menu-icon fa-times"></i>
           </button>
         </div>
@@ -704,7 +712,8 @@
 
       <div id="mobile-menu" class="block md:hidden flex-col items-center space-y-4 text-white bg-red-500 p-4">
         <a class="block py-2 px-4" href="#servicios" onclick="smoothScroll('#servicios'); return false;">Servicios</a>
-        <a class="block py-2 px-4" href="#nosotros" onclick="smoothScroll('#nosotros'); return false;">Sobre Nosotros</a>
+        <a class="block py-2 px-4" href="#nosotros" onclick="smoothScroll('#nosotros'); return false;">Sobre
+          Nosotros</a>
         <a class="block py-2 px-4" href="#contacto" onclick="smoothScroll('#contacto'); return false;">Contacto</a>
         <a class="block py-2 px-4" href="#sedes" onclick="smoothScroll('#sedes'); return false;">Sedes</a>
       </div>
@@ -923,20 +932,34 @@
     });
   </script> -->
   <script>
-    var menuButton = document.getElementById('menu-button');
-    var mobileMenu = document.getElementById('mobile-menu');
-    var menuIcon = document.getElementById('menu-button').querySelector('.menu-icon');
+    document.addEventListener('DOMContentLoaded', () => {
+      const MENU_BUTTON_SELECTOR = '#menu-button';
+      const MOBILE_MENU_SELECTOR = '#mobile-menu';
+      const MENU_CLOSE_BUTTON_SELECTOR = '#menu-close';
 
-    menuButton.addEventListener('click', function () {
-      mobileMenu.classList.toggle('hidden');
+      const menuButton = document.querySelector(MENU_BUTTON_SELECTOR);
+      const mobileMenu = document.querySelector(MOBILE_MENU_SELECTOR);
+      const menuCloseButton = document.querySelector(MENU_CLOSE_BUTTON_SELECTOR);
+      const menuLinks = mobileMenu.querySelectorAll('a');
 
-      if (mobileMenu.classList.contains('hidden')) {
-        menuIcon.classList.remove('fa-times');
-        menuIcon.classList.add('fa-bars');
-      } else {
-        menuIcon.classList.remove('fa-bars');
-        menuIcon.classList.add('fa-times');
-      }
+      const toggleMobileMenu = () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', isOpen);
+        menuCloseButton.style.display = isOpen ? 'block' : 'none';
+        menuButton.style.display = isOpen ? 'none' : 'flex';
+      };
+
+      menuButton.addEventListener('click', toggleMobileMenu);
+      menuCloseButton.addEventListener('click', toggleMobileMenu);
+
+      // Cerrar el menú al hacer clic en un enlace
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (mobileMenu.classList.contains('open')) {
+            toggleMobileMenu();
+          }
+        });
+      });
     });
   </script>
   <script>
