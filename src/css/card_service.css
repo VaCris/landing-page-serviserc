@@ -12,97 +12,106 @@
     background-size: 100% 200px;
     background-position: 0% 100%;
     transition: background-position 0.5s ease-in-out;
-  }
-  
-  .service-card:hover {
+}
+
+.service-card:hover {
     background-position: 0% 50%;
-  }
-  
-  .service-card h4 {
+}
+
+.service-card h4 {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 0.5rem;
     text-align: center;
-  }
-  
-  .service-card p {
+}
+
+.service-card p {
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 1rem;
-  }
-  
-  .service-card .icon {
+}
+
+.service-card .icon {
     font-size: 2rem;
     margin-bottom: 1rem;
-  }
-  
-  /* Ajustes para dispositivos móviles (280px - 414px) */
-  @media only screen and (max-width: 414px) {
+}
+
+@media only screen and (max-width: 414px) {
     .service-card {
-      height: 200px;
+        height: 200px;
     }
+
     .service-card h4 {
-      font-size: 1.2rem;
+        font-size: 1.2rem;
     }
+
     .service-card p {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
+
     .service-card .icon {
-      font-size: 1.5rem;
+        font-size: 1.5rem;
     }
-  }
-  
-  /* Ajustes para dispositivos tablet (415px - 639px) */
-  @media only screen and (min-width: 415px) and (max-width: 639px) {
+}
+
+
+@media only screen and (min-width: 415px) and (max-width: 639px) {
     .service-card {
-      height: 220px;
+        height: 220px;
     }
+
     .service-card h4 {
-      font-size: 1.4rem;
+        font-size: 1.4rem;
     }
+
     .service-card p {
-      font-size: 1rem;
+        font-size: 1rem;
     }
+
     .service-card .icon {
-      font-size: 2rem;
+        font-size: 2rem;
     }
-  }
-  
-  /* Ajustes para dispositivos desktop (640px - 1023px) */
-  @media only screen and (min-width: 640px) and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
     .service-card {
-      flex-basis: 45%;
-      margin: 2rem;
-      height: 280px;
+        flex-basis: 45%;
+        margin: 2rem;
+        height: 280px;
     }
+
     .service-card h4 {
-      font-size: 1.6rem;
+        font-size: 1.6rem;
     }
+
     .service-card p {
-      font-size: 1.1rem;
+        font-size: 1.1rem;
     }
+
     .service-card .icon {
-      font-size: 2.5rem;
+        font-size: 2.5rem;
     }
-  }
-  
-  /* Ajustes para dispositivos desktop grandes (1024px o más) */
-  @media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (min-width: 1024px) {
     .service-card {
-      flex-basis: 30%;
-      margin: 3rem;
-      height: 300px;
+        flex-basis: 30%;
+        margin: 3rem;
+        height: 300px;
     }
+
     .service-card h4 {
-      font-size: 1.8rem;
+        font-size: 1.8rem;
     }
+
     .service-card p {
-      font-size: 1.2rem;
+        font-size: 1.2rem;
     }
+
     .service-card .icon {
-      font-size: 3rem;
+        font-size: 3rem;
     }
-  }
+}
