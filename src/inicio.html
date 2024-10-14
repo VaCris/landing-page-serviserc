@@ -57,6 +57,14 @@
       margin: 0 auto;
     }
 
+    header.sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
     .header.scrolled {
       background: rgba(0, 0, 0, 0.9);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -68,18 +76,24 @@
       color: #333;
     }
 
-    .menu-icon {
-      transition: transform 0.3s ease, opacity 0.3s ease;
+    .menu-icon,
+    .close-icon {
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     }
 
     .menu-icon.open {
-      transform: rotate(0deg);
-      opacity: 1;
-    }
-
-    .menu-icon.close {
       transform: rotate(90deg);
       opacity: 0;
+    }
+
+    .close-icon {
+      opacity: 0;
+      transform: rotate(-90deg);
+    }
+
+    .close-icon.open {
+      opacity: 1;
+      transform: rotate(0deg);
     }
 
     .desktop-nav {
@@ -131,21 +145,11 @@
     }
 
     #mobile-menu {
-      position: fixed;
-      top: 0;
-      left: 0;
+      height: 100vh;
       width: 100%;
-      height: 30vh;
-      padding: 1rem;
-      flex-direction: column;
-      transition: transform 0.3s ease;
-      display: none;
-      z-index: 1000;
-    }
-
-    #mobile-menu {
-      transition: transform 0.3s ease-in-out;
-      transform: translateY(-100%);
+      background-color: rgba(187, 31, 31, 0.877);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     #mobile-menu.open {
@@ -153,24 +157,9 @@
       opacity: 1;
     }
 
-    #mobile-menu.open {
-      display: block;
-    }
-
-    #menu-button {
-      display: block;
-    }
-
-    #menu-close {
-      display: none;
-    }
-
-    #mobile-menu.open #menu-button {
-      display: none !important;
-    }
-
-    #mobile-menu.open #menu-close {
-      display: block;
+    #mobile-menu {
+      transition: transform 0.3s ease-in-out;
+      transform: translateY(-100%);
     }
 
     .section {
@@ -319,8 +308,8 @@
       }
 
       .logo-text {
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
+        display: none;
+        margin: 1rem 0 0.5rem;
       }
 
       .contact-form {
@@ -366,11 +355,6 @@
         align-items: center;
       }
 
-      #menu-toggle {
-        align-self: flex-end;
-        margin-top: -1rem;
-      }
-
       #nosotros {
         flex-direction: column-reverse;
       }
@@ -400,6 +384,11 @@
       .header {
         flex-direction: column;
         align-items: center;
+      }
+
+      #mobile-menu {
+        width: 100%;
+        min-height: 100vh;
       }
     }
 
@@ -493,6 +482,12 @@
         flex-direction: column;
         align-items: center;
       }
+
+      #mobile-menu {
+        width: 80%;
+        min-height: 100vh;
+        margin: 0 auto;
+      }
     }
 
     @media (max-width: 767px) {
@@ -531,80 +526,6 @@
 
       p {
         font-size: 1.2rem;
-      }
-
-      .contact-form {
-        padding: 1rem;
-      }
-
-      .contact-form .grid {
-        grid-template-columns: 1fr;
-      }
-
-      #servicios .swiper-slide {
-        padding: 0 1rem;
-      }
-
-      .swiper-button-next,
-      .swiper-button-prev {
-        display: none;
-      }
-
-      .desktop-nav {
-        display: none;
-      }
-
-      nav ul {
-        display: flex;
-        gap: 1rem;
-      }
-
-      nav a {
-        padding: 0 20px;
-        font-size: 1.2rem;
-        color: #e2dfdfd8;
-        transition: background-color 0.3s, color 0.3s;
-      }
-
-      nav a:hover {
-        background-color: #ee1818a2;
-        color: #ffffff;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #nosotros {
-        flex-direction: column-reverse;
-      }
-
-      #textContainer,
-      #imageContainer {
-        width: 100%;
-        padding: 1rem;
-      }
-
-      .scroll-indicator {
-        display: none;
-      }
-
-      .logo-text {
-        margin-bottom: 1rem;
-      }
-
-      .logo-text img {
-        width: 50px;
-      }
-
-      nav a {
-        font-size: 1rem;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: center;
       }
     }
 
@@ -682,8 +603,8 @@
       <header class="flex justify-between items-center p-6">
         <div class="logo-text flex items-center">
           <a data-aos="fade-up" href="./inicio.html" aria-label="Ir a inicio" style="cursor: pointer"
-            class="text-3xl sm:text-4xl font-bold flex items-center">
-            <img src="/public/img/172728779273.webp" alt="Logo Serviserc" style="width: 100px;">
+            class="flex items-center text-3xl sm:text-4xl font-bold">
+            <img src="/public/img/172728779273.webp" alt="Logo Serviserc" class="w-24">
             SERVISERC
           </a>
         </div>
@@ -691,26 +612,25 @@
         <nav class="hidden desktop-nav md:flex space-x-8 text-white">
           <ul class="flex justify-around w-full h-full list-none m-0 p-0">
             <li><a href="#servicios" onclick="smoothScroll('#servicios'); return false;"
-                class="block py-2 px-4">Servicios</a></li>
-            <li><a href="#nosotros" onclick="smoothScroll('#nosotros'); return false;" class="block py-2 px-4">Sobre
+              class="nav-item block py-2 px-4">Servicios</a></li>
+            <li><a href="#nosotros" onclick="smoothScroll('#nosotros'); return false;" class="nav-item block py-2 px-4">Sobre
                 Nosotros</a></li>
             <li><a href="#contacto" onclick="smoothScroll('#contacto'); return false;"
-                class="block py-2 px-4">Contacto</a></li>
-            <li><a href="#sedes" onclick="smoothScroll('#sedes'); return false;" class="block py-2 px-4">Sedes</a></li>
+              class="nav-item block py-2 px-4">Contacto</a></li>
+            <li><a href="#sedes" onclick="smoothScroll('#sedes'); return false;" class="nav-item block py-2 px-4">Sedes</a></li>
           </ul>
         </nav>
 
         <div class="md:hidden">
-          <button id="menu-button" class="text-white text-2xl focus:outline-none">
-            <i class="fas menu-icon fa-bars"></i>
-          </button>
-          <button id="menu-close" class="text-white text-2xl focus:outline-none">
-            <i class="fas menu-icon fa-times"></i>
+          <button id="menu-button" class="text-white focus:outline-none relative">
+            <i id="menu-icon" class="fas fa-bars text-2xl menu-icon"></i>
+            <i id="close-icon" class="fas fa-times text-2xl close-icon absolute top-0 left-0"></i>
           </button>
         </div>
       </header>
 
-      <div id="mobile-menu" class="block md:hidden flex-col items-center space-y-4 text-white bg-red-500 p-4">
+      <div id="mobile-menu"
+        class="hidden fixed inset-0 bg-red-700 bg-opacity-75 flex-col items-center justify-center space-y-4">
         <a class="block py-2 px-4" href="#servicios" onclick="smoothScroll('#servicios'); return false;">Servicios</a>
         <a class="block py-2 px-4" href="#nosotros" onclick="smoothScroll('#nosotros'); return false;">Sobre
           Nosotros</a>
@@ -741,7 +661,6 @@
     </div>
 
     <section id="servicios" class="section w-full text-center py-12 bg-white">
-      <h3 class="text-3xl font-bold mb-8">Servicios</h3>
       <div class="swiper">
         <div class="swiper-wrapper">
           <div class="opacity-0 transition-opacity duration-500">
@@ -908,9 +827,10 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.5/lottie.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="/src/js/service.js"></script>
-  <script src="/src/js/data_msg.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/src/js/service.js"></script>
+  <script src="/src/js/sdb.js"></script>
+  <script src="/src/js/data_msg.js"></script>
   <!-- <script>
     const MIN_LOADER_TIME = 3000;
 
@@ -931,37 +851,6 @@
       }, MIN_LOADER_TIME);
     });
   </script> -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const MENU_BUTTON_SELECTOR = '#menu-button';
-      const MOBILE_MENU_SELECTOR = '#mobile-menu';
-      const MENU_CLOSE_BUTTON_SELECTOR = '#menu-close';
-
-      const menuButton = document.querySelector(MENU_BUTTON_SELECTOR);
-      const mobileMenu = document.querySelector(MOBILE_MENU_SELECTOR);
-      const menuCloseButton = document.querySelector(MENU_CLOSE_BUTTON_SELECTOR);
-      const menuLinks = mobileMenu.querySelectorAll('a');
-
-      const toggleMobileMenu = () => {
-        const isOpen = mobileMenu.classList.toggle('open');
-        menuButton.setAttribute('aria-expanded', isOpen);
-        menuCloseButton.style.display = isOpen ? 'block' : 'none';
-        menuButton.style.display = isOpen ? 'none' : 'flex';
-      };
-
-      menuButton.addEventListener('click', toggleMobileMenu);
-      menuCloseButton.addEventListener('click', toggleMobileMenu);
-
-      // Cerrar el menú al hacer clic en un enlace
-      menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          if (mobileMenu.classList.contains('open')) {
-            toggleMobileMenu();
-          }
-        });
-      });
-    });
-  </script>
   <script>
     AOS.init();
     initScrollAnimations();
@@ -1089,41 +978,6 @@
     }
   </script>
   <script>
-    function initStickyNavbar() {
-      const navbar = document.querySelector("header");
-
-      function debounce(func, wait) {
-        let timeout;
-        return function (...args) {
-          clearTimeout(timeout);
-          timeout = setTimeout(() => func.apply(this, args), wait);
-        };
-      }
-
-      function handleScroll() {
-        const scrollY = window.scrollY;
-
-        if (scrollY > 0) {
-          navbar.classList.add("sticky");
-          if (scrollY > 100) {
-            navbar.classList.add("shrink");
-          } else {
-            navbar.classList.remove("shrink");
-          }
-        } else {
-          navbar.classList.remove("sticky", "shrink");
-        }
-      }
-
-      const debouncedHandleScroll = debounce(() => {
-        window.requestAnimationFrame(handleScroll);
-      }, 10);
-
-      window.addEventListener("scroll", debouncedHandleScroll);
-    }
-    initStickyNavbar(); 
-  </script>
-  <script>
     var swiper = new Swiper(".swiper", {
       slidesPerView: 1,
       spaceBetween: 10,
@@ -1192,7 +1046,7 @@
           slidesPerView: 2,
           spaceBetween: 120
         },
-        1920:{
+        1920: {
           slidesPerView: 2,
           spaceBetween: 150
         }

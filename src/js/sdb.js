@@ -1,59 +1,17 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
+document.getElementById('menu-button').addEventListener('click', function () {
     const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    if (!menuToggle || !sidebar || !menuIcon) {
-        console.error("no encuentra icono");
-        return;
+    if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('open');
+        menuIcon.classList.add('open');
+        closeIcon.classList.add('open');
+    } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('open');
+        menuIcon.classList.remove('open');
+        closeIcon.classList.remove('open');
     }
-
-    let isOpen = false;
-
-    const menuAnimation = lottie.loadAnimation({
-        container: menuIcon,
-        renderer: 'svg',
-        loop: false,
-        autoplay: false,
-        path: '/public/img/Menu V4/menuV4.json'
-    });
-
-    menuToggle.addEventListener('click', () => {
-        if (isOpen) {
-            menuAnimation.setDirection(-1);
-            menuAnimation.play();
-            sidebar.classList.remove('translate-y-0');
-            sidebar.classList.add('-translate-y-full');
-            menuToggle.classList.remove('hidden');
-        } else {
-            sidebar.classList.remove('-translate-y-full');
-            sidebar.classList.add('translate-y-0');
-            menuAnimation.setDirection(1);
-            menuAnimation.play();
-            menuToggle.classList.add('hidden');
-        }
-        isOpen = !isOpen;
-    });
-
-    const closeSidebarMenu = () => {
-        if (isOpen) {
-            menuAnimation.setDirection(-1);
-            menuAnimation.play();
-            sidebar.classList.remove('translate-y-0');
-            sidebar.classList.add('-translate-y-full');
-            menuToggle.classList.add('hidden');
-            isOpen = false;
-        }
-    };
-
-    const menuLinks = document.querySelectorAll('#sidebar a');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', closeSidebarMenu);
-    });
-    
-    document.addEventListener('click', event => {
-        if (!sidebar.contains(event.target) && !menuToggle.contains(event.target) && isOpen) {
-            closeSidebarMenu();
-        }
-    });
 });
