@@ -19,9 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
     menuButton.addEventListener("click", () => {
       const isMenuOpen = mobileMenu.classList.toggle("-translate-y-full");
   
-      // Alternar iconos
-      menuIcon.classList.toggle("hidden", isMenuOpen);  // Ocultar menú hamburguesa si el menú está abierto
-      closeIcon.classList.toggle("hidden", !isMenuOpen);  // Mostrar icono de cerrar si el menú está abierto
+      menuIcon.classList.toggle("hidden", isMenuOpen);  
+      closeIcon.classList.toggle("hidden", !isMenuOpen); 
     });
   });
   
