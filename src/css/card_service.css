@@ -1,117 +1,26 @@
 .service-card {
-    margin: 1rem;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.384);
-    background-color: #f7f7f7;
-    background-image: linear-gradient(to bottom, #f7f7f7, #e7e7e7);
-    background-size: 100% 300px;
-    background-position: 0% 100%;
-    transition: background-position 0.5s ease-in-out;
+    text-align: center;
+    margin: 0 auto;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.service-card img {
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .service-card:hover {
-    background-position: 0% 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
 
-.service-card h4 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
+.service-card:hover img {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.service {
+    flex: 1;
+    margin: 0.5rem;
     text-align: center;
-}
-
-.service-card p {
-    font-family: 'Lato', sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-}
-
-.service-card .icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-@media only screen and (max-width: 414px) {
-    .service-card {
-        height: 200px;
-    }
-
-    .service-card h4 {
-        font-size: 1.2rem;
-    }
-
-    .service-card p {
-        font-size: 0.9rem;
-    }
-
-    .service-card .icon {
-        font-size: 1.5rem;
-    }
-}
-
-
-@media only screen and (min-width: 415px) and (max-width: 639px) {
-    .service-card {
-        height: 220px;
-    }
-
-    .service-card h4 {
-        font-size: 1.4rem;
-    }
-
-    .service-card p {
-        font-size: 1rem;
-    }
-
-    .service-card .icon {
-        font-size: 2rem;
-    }
-}
-
-@media only screen and (min-width: 640px) and (max-width: 1023px) {
-    .service-card {
-        flex-basis: 45%;
-        margin: 2rem;
-        height: 280px;
-    }
-
-    .service-card h4 {
-        font-size: 1.6rem;
-    }
-
-    .service-card p {
-        font-size: 1.1rem;
-    }
-
-    .service-card .icon {
-        font-size: 2rem;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
-    .service-card {
-        flex-basis: 30%;
-        margin: 3rem;
-        height: 300px;
-    }
-
-    .service-card h4 {
-        font-size: 1.8rem;
-    }
-
-    .service-card p {
-        font-size: 1.2rem;
-    }
-
-    .service-card .icon {
-        font-size: 3rem;
-    }
 }
