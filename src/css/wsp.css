@@ -6,11 +6,12 @@
     opacity: 0.3;
   }
   100% {
-    transform: scale(1.40);
+    transform: scale(1.4);
     opacity: 0;
   }
 }
 .pulse {
+  animation: pulse 1.5s infinite;
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
@@ -27,7 +28,6 @@
   bottom: 0px;
   right: 0px;
   padding: 5px;
-  margin: 0px 0 55 0 ;
 }
 @media (max-width: 360px) {
   .nav-bottom {
