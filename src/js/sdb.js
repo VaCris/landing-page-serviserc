@@ -1,27 +1,40 @@
-document.getElementById('menu-button').addEventListener('click', function () {
+document.addEventListener('DOMContentLoaded', function () {
+  const menuButton = document.getElementById('menu-button');
   const menuIcon = document.getElementById('menu-icon');
   const closeIcon = document.getElementById('close-icon');
   const mobileMenu = document.getElementById('mobile-menu');
+  const contentDiv = document.querySelector('.mt-12');
+  const pagination = document.querySelector('.pagination');
+  const whatsappButton = document.querySelector('.nav-bottom');
 
-  if (!mobileMenu.classList.contains('open')) {
-    mobileMenu.classList.add('open'); // Muestra el menú
-    menuIcon.classList.add('hidden');  // Oculta el ícono de menú
-    closeIcon.classList.remove('hidden'); // Muestra el ícono de cerrar
-  } else {
-    mobileMenu.classList.remove('open'); // Oculta el menú
-    menuIcon.classList.remove('hidden');  // Muestra el ícono de menú
-    closeIcon.classList.add('hidden');     // Oculta el ícono de cerrar
-  }
-});
+  menuButton.addEventListener('click', function () {
+    const isOpen = mobileMenu.classList.contains('open');
 
-document.querySelectorAll('#mobile-menu a').forEach(item => {
-  item.addEventListener('click', function () {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const closeIcon = document.getElementById('close-icon');
+    if (!isOpen) {
+      mobileMenu.classList.add('open');
+      menuIcon.classList.add('hidden'); // Oculta el icono de menú
+      closeIcon.classList.remove('hidden'); // Muestra el icono de cerrar
+      contentDiv.classList.add('hidden-content');
+      pagination.classList.add('hidden-content');
+      whatsappButton.classList.add('hidden-content');
+    } else {
+      mobileMenu.classList.remove('open');
+      menuIcon.classList.remove('hidden'); // Muestra el icono de menú
+      closeIcon.classList.add('hidden'); // Oculta el icono de cerrar
+      contentDiv.classList.remove('hidden-content');
+      pagination.classList.remove('hidden-content');
+      whatsappButton.classList.remove('hidden-content');
+    }
+  });
 
-    mobileMenu.classList.remove('open'); // Oculta el menú
-    menuIcon.classList.remove('hidden');  // Muestra el ícono de menú
-    closeIcon.classList.add('hidden');     // Oculta el ícono de cerrar
+  document.querySelectorAll('#mobile-menu a').forEach(item => {
+    item.addEventListener('click', function () {
+      mobileMenu.classList.remove('open');
+      menuIcon.classList.remove('hidden'); // Muestra el icono de menú
+      closeIcon.classList.add('hidden'); // Oculta el icono de cerrar
+      contentDiv.classList.remove('hidden-content');
+      pagination.classList.remove('hidden-content');
+      whatsappButton.classList.remove('hidden-content');
+    });
   });
 });
