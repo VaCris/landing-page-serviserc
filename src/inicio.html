@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />  
   <title>Servicios de Asesoría Contable y Tributaria - SERVISERC S.A.C</title>
   <meta name="keywords"
     content="contabilidad Perú, económicos financieros, SERVISERC S.A.C, servicios contables, consultoría financiera, auditoría contable, planificación fiscal, gestión de impuestos, contabilidad corporativa, contabilidad para pymes, contabilidad integral, outsourcing contable, asesoría tributaria, estados financieros, cumplimiento tributario, gestión contable, Perú contabilidad, asesor financiero Perú, auditoría financiera, soporte contable." />
@@ -23,7 +23,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="/src/assets/styles/swiper.css" />
-  <!-- <link rel="stylesheet" href="/src/css/carga.css"> -->
+  <link rel="stylesheet" href="/src/css/carga.css">
   <link rel="stylesheet" href="/src/css/wsp.css" />
   <link rel="stylesheet" href="/src/css/form.css" />
   <link rel="stylesheet" href="/src/css/card_service.css" />
@@ -474,6 +474,49 @@
         font-size: 1.5rem;
         padding: 20px;
         text-align: center;
+      }
+    }
+
+    @media (max-width: 705px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      h3 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .logo-text img {
+        width: 45px;
+      }
+
+      nav a {
+        font-size: 1.1rem;
+      }
+
+      .contact-form {
+        padding: 1rem;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #mobile-menu a {
+        font-size: 1.3rem;
+      }
+      #mobile-menu{
+        display: none;
+        transform: translateX(-150%);
       }
     }
 
@@ -973,7 +1016,7 @@
         </div>
       </div>
     </section>
-
+    
     <div class="nav-bottom">
       <button type="button" id="whats-openPopup" class="whatsapp-button" aria-label="Abrir chat de WhatsApp">
         <a href="https://wa.me/send?phone=5199132438&text=Hola Serviserc!, necesito más información" target="_blank"
@@ -997,7 +1040,7 @@
   <script src="/src/js/service.js"></script>
   <script src="/src/js/sdb.js"></script>
   <script src="/src/js/data_msg.js"></script>
-  <!-- <script>
+  <script>
     const MIN_LOADER_TIME = 3000;
 
     window.addEventListener('load', () => {
@@ -1016,12 +1059,8 @@
         initStickyNavbar();
       }, MIN_LOADER_TIME);
     });
-  </script> -->
+  </script>
   <script>
-    AOS.init();
-    initScrollAnimations();
-    initBackgroundUpdater();
-    initIntersectionObserver();
     function smoothScroll(target, duration = 1000) {
       const element = document.querySelector(target);
       if (!element) return;

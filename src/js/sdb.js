@@ -12,15 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!isOpen) {
       mobileMenu.classList.add('open');
-      menuIcon.classList.add('hidden'); // Oculta el icono de menú
-      closeIcon.classList.remove('hidden'); // Muestra el icono de cerrar
+      menuIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
       contentDiv.classList.add('hidden-content');
       pagination.classList.add('hidden-content');
       whatsappButton.classList.add('hidden-content');
     } else {
       mobileMenu.classList.remove('open');
-      menuIcon.classList.remove('hidden'); // Muestra el icono de menú
-      closeIcon.classList.add('hidden'); // Oculta el icono de cerrar
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
       contentDiv.classList.remove('hidden-content');
       pagination.classList.remove('hidden-content');
       whatsappButton.classList.remove('hidden-content');
@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('#mobile-menu a').forEach(item => {
     item.addEventListener('click', function () {
       mobileMenu.classList.remove('open');
-      menuIcon.classList.remove('hidden'); // Muestra el icono de menú
-      closeIcon.classList.add('hidden'); // Oculta el icono de cerrar
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
       contentDiv.classList.remove('hidden-content');
       pagination.classList.remove('hidden-content');
       whatsappButton.classList.remove('hidden-content');
