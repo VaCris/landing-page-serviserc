@@ -849,8 +849,7 @@
     </header>
 
     <!-- Menú móvil oculto -->
-    <nav id="mobile-menu"
-      class="fixed top-0 left-0 w-full h-full bg-red-600 text-white p-4 transform -translate-y-full transition-transform duration-300 ease-in-out hidden">
+    <nav id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-red-600 text-white p-4 transform -translate-y-full transition-transform duration-300 ease-in-out z-50">
       <a href="#servicios" onclick="smoothScroll('#servicios'); return false;" class="block py-2 px-4">Servicios</a>
       <a href="#nosotros" onclick="smoothScroll('#nosotros'); return false;" class="block py-2 px-4">Sobre Nosotros</a>
       <a href="#contacto" onclick="smoothScroll('#contacto'); return false;" class="block py-2 px-4">Contacto</a>
@@ -1054,7 +1053,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="/src/js/service.js"></script>
-  <!-- <script src="/src/js/sdb.js"></script> -->
+  <script src="/src/js/sdb.js"></script>
   <script src="/src/js/data_msg.js"></script>
   <script>
     const MIN_LOADER_TIME = 3000;
@@ -1196,16 +1195,6 @@
       if (textContainer) observer.observe(textContainer);
       if (imageContainer) observer.observe(imageContainer);
     }
-    const menuButton = document.getElementById('menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const closeIcon = document.getElementById('close-icon');
-
-    menuButton.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('-translate-y-full');
-      menuIcon.classList.toggle('hidden', isOpen);
-      closeIcon.classList.toggle('hidden', !isOpen);
-    });
   </script>
   <script>
     var swiper = new Swiper(".swiper", {
