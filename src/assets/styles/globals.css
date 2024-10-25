@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
   :root {
   --background:0,0%,100%;
   --foreground: 240 10% 3.9%;
@@ -25,22 +24,13 @@
   --ring: 346.8 77.2% 49.8%;
   --radius: 0.5rem;
   }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
