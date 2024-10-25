@@ -1,129 +1,164 @@
+:root {
+  --whatsapp-bg: #77bb4a;
+  --popup-bg: white;
+  --hover-bg: #e0e0e0;
+  --shadow-color: rgba(68, 68, 68, 0.705);
+  --text-color: #585858;
+  --text-color-light: #333333;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(1);
   }
+
   50% {
     opacity: 0.3;
   }
+
   100% {
     transform: scale(1.4);
     opacity: 0;
   }
 }
+
 .pulse {
   animation: pulse 1.5s infinite;
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
 }
 
 .nav-bottom {
   display: flex;
-  flex-direction: row;
   justify-content: flex-end;
-  align-content: flex-end;
-  width: auto;
-  height: auto;
   position: fixed;
-  z-index: 8;
-  bottom: 0px;
-  right: 0px;
+  z-index: 1000;
+  bottom: 90px;
+  right: 0;
+  transition: opacity 0.5s ease;
   padding: 5px;
+  pointer-events: none;
+  opacity: 0;
 }
+
+.nav-bottom.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+
 @media (max-width: 360px) {
   .nav-bottom {
     width: 320px;
   }
 }
+
 .whatsapp-button {
-  display: flex;
+  display: none;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   width: 60px;
   height: 60px;
-  z-index: 8;
-  transition: .2s;
+  z-index: 1;
+  transition: 0.2s;
   margin: 10px;
   padding: 7px;
   border: none;
   outline: none;
   cursor: pointer;
   border-radius: 50%;
-  background-color: white;
-  /* offset-x > | offset-y ^| blur-radius | spread-radius | color */
-  -webkit-box-shadow: 1px 1px 6px 0px rgba(68, 68, 68, 0.705);
-  -moz-box-shadow: 1px 1px 6px 0px rgba(68, 68, 68, 0.705);
-  box-shadow: 1px 1px 6px 0px rgba(68, 68, 68, 0.705);
+  background-color: var(--popup-bg);
+  box-shadow: 1px 1px 6px 0px var(--shadow-color);
 }
+
+.whatsapp-button:hover {
+  background-color: var(--hover-bg);
+}
+
 .circle-anime {
   display: flex;
   position: absolute;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   width: 60px;
   height: 60px;
   top: 15px;
   right: 15px;
   border-radius: 50%;
-  transition: 0.0s;
-  background-color: #77bb4a;
-  animation: pulse 1.5s 3.0s ease ;
+  background-color: var(--whatsapp-bg);
+  animation: pulse 1.5s 3.0s ease;
 }
+
 .popup-whatsapp {
   display: none;
   position: absolute;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: auto;
-  height: auto;
   padding: 10px;
-  bottom: 85px;
+  bottom: 80px;
   right: 6px;
-  transition: .2s;
+  transition: 0.2s;
   border-radius: 10px;
-  background-color: white;
-  -webkit-box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);
-  -moz-box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);
-  box-shadow: 2px 1px 6px 0px rgba(68, 68, 68, 0.705);
-  animation: slideInRight .5s 0.0s both;
+  background-color: var(--popup-bg);
+  box-shadow: 2px 1px 6px 0px var(--shadow-color);
+  animation: slideInRight 0.5s 0.0s both;
 }
-.popup-whatsapp > div {
+
+.popup-whatsapp>div {
   margin: 5px;
 }
-@media (max-width: 680px) {
-  .popup-whatsapp p {
-    font-size: 0.9em;
-  }
-}
-.popup-whatsapp > .content-whatsapp.-top {
+
+.popup-whatsapp>.content-whatsapp.-top {
   display: flex;
   flex-direction: column;
 }
-.popup-whatsapp > .content-whatsapp.-top p {
-  color: #585858;
+
+.popup-whatsapp>.content-whatsapp.-top p {
+  color: var(--text-color);
   font-family: 'Roboto';
   font-weight: 400;
   font-size: 1.0em;
 }
-.popup-whatsapp > .content-whatsapp.-bottom {
+
+.popup-whatsapp>.content-whatsapp.-bottom {
   display: flex;
   flex-direction: row;
 }
+
 .is-active-whatsapp-popup {
   display: flex;
-  animation: slideInRight .3s 0.0s both;
+  animation: slideInRight 0.3s 0.0s both;
 }
+
 .icon-whatsapp-small {
   width: 24px;
   height: 24px;
 }
+
 .icon-whatsapp {
   width: 45px;
   height: 45px;
 }
+
 .icon-font-color {
   color: #ffffff;
 }
+
 .icon-font-color--black {
-  color: #333333;
+  color: var(--text-color-light);
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+  .nav-bottom {
+    bottom: 60px;
+  }
+
+  .popup-whatsapp {
+    bottom: 80px;
+  }
+}
+
+@media (max-width: 680px) {
+  .popup-whatsapp p {
+    font-size: 0.9em;
+  }
 }
