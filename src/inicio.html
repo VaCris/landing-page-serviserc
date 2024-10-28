@@ -29,25 +29,34 @@
   <link rel="stylesheet" href="/src/css/card_service.css" />
   <link rel="stylesheet" href="/src/css/sbg.css" />
   <style>
+    :root {
+      --primary-color: #f04c1a;
+      --secondary-color: #ffffff;
+      --text-color: #000;
+      --text-light: #333;
+      --background-light: rgba(255, 255, 255, 0.9);
+      --font-size-large: 3rem;
+      --font-size-medium: 2rem;
+      --font-size-small: 1.5rem;
+      --font-size-xsmall: 1rem;
+    }
+
     html {
       scroll-behavior: smooth;
     }
 
-    * {
-      margin: 0;
+    *,
+    *::before,
+    *::after {
       padding: 0;
+      margin: 0;
       box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Roboto", sans-serif;
-      line-height: 1.6;
     }
 
     .header {
       position: fixed;
       top: 0;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: var(--background-light);
       width: 100%;
       padding: 1rem;
       display: flex;
@@ -59,24 +68,32 @@
     }
 
     .logo {
-      font-size: 1.5rem;
+      font-size: var(--font-size-medium);
       font-weight: bold;
-      color: #333;
+      color: var(--text-light);
     }
 
     .menu-icon,
     .close-icon {
+      display: inline;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
     .close-icon {
       display: none;
+      position: fixed;
+      z-index: 1002;
+      color: #ffffff;
     }
 
     .close-icon.open {
-      display: inline;
+      display: block;
       opacity: 1;
       transform: rotate(0deg);
+    }
+
+    .open .menu-icon {
+      display: none;
     }
 
     .menu-icon.hidden {
@@ -85,50 +102,18 @@
       transform: rotate(90deg);
     }
 
-    #mobile-menu.open {
-      transform: translateY(0);
-
-    }
-
-    .hidden-oontent {
-      pointer-events: none;
-      opacity: 0.5;
-    }
-
-    .desktop-nav {
-      display: none;
-    }
-
     nav ul {
       display: flex;
       gap: 1.5rem;
+      list-style: none;
     }
 
     nav a {
-      font-size: 1.2rem;
+      font-size: var(--font-size-small);
       text-decoration: none;
-      color: #000;
+      color: var(--text-color);
       padding: 0.5rem 1rem;
       transition: background-color 0.3s, color 0.3s;
-    }
-
-    nav a:hover {
-      background-color: #f0505057;
-      color: #ffffff;
-    }
-
-    .desktop-nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    .swiper-slide {
-      justify-content: center;
-      align-items: center;
-      margin: 0 auto;
     }
 
     #mobile-menu {
@@ -136,46 +121,44 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      background-color: rgba(252, 38, 38, 0.95);
+      height: 100vh;
+      background-color: rgb(252, 38, 38);
+      transition: transform 0.3s ease;
+      z-index: 1000;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transition: transform 0.3s ease;
       transform: translateY(-100%);
-      z-index: 1000;
     }
 
-    #mobile-menu.open {
+    #mobile-menu:not(.hidden) {
       transform: translateY(0);
     }
 
     #mobile-menu a {
       padding: 1rem;
-      font-size: 1.5rem;
-      color: #fff;
+      font-size: var(--font-size-large);
+      color: var(--secondary-color);
       transition: color 0.3s;
     }
 
     #mobile-menu a:hover {
-      color: #ffd700;
+      color: var(--primary-color);
     }
 
     .hidden {
       display: none;
     }
 
-    .mt-12 {
-      z-index: 0;
-    }
-
     .section {
-      padding: 10% 5%;
+      width: 100%;
+      max-width: 1536px;
+      margin: 0 auto;
+      padding: 3rem 0.5rem;
+      padding-bottom: 80px;
       opacity: 0;
       transition: opacity 0.5s ease;
-      padding-top: 100px;
-      min-height: 500px;
     }
 
     .section.visible {
@@ -190,17 +173,13 @@
     .dot {
       width: 10px;
       height: 10px;
-      background-color: #ffffff;
+      background-color: var(--secondary-color);
       border-radius: 50%;
       opacity: 0.5;
       transition: opacity 2s;
     }
 
     .dot.active {
-      opacity: 1;
-    }
-
-    .section.visible {
       opacity: 1;
     }
 
@@ -259,7 +238,7 @@
       transform: translateX(-50%);
       animation: bounce 2.5s infinite;
       cursor: pointer;
-      color: #f7fafc;
+      color: var(--secondary-color);
       display: none;
       justify-content: center;
       align-items: center;
@@ -270,8 +249,11 @@
       margin: 0px -47px 5px;
     }
 
-    @keyframes bounce {
+    footer {
+      padding-top: 100px;
+    }
 
+    @keyframes bounce {
       0%,
       20%,
       50%,
@@ -303,25 +285,93 @@
       animation: fadeIn 2.5s ease-in-out;
     }
 
-    @media (max-width: 360px) {
+    /* Media Queries */
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
       h1 {
-        font-size: 1.6rem;
+        font-size: var(--font-size-medium);
       }
 
       h2 {
-        font-size: 1.4rem;
+        font-size: var(--font-size-small);
       }
 
-      h3 {
-        font-size: 1.2rem;
-      }
-
+      h3,
       p {
-        font-size: 0.9rem;
+        font-size: var(--font-size-xsmall);
       }
 
-      .logo-text img {
-        width: 40px;
+      .logo-text a {
+        font-size: x-large;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      #mobile-menu {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-form {
+        padding: 1rem;
+      }
+
+      .contact-form .grid {
+        grid-template-columns: 1fr;
+      }
+
+      #servicios .swiper-slide {
+        padding: 0 1rem;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: none;
+      }
+
+      .scroll-indicator {
+        display: none;
+      }
+
+      .g-recaptcha {
+        transform: scale(0.8);
+        transform-origin: 0 0;
+      }
+    }
+
+    /* Smartphones (landscape) ----------- */
+    @media only screen and (min-width : 321px) {
+      .logo-text a {
+        font-size: larger;
+      }
+
+      #mobile-menu a {
+        font-size: var(--font-size-small);
+      }
+    }
+
+    /* Smartphones (portrait) ----------- */
+    @media only screen and (max-width : 320px) {
+      h1 {
+        font-size: var(--font-size-small);
+      }
+
+      h2,
+      h3,
+      p {
+        font-size: var(--font-size-xsmall);
+      }
+
+      .logo-text a {
+        font-size: smaller;
       }
 
       .pagination {
@@ -333,413 +383,32 @@
         height: 8px;
       }
 
-      .scroll-indicator {
-        bottom: 5px;
-        font-size: 80px;
-      }
-
-      .contact-form {
-        padding: 0.5rem;
-      }
-
-      nav a {
-        font-size: 1rem;
-      }
-
-      #mobile-menu {
-        padding: 1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 0 1rem;
-      }
-
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      h2 {
-        font-size: 1.6rem;
-      }
-
-      h3 {
-        font-size: 1.4rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .logo-text {
-        display: none;
-        margin: 1rem 0 0.5rem;
-      }
-
-      .contact-form {
-        padding: 1rem;
-      }
-
-      .contact-form .grid {
-        grid-template-columns: 1fr;
-      }
-
-      #servicios .swiper-slide {
-        padding: 0 1rem;
-      }
-
-      .swiper-button-next,
-      .swiper-button-prev {
-        display: none;
-      }
-
-      .desktop-nav {
-        display: none;
-      }
-
-      nav a {
-        padding: 0 20px;
-        font-size: 1.2rem;
-        color: #e2dfdfd8;
-        transition: color 0.3s;
-      }
-
-      nav a:hover {
-        background-color: #ee1818a2;
-        color: #ffffff;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #nosotros {
-        flex-direction: column-reverse;
-      }
-
-      #textContainer,
-      #imageContainer {
-        width: 100%;
-        padding: 1rem;
-      }
-
-      .scroll-indicator {
-        display: none;
-      }
-
-      .logo-text {
-        margin-bottom: 1rem;
-      }
-
-      .logo-text img {
-        width: 50px;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #mobile-menu {
-        width: 100%;
-        min-height: 100vh;
-        z-index: 200;
-        position: fixed;
-      }
-
       #mobile-menu a {
-        font-size: 1.5rem;
-        padding: 20px;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 705px) {
-      h1 {
-        font-size: 2.2rem;
+        font-size: var(--font-size-xsmall);
       }
 
-      h2 {
-        font-size: 1.8rem;
-      }
-
-      h3 {
-        font-size: 1.6rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .logo-text img {
-        width: 45px;
-      }
-
-      nav a {
-        font-size: 1.1rem;
-      }
-
-      .contact-form {
-        padding: 1rem;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #mobile-menu a {
-        font-size: 1.3rem;
-      }
-
-      #mobile-menu {
-        display: none;
-        transform: translateX(-150%);
-      }
-    }
-
-    @media (max-width: 627px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.8rem;
-      }
-
-      h3 {
-        font-size: 1.6rem;
-      }
-
-      p {
-        font-size: 0.9rem;
-      }
-
-      .logo-text {
-        margin-bottom: 0.5rem;
-      }
-
-      .desktop-nav {
-        display: none;
-      }
-
-      #mobile-menu {
-        padding: 1rem;
-      }
-
-      #mobile-menu a {
-        font-size: 1.2rem;
-      }
-
-      .scroll-indicator {
-        display: flex;
-      }
-
-      .entrada {
-        padding: 1rem;
-      }
-    }
-
-    @media (min-width: 481px) and (max-width: 640px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      h3 {
-        font-size: 1.8rem;
-      }
-
-      p {
-        font-size: 1.1rem;
-      }
-
-      .contact-form {
-        padding: 1rem;
-      }
-
-      .contact-form .grid {
-        grid-template-columns: 1fr;
-      }
-
-      #servicios .swiper-slide {
-        padding: 0 1rem;
-      }
-
-      .swiper-button-next,
-      .swiper-button-prev {
-        display: none;
-      }
-
-      .desktop-nav {
-        display: none;
-      }
-
-      nav ul {
-        display: flex;
-        gap: 1rem;
-      }
-
-      nav a {
-        padding: 0 20px;
-        font-size: 1.2rem;
-        color: #e2dfdfd8;
-        transition: background-color 0.3s, color 0.3s;
-      }
-
-      nav a:hover {
-        background-color: #ee1818a2;
-        color: #ffffff;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #nosotros {
-        flex-direction: column-reverse;
-      }
-
-      #textContainer,
-      #imageContainer {
+      .g-recaptcha {
         width: 100%;
-        padding: 1rem;
-      }
-
-      .scroll-indicator {
-        display: flex;
-      }
-
-      .logo-text {
-        margin-bottom: 1rem;
-      }
-
-      .logo-text img {
-        width: 50px;
-      }
-
-      nav a {
-        font-size: 1rem;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #mobile-menu {
-        width: 100%;
-        min-height: 100vh;
-        margin: 0 auto;
-      }
-
-    }
-
-    @media (max-width: 756px) {
-      .desktop-nav {
-        display: none;
-      }
-
-      #mobile-menu {
-        width: 100%;
-        min-height: 100vh;
-        margin: 0 auto;
-      }
-
-      #mobile-menu a {
-        text-align: center;
-        padding: 15px;
-        font-size: 18px;
-        color: #ffffff;
+        transform: scale(0.7);
       }
     }
 
-    @media (max-width: 726px) {
-      #mobile-menu {
-        transform: translateX(-160%);
-      }
-    }
-
-    @media (min-width: 768px) {
-      .desktop-nav {
-        display: flex;
-      }
-
-      .menu-icon {
-        display: none;
-      }
-
-      #mobile-menu {
-        display: none;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .desktop-nav {
-        display: none;
-      }
-
-      #mobile-menu {
-        display: none;
-      }
-    }
-
-    @media (min-width: 641px) and (max-width: 768px) {
+    /* Tablets, iPads (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
       h1 {
-        font-size: 2.4rem;
+        font-size: var(--font-size-large);
       }
 
       h2 {
-        font-size: 2.2rem;
+        font-size: var(--font-size-medium);
       }
 
       h3 {
-        font-size: 2rem;
+        font-size: var(--font-size-small);
       }
 
       p {
-        font-size: 1.2rem;
-      }
-
-      .desktop-nav {
-        display: none;
-      }
-    }
-
-    @media (min-width: 769px) and (max-width: 1024px) {
-      h1 {
-        font-size: 2.8rem;
-      }
-
-      h2 {
-        font-size: 2.4rem;
-      }
-
-      h3 {
-        font-size: 2.2rem;
-      }
-
-      p {
-        font-size: 1.3rem;
-      }
-
-      .scroll-indicator {
-        display: flex;
-      }
-
-      .desktop-nav ul {
-        flex-wrap: nowrap;
-        justify-content: center;
-      }
-
-      .desktop-nav li {
-        margin: 0.2rem;
+        font-size: var(--font-size-xsmall);
       }
 
       .desktop-nav {
@@ -749,30 +418,69 @@
         padding: 1rem;
       }
 
+      .desktop-nav ul {
+        flex-wrap: nowrap;
+        justify-content: center;
+      }
+
+      .desktop-nav a {
+        font-size: var(--font-size-small);
+      }
+
+      .desktop-nav li {
+        margin: 0.2rem;
+      }
+
       #mobile-menu {
         display: none;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      h1 {
-        font-size: 3rem;
-      }
-
-      h2 {
-        font-size: 2.6rem;
-      }
-
-      h3 {
-        font-size: 2.4rem;
-      }
-
-      p {
-        font-size: 1.4rem;
       }
 
       .scroll-indicator {
         display: flex;
+      }
+    }
+
+    /* Tablets, iPads (landscape) ----------- */
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+      .desktop-nav {
+        display: flex !important;
+      }
+
+      .desktop-nav li {
+        margin: 0.5rem;
+      }
+
+    }
+
+    /* Tablets, iPads (portrait) ----------- */
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+      .desktop-nav a {
+        font-size: 0.7rem;
+      }
+    }
+
+    /* Desktops and laptops ----------- */
+    @media only screen and (min-width : 1024px) {
+      .desktop-nav a {
+        font-size: large;
+      }
+    }
+
+    @media only screen and (min-width : 1224px) {
+      h1 {
+        font-size: var(--font-size-large);
+      }
+
+      h2 {
+        font-size: var(--font-size-medium);
+      }
+
+      h3 {
+        font-size: var(--font-size-small);
+      }
+
+      p {
+        font-size: var(--font-size-xsmall);
       }
 
       .swiper-slide {
@@ -784,13 +492,12 @@
         display: block;
       }
 
-      .desktop-nav ul {
-        flex-wrap: nowrap;
-        justify-content: center;
+      .scroll-indicator {
+        display: flex;
       }
 
-      .desktop-nav li {
-        margin: 1rem;
+      .logo-text a {
+        font-size: larger;
       }
 
       .desktop-nav {
@@ -800,9 +507,46 @@
         padding: 1rem;
       }
 
+      .desktop-nav ul {
+        flex-wrap: nowrap;
+        justify-content: center;
+      }
+
+      .desktop-nav li {
+        margin: 1rem;
+      }
+
+      .desktop-nav a {
+        font-size: var(--font-size-xsmall);
+      }
+
       #mobile-menu {
         display: none;
         transform: translateY(-100px);
+      }
+    }
+
+    @media only screen and (min-width : 1440px) {
+      .desktop-nav a {
+        font-size: x-large;
+      }
+
+    }
+
+    /* Large screens ----------- */
+    @media only screen and (min-width : 1824px) {
+      .desktop-nav a {
+        font-size: var(--font-size-small);
+      }
+
+      .swiper-slide {
+        width: 25%;
+      }
+    }
+
+    @media only screen and (min-width : 2056px) {
+      .desktop-nav a {
+        font-size: xx-large;
       }
     }
   </style>
@@ -813,19 +557,16 @@
     <div class="spinner"></div>
   </div>
 
-  <!-- Sección de Hero con el Navbar -->
   <section class="slide-left w-full text-white p-8 text-center section-background">
-    <header class="hero flex justify-between items-center p-6">
-      <!-- Logo -->
+    <header class="hero flex justify-between items-center">
       <div class="logo-text flex items-center">
         <a data-aos="fade-up" href="./inicio.html" aria-label="Ir a inicio"
-          class="flex items-center text-3xl sm:text-4xl font-bold">
+          class="flex items-center text-3xl xxs:text-4xl font-bold">
           <img src="/public/img/172728779273.webp" alt="Logo Serviserc" class="w-24" />
           SERVISERC
         </a>
       </div>
 
-      <!-- Botón del Menú móvil (hamburguesa) -->
       <div data-aos="fade-up" class="md:hidden">
         <button id="menu-button" aria-expanded="false" class="text-white focus:outline-none">
           <i id="menu-icon" class="fas fa-bars text-2xl"></i>
@@ -833,33 +574,31 @@
         </button>
       </div>
 
-      <!-- Menú de Escritorio -->
       <nav class="desktop-nav md:flex space-x-8 text-white hidden">
         <ul class="flex justify-around w-full list-none m-0 p-0">
           <li><a href="#servicios" onclick="smoothScroll('#servicios'); return false;"
-              class="nav-item block py-2 px-4 text-gray-300 rounded hover:bg-gray-700">Servicios</a></li>
+              class="nav-item block py-2 px-4 text-gray-300  hover:text-red-200">Servicios</a></li>
           <li><a href="#nosotros" onclick="smoothScroll('#nosotros'); return false;"
-              class="nav-item block py-2 px-4 text-gray-300 rounded hover:bg-gray-700">Sobre Nosotros</a></li>
+              class="nav-item block py-2 px-4 text-gray-300 hover:text-red-200">Sobre Nosotros</a></li>
           <li><a href="#contacto" onclick="smoothScroll('#contacto'); return false;"
-              class="nav-item block py-2 px-4 text-gray-300 rounded hover:bg-gray-700">Contacto</a></li>
+              class="nav-item block py-2 px-4 text-gray-300 hover:text-red-200">Contacto</a></li>
           <li><a href="#sedes" onclick="smoothScroll('#sedes'); return false;"
-              class="nav-item block py-2 px-4 text-gray-300 rounded hover:bg-gray-700">Sedes</a></li>
+              class="nav-item block py-2 px-4 text-gray-300 hover:text-red-200">Sedes</a></li>
         </ul>
       </nav>
     </header>
 
-    <!-- Menú móvil oculto -->
-    <nav id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-red-600 text-white p-4 transform -translate-y-full transition-transform duration-300 ease-in-out z-50">
-      <a href="#servicios" onclick="smoothScroll('#servicios'); return false;" class="block py-2 px-4">Servicios</a>
+    <nav id="mobile-menu" class="hidden">
+      <a href="#servicios" onclick="smoothScroll('#servicios'); return false;"
+        class="nav-item block py-2 px-4">Servicios</a>
       <a href="#nosotros" onclick="smoothScroll('#nosotros'); return false;" class="block py-2 px-4">Sobre Nosotros</a>
       <a href="#contacto" onclick="smoothScroll('#contacto'); return false;" class="block py-2 px-4">Contacto</a>
       <a href="#sedes" onclick="smoothScroll('#sedes'); return false;" class="block py-2 px-4">Sedes</a>
     </nav>
 
-    <!-- Contenido de la página -->
     <div data-aos="fade-up" class="mt-12 px-4">
-      <h2 class="entrada text-3xl sm:text-4xl font-bold">Consultoria Empresarial</h2>
-      <p class="entrada mt-4 text-base sm:text-lg">Haz crecer tu negocio, haz crecer tu imagen</p>
+      <h2 class="entrada text-3xl xxs:text-4xl  font-bold">Consultoria Empresarial</h2>
+      <p class="entrada mt-4 text-base xxs:text-lg sm:text-xls">Haz crecer tu negocio, haz crecer tu imagen</p>
       <button href="#contacto" onclick="smoothScroll('#contacto'); return false;" data-aos="fade-up"
         class="entrada mt-6 bg-red-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-red-500 hover:shadow-lg focus:outline-none transition">
         Contactar
@@ -874,13 +613,12 @@
     </div>
   </section>
 
-  <!-- Scroll Indicator -->
   <div onclick="smoothScroll('#servicios')" class="scroll-indicator">
     <span data-aos="fade-up" class="material-icons">expand_more</span>
   </div>
 
-  <main id="inicio" class="flex flex-col items-center justify-between">
-    <section id="servicios" class="section w-full text-center py-12 bg-white">
+  <main id="inicio">
+    <section id="servicios" class="section w-full text-center my-12 bg-white">
       <h3 class="text-3xl font-bold mb-8">Nuestros Servicios</h3>
       <div class="swiper">
         <div class="swiper-wrapper">
@@ -930,7 +668,7 @@
               requerimiento.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
                 <label for="nombre" class="block mb-1 text-gray-700">Nombre</label>
                 <input type="text" required name="nom" id="nombre"
@@ -964,7 +702,9 @@
                 placeholder="¿Cómo podemos ayudarlo?" maxlength="300"></textarea>
             </div>
 
-            <div class="g-recaptcha my-4" data-sitekey="6LczmEIqAAAAABDFEe3YHuhnQzISGDlA1epFilU_"></div>
+            <div class="flex justify-center w-full my-4">
+              <div class="g-recaptcha w-full max-w-xs" data-sitekey="6LczmEIqAAAAABDFEe3YHuhnQzISGDlA1epFilU_"></div>
+            </div>
 
             <div class="my-3">
               <div id="loading" class="hidden">Cargando...</div>
@@ -1032,7 +772,7 @@
       </div>
     </section>
 
-    <div class="nav-bottom">
+    <div class="nav-bottom" id="whatsapp-button" style="display: none;">
       <button type="button" id="whats-openPopup" class="whatsapp-button" aria-label="Abrir chat de WhatsApp">
         <a href="https://wa.me/send?phone=5199132438&text=Hola Serviserc!, necesito más información" target="_blank"
           rel="noopener noreferrer"><img class="icon-whatsapp" src="/public/img/Whatsapp_37229.webp" alt="WhatsApp" />
@@ -1055,7 +795,7 @@
   <script src="/src/js/service.js"></script>
   <script src="/src/js/sdb.js"></script>
   <script src="/src/js/data_msg.js"></script>
-  <script>
+  <!--  Chicago typewriter <script>
     const MIN_LOADER_TIME = 3000;
 
     window.addEventListener('load', () => {
@@ -1073,8 +813,12 @@
         initIntersectionObserver();
       }, MIN_LOADER_TIME);
     });
-  </script>
+  </script> -->
   <script>
+    AOS.init();
+    initScrollAnimations();
+    initBackgroundUpdater();
+    initIntersectionObserver();
     function smoothScroll(target, duration = 1000) {
       const element = document.querySelector(target);
       if (!element) return;
@@ -1196,6 +940,7 @@
       if (imageContainer) observer.observe(imageContainer);
     }
   </script>
+
   <script>
     var swiper = new Swiper(".swiper", {
       slidesPerView: 1,
@@ -1238,8 +983,8 @@
           spaceBetween: 120,
         },
         640: {
-          slidesPerView: 2,
-          spaceBetween: 90,
+          slidesPerView: 1,
+          spaceBetween: 100,
         },
         768: {
           slidesPerView: 2,
