@@ -1,9 +1,7 @@
-document.getElementById("contact-form").addEventListener("submit", function (e) {
+document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
   
-  var form = e.target;
-  var formData = new FormData(form);
-
+  var formData = new FormData(this);
   var loading = document.getElementById("loading");
   var errorMessage = document.getElementById("error-message");
   var sentMessage = document.getElementById("sent-message");
@@ -21,7 +19,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
       loading.classList.add("hidden");
       if (data.success) {
         sentMessage.classList.remove("hidden");
-        form.reset();
+        this.reset();
       } else {
         errorMessage.classList.remove("hidden");
         errorMessage.textContent = data.message;

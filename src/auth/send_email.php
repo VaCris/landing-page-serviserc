@@ -1,10 +1,14 @@
 <?php
+ob_start();
+ini_set('display_errors', 0);
+error_reporting(E_ALL);
+
 header('Content-Type: application/json');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Dotenv\Dotenv;
 
-require '/serviserc/vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 
 $dotenv = Dotenv::createImmutable(__DIR__, 'ecrytp.env');
 $dotenv->load();
@@ -15,6 +19,8 @@ $response = [
     'message' => ''
 ];
 
+
+//Validacion reCAPTCHA
 if (isset($_POST['g-recaptcha-response'])) {
     $recaptchaSecret = $_ENV['RECAPTCHA_SECRET_KEY'];
     $recaptchaResponse = $_POST['g-recaptcha-response'];
@@ -45,8 +51,10 @@ if (isset($_POST['g-recaptcha-response'])) {
     exit;
 }
 
+
+//Configuracion PHPMailer
 try {
-    $mail->SMTPDebug = 0;
+    $mail->SMTPDebug = 2;
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
@@ -61,6 +69,8 @@ try {
         $mail->addAddress(trim($recipient));
     }
 
+
+    //Validacion y sanitizacion de campos
     $nombre = htmlspecialchars(trim($_POST['nom']), ENT_QUOTES, 'UTF-8');
     $telefono = htmlspecialchars(trim($_POST['tel']), ENT_QUOTES, 'UTF-8');
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
@@ -78,6 +88,7 @@ try {
         exit;
     }
 
+    //Contenido del mensaje
     $mail->isHTML(true);
     $mail->CharSet = 'UTF-8';
     $mail->Subject = htmlspecialchars(trim($asunto), ENT_QUOTES, 'UTF-8');
@@ -147,4 +158,5 @@ try {
     error_log("Error al enviar el correo: {$mail->ErrorInfo}");
     $response['message'] = 'No se pudo enviar el mensaje. Inténtelo de nuevo más tarde.';
 }
+ob_end_clean();
 echo json_encode($response);
