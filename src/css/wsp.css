@@ -36,12 +36,6 @@
   transition: opacity 0.5s ease;
   padding: 5px;
   pointer-events: none;
-  opacity: 0;
-}
-
-.nav-bottom.show{
-  opacity: 1;
-  pointer-events: auto;
 }
 
 @media (max-width: 360px) {
@@ -51,7 +45,7 @@
 }
 
 .whatsapp-button {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 60px;
@@ -59,7 +53,7 @@
   z-index: 1;
   transition: 0.2s;
   margin: 10px;
-  padding: 7px;
+  padding: 4px;
   border: none;
   outline: none;
   cursor: pointer;
