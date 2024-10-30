@@ -20,7 +20,6 @@ $response = [
 ];
 
 
-//Validacion reCAPTCHA
 if (isset($_POST['g-recaptcha-response'])) {
     $recaptchaSecret = $_ENV['RECAPTCHA_SECRET_KEY'];
     $recaptchaResponse = $_POST['g-recaptcha-response'];
@@ -32,29 +31,23 @@ if (isset($_POST['g-recaptcha-response'])) {
         'response' => $recaptchaResponse,
         'remoteip' => $remoteAddr
     ];
+
     $recaptchaResponse = file_get_contents($recaptchaUrl . '?' . http_build_query($recaptchaParams));
     $responseKeys = json_decode($recaptchaResponse, true);
 
-    if (
-        !isset($responseKeys['success']) || 
-        !$responseKeys['success'] ||
-        (isset($responseKeys['score']) && $responseKeys['score'] < 0.5) ||
-        (isset($responseKeys['action']) && $responseKeys['action'] !== 'submit')
-    ) {
+    if (!$responseKeys['success']) {
         $response['message'] = 'Comprueba que no eres un robot.';
         echo json_encode($response);
         exit;
     }
-} else {
-    $response['message'] = 'El reCAPTCHA es requerido.';
-    echo json_encode($response);
-    exit;
 }
+
+
 
 
 //Configuracion PHPMailer
 try {
-    $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 0;
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
