@@ -19,7 +19,7 @@ $response = [
     'message' => ''
 ];
 
-
+//Validacion de reCaptcha
 if (isset($_POST['g-recaptcha-response'])) {
     $recaptchaSecret = $_ENV['RECAPTCHA_SECRET_KEY'];
     $recaptchaResponse = $_POST['g-recaptcha-response'];
@@ -41,9 +41,6 @@ if (isset($_POST['g-recaptcha-response'])) {
         exit;
     }
 }
-
-
-
 
 //Configuracion PHPMailer
 try {
