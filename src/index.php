@@ -891,11 +891,11 @@
       const sectionBackground = document.querySelector(".section-background");
       const dots = document.querySelectorAll(".dot");
       const images = [
-        "/public/img/fondogettyimages-1455701949-2048x2048.webp",
-        "/public/img/fondogettyimages-1464029374-2048x2048.webp",
-        "/public/img/fondogettyimages-942682414-2048x2048.webp",
-        "/public/img/fondogettyimages-675825950-2048x2048.webp",
-        "/public/img/gettyimages-1406932329-2048x2048.webp"
+        "/public/img/388830386-portrait-businesswoman.webp",
+        "/public/img/1464029374-2048x2048.webp",
+        "/public/img/942682414-2048x2048.webp",
+        "/public/img/675825950-2048x2048.webp",
+        "/public/img/1406932329-2048x2048.webp"
       ];
       let currentIndex = 0;
 
