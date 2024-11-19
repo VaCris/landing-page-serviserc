@@ -19,7 +19,7 @@ $response = [
     'message' => ''
 ];
 
-//Validacion de reCaptcha
+//Validacion
 if (isset($_POST['g-recaptcha-response'])) {
     $recaptchaSecret = $_ENV['RECAPTCHA_SECRET_KEY'];
     $recaptchaResponse = $_POST['g-recaptcha-response'];
@@ -42,7 +42,7 @@ if (isset($_POST['g-recaptcha-response'])) {
     }
 }
 
-//Configuracion PHPMailer
+//configuración PHPMailer
 try {
     $mail->SMTPDebug = 0;
     $mail->isSMTP();
@@ -60,7 +60,7 @@ try {
     }
 
 
-    //Validacion y sanitizacion de campos
+    //validaciones
     $nombre = htmlspecialchars(trim($_POST['nom']), ENT_QUOTES, 'UTF-8');
     $telefono = htmlspecialchars(trim($_POST['tel']), ENT_QUOTES, 'UTF-8');
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
@@ -78,7 +78,7 @@ try {
         exit;
     }
 
-    //Contenido del mensaje
+    //contenido
     $mail->isHTML(true);
     $mail->CharSet = 'UTF-8';
     $mail->Subject = htmlspecialchars(trim($asunto), ENT_QUOTES, 'UTF-8');

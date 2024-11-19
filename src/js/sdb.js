@@ -7,14 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function toggleMenu() {
         const isOpen = mobileMenu.classList.toggle('hidden');
-        console.log(`Menu esta ${mobileMenu.classList.contains('hidden') ? 'Oculto' : 'Visibe'}`);
 
         menubtn.setAttribute('aria-expanded', !isOpen);
         menuIcon.classList.toggle('hidden', !isOpen);
         closeIcon.classList.toggle('hidden', isOpen);
-        console.log(`Menu Icon: ${menuIcon.classList.contains('hidden') ? 'Oculto' : 'Visible'}`);
-        console.log(`Close Icon: ${closeIcon.classList.contains('hidden') ? 'Oculto' : 'Visible'}`);
-        console.log(`Close Icon estilos: `, window.getComputedStyle(closeIcon));
 
         if (wspbtn) {
             wspbtn.classList.toggle('hidden', !isOpen);
@@ -24,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (menubtn) {
         menubtn.addEventListener('click', toggleMenu);
     } else {
-        console.error('btn menu no encontrado.');
+        console.error('');
     }
 
     if (mobileMenu) {
@@ -36,6 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     } else {
-        console.error('menu movil no encontrado.');
+        console.error('');
     }
 });
