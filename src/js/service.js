@@ -1,7 +1,7 @@
 const servicios = [
     {
         titulo: "Constitución de Empresas",
-        descripcion: "Te ayudamos a constituir tu empresa de manera eficiente y conforme a la ley.",
+        descripcion: "Te ayudamos a constituir tu empresa de manera eficiente, en el menor lapso de tiempo y de acuerdo a tus requerimientos.",
         icono: "corporate_fare",
     },
     {
@@ -35,7 +35,7 @@ const servicios = [
         icono: "money_off",
     },
     {
-        titulo: "Elaboración de Declara Fácil - PLAME 601 SIRE",
+        titulo: "Elaboración de Declara Fácil - SIRE - PLAME 601",
         descripcion: "Nos encargamos de la correcta elaboración de tus declaraciones electrónicas.",
         icono: "article",
     },
@@ -43,12 +43,7 @@ const servicios = [
         titulo: "Presentación de Solicitudes de Reclamación y Apelación",
         descripcion: "Asistimos en la presentación de solicitudes de reclamación ante la SUNAT y el Tribunal Fiscal.",
         icono: "gavel",
-    },
-    {
-        titulo: "Venta de Libros Contables y Legalización",
-        descripcion: "Ofrecemos la venta de libros contables y su legalización ante las autoridades competentes.",
-        icono: "book",
-    },
+    }
 ];
 
 function generarServicios() {

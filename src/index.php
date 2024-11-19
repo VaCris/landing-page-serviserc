@@ -24,7 +24,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="/src/assets/styles/swiper.css" />
-  <!-- <link rel="stylesheet" href="/src/css/carga.css"> -->
+  <link rel="stylesheet" href="/src/css/carga.css">
   <link rel="stylesheet" href="/src/css/wsp.css" />
   <link rel="stylesheet" href="/src/css/form.css" />
   <link rel="stylesheet" href="/src/css/card_service.css" />
@@ -641,7 +641,7 @@
           contables integrales para empresas de diversos tamaños y sectores.
           Con años de experiencia en el mercado, nuestro equipo de
           profesionales está dedicado a ofrecer un servicio personalizado y
-          eficiente para satisfacer todas sus necesidades contables.
+          eficiente para satisfacer todas sus necesidades tributarias y contables.
         </p>
         <p class="text-base md:text-lg mb-3 text-gray-700">
           Nuestra misión es facilitar la gestión financiera de su negocio,
@@ -731,17 +731,17 @@
       <h3 class="text-3xl font-bold mb-8">Nuestras Sedes</h3>
       <div class="flex flex-col md:flex-row justify-center items-start md:items-center gap-8">
         <div class="w-full md:w-1/4 shadow-lg">
-          <h1 class="font-semibold text-sm">Los Olivos</h1>
+          <h1 class="font-semibold text-lg">Los Olivos</h1>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.807805772875!2d-77.0695886102817!3d-11.958486741152038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105ce260b2e13bb%3A0x61277e4d3af94e0d!2sSERVISERC%20S.R.L.!5e0!3m2!1sen!2spe!4v1723509758437!5m2!1sen!2spe"
-            width="100%" height="350" class="rounded-t-lg" style="border: 0" allowfullscreen="" loading="lazy"
+            width="100%" height="300" class="rounded-t-lg" style="border: 0" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
           <div class="p-4" style="font-size: small;">
             <p class="mt-3 font-semibold">
               Av.Alfredo Mendiola MZ. J LT. 13-B Urb.Santa Luisa 2
             </p>
             <p class="text-sm">
-              (Al lado de la SUNAT de VILLASOL - LOS OLIVOS)
+              (Al lado de la SUNAT de VILLASOL - LOS OLIVOS - 2DO PISO)
             </p>
             <p class="font-mono">989 342 085 / 991 324 387 / 932 555 791 <br>
               986 509 615
@@ -750,7 +750,7 @@
           </div>
         </div>
         <div class="w-full md:w-1/4 shadow-lg">
-          <h1 class="font-semibold text-sm">San Isidro</h1>
+          <h1 class="font-semibold text-lg">San Isidro</h1>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1801452578547!2d-77.0261631237209!3d-12.09981681477695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c86ee6498aa3%3A0xc0d0b388e3b29fa9!2sAv.%20P.%C2%BA%20de%20la%20Rep%C3%BAblica%203557%2C%20San%20Isidro%2015047!5e0!3m2!1ses-419!2spe!4v1723557564924!5m2!1ses-419!2spe"
             width="100%" height="350" class="rounded-t-lg" style="border: 0" allowfullscreen="" loading="lazy"
@@ -768,7 +768,7 @@
           </div>
         </div>
         <div class="w-full md:w-1/4 shadow-lg">
-          <h1 class="font-semibold text-sm">Carabayllo</h1>
+          <h1 class="font-semibold text-lg">Carabayllo</h1>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d410.4052586486841!2d-77.02658130748145!3d-11.873384532598825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDUyJzI0LjMiUyA3N8KwMDEnMzQuNyJX!5e0!3m2!1ses-419!2spe!4v1723603830990!5m2!1ses-419!2spe"
             width="100%" height="350" class="rounded-t-lg" style="border: 0" allowfullscreen="" loading="lazy"
@@ -808,7 +808,7 @@
   <script src="/src/js/service.js"></script>
   <script src="/src/js/sdb.js"></script>
   <script src="/src/js/data_msg.js"></script>
-  <!-- <script>
+  <script>
     const MIN_LOADER_TIME = 3000;
 
     window.addEventListener('load', () => {
@@ -826,12 +826,8 @@
         initIntersectionObserver();
       }, MIN_LOADER_TIME);
     });
-  </script> -->
+  </script> 
   <script>
-    AOS.init();
-    initScrollAnimations();
-    initBackgroundUpdater();
-    initIntersectionObserver();
     function smoothScroll(target, duration = 1000) {
       const element = document.querySelector(target);
       if (!element) return;
