@@ -576,16 +576,16 @@
         </button>
       </div>
 
-      <nav class="desktop-nav md:flex space-x-8 text-white hidden">
+      <nav class="desktop-nav md:flex space-x-8  hidden">
         <ul class="flex justify-around w-full list-none m-0 p-0">
           <li><a href="#servicios" onclick="smoothScroll('#servicios'); return false;"
-              class="nav-item block py-2 px-4 text-gray-300  hover:text-red-200">Servicios</a></li>
+              class="nav-item block py-2 px-4 text-white  hover:text-gray-300">Servicios</a></li>
           <li><a href="#nosotros" onclick="smoothScroll('#nosotros'); return false;"
-              class="nav-item block py-2 px-4 text-gray-300 hover:text-red-200">Sobre Nosotros</a></li>
+              class="nav-item block py-2 px-4 text-white hover:text-gray-300">Sobre Nosotros</a></li>
           <li><a href="#contacto" onclick="smoothScroll('#contacto'); return false;"
-              class="nav-item block py-2 px-4 text-gray-300 hover:text-red-200">Contacto</a></li>
+              class="nav-item block py-2 px-4 text-white hover:text-gray-300">Contacto</a></li>
           <li><a href="#sedes" onclick="smoothScroll('#sedes'); return false;"
-              class="nav-item block py-2 px-4 text-gray-300 hover:text-red-200">Sedes</a></li>
+              class="nav-item block py-2 px-4 text-white hover:text-gray-300">Sedes</a></li>
         </ul>
       </nav>
     </header>
@@ -612,6 +612,7 @@
       <span class="dot"></span>
       <span class="dot"></span>
       <span class="dot"></span>
+      <span class="dot"></span> 
     </div>
   </section>
 
@@ -894,6 +895,7 @@
         "/public/img/fondogettyimages-1464029374-2048x2048.webp",
         "/public/img/fondogettyimages-942682414-2048x2048.webp",
         "/public/img/fondogettyimages-675825950-2048x2048.webp",
+        "/public/img/gettyimages-1406932329-2048x2048.webp"
       ];
       let currentIndex = 0;
 
