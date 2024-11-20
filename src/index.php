@@ -645,15 +645,15 @@
           eficiente para satisfacer todas sus necesidades tributarias y contables.
         </p>
         <p class="text-base md:text-lg mb-3 text-gray-700">
-          Nuestra misión es facilitar la gestión financiera de su negocio,
+          Nuestra misión es facilitar la gestión de su negocio,
           asegurándonos de que cumpla con todas las normativas vigentes y
           optimizando sus procesos contables. En SERVISERC S.A.C, usted
           encontrará un socio confiable que le ayudará a alcanzar sus
-          objetivos financieros.
+          objetivos.
         </p>
       </div>
       <div class="image-container md:w-1/2 flex justify-center items-center" id="imageContainer">
-        <img src="/public/img/gettyimages-1406932329-2048x2048.webp" alt="Sobre Serviserc"
+        <img src="/public/img/1406932329-2048x2048.webp" alt="Sobre Serviserc"
           class="w-full h-auto max-w-lg rounded-lg shadow-md" />
       </div>
     </section>
@@ -891,7 +891,7 @@
       const sectionBackground = document.querySelector(".section-background");
       const dots = document.querySelectorAll(".dot");
       const images = [
-        "/public/img/388830386-portrait-businesswoman.webp",
+        "/public/img/97712-493.webp",
         "/public/img/1464029374-2048x2048.webp",
         "/public/img/942682414-2048x2048.webp",
         "/public/img/675825950-2048x2048.webp",
