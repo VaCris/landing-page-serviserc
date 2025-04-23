@@ -1,0 +1,39 @@
+# Landing Page - ServiSERC
+
+Este proyecto es una **landing page** desarrollada para **ServiSERC**, una empresa de servicios. Fue creada con el objetivo de ofrecer una presentación clara, profesional y visualmente atractiva de los servicios que brinda la compañía.
+
+## 🚀 Tecnologías utilizadas
+
+El proyecto está construido usando una combinación de tecnologías:
+
+- 🖍️ **Hack** – 46.8%
+- 🎨 **CSS** – 36.7%
+- ⚙️ **JavaScript** – 7.9%
+- 🧩 **PHP** – 6.3%
+- 🧱 **HTML** – 2.3%
+
+## 📦 Estado del proyecto
+
+- ⭐ Repositorio: 0 estrellas
+- 👁️ 1 observador
+- 🍴 0 forks
+
+## 🚀 Despliegue
+
+El proyecto ha sido desplegado usando **GitHub Pages** y cuenta con 5 despliegues realizados hasta ahora.
+
+## 📁 Releases y Paquetes
+
+Aún no se ha publicado ninguna **release** ni **paquete**. Próximamente se planea hacer la primera versión oficial.
+
+## 📌 Objetivos
+
+- Ofrecer una presencia digital moderna para ServiSERC.
+- Mostrar los servicios de forma clara y accesible.
+- Asegurar compatibilidad y buen rendimiento en navegadores modernos.
+
+## 📍 Estado
+
+🟢 Proyecto funcional y en línea. Próximas actualizaciones incluirán optimización del código y mejoras en diseño responsive.
+
+---
