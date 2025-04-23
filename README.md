@@ -34,6 +34,6 @@ Aún no se ha publicado ninguna **release** ni **paquete**. Próximamente se pla
 
 ## 📍 Estado
 
-🟢 Proyecto funcional y en línea. Próximas actualizaciones incluirán optimización del código y mejoras en diseño responsive.
+🟢 El proyecto está en funcionamiento usando GitHub Pages como solución gratuita de hosting, debido a que no se contempló presupuesto para un hosting personalizado.
 
 ---
