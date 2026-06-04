@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { agreement } from '@/data/agreement';
-import { whatsappLink } from '@/lib/site';
+import { asset, whatsappLink } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Convenio UCH',
@@ -10,33 +11,72 @@ export const metadata: Metadata = {
 export default function AgreementPage() {
   return (
     <main>
-      <section className="service-detail-hero">
+      <section className="agreement-hero">
+        <div className="container agreement-hero-grid">
+          <div>
+            <span className="hero-kicker">Convenio educativo</span>
+            <h1 className="agreement-hero-title">{agreement.title}</h1>
+            <p className="agreement-hero-copy">{agreement.description}</p>
+            <div className="hero-actions">
+              <a className="btn btn-secondary" href={whatsappLink('Hola Serviserc, necesito información sobre el convenio UCH')} target="_blank" rel="noopener noreferrer">
+                Consultar convenio
+              </a>
+              <Link className="btn btn-outline" href="/#sedes">
+                Ver sedes
+              </Link>
+            </div>
+          </div>
+          <div className="agreement-poster">
+            <img src={asset('/img/97712-493.webp')} alt="Convenio SERVISERC con UCH" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="container">
-          <span className="hero-kicker">Convenio educativo</span>
-          <h1 className="service-detail-title">{agreement.title}</h1>
-          <p className="hero-copy">{agreement.description}</p>
+          <h2 className="section-title">Beneficios del convenio</h2>
+          <p className="section-copy">
+            Una sección pensada para comunicar mejor la alianza, orientar a los interesados y llevarlos a consultar por WhatsApp o en sede.
+          </p>
+          <div className="agreement-summary">
+            {agreement.highlights.map((item) => (
+              <div key={item.title} className="summary-item">
+                <strong>{item.title}</strong>
+                <span>{item.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="section section-muted">
-        <div className="container agreement-grid">
-          <div className="detail-box">
-            <h2>Carreras disponibles</h2>
-            <ul className="agreement-list">
-              {agreement.careers.map((career) => (
-                <li key={career}>{career}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="agreement-card">
-            <h3>Informes</h3>
+        <div className="container agreement-info-grid">
+          <aside className="info-panel">
+            <h2>Informes</h2>
             <p>{agreement.note}</p>
-            <p>Aprovecha los descuentos especiales e infórmate en nuestras sedes.</p>
-            <a className="btn btn-secondary" href={whatsappLink('Hola Serviserc, necesito información sobre el convenio UCH')} target="_blank" rel="noopener noreferrer" style={{ marginTop: 18 }}>
-              Consultar convenio
+            <ul className="info-list">
+              <li>Consulta disponibilidad de descuentos especiales.</li>
+              <li>Recibe orientación sobre carreras y sedes de atención.</li>
+              <li>Solicita información desde WhatsApp o presencialmente.</li>
+            </ul>
+            <a className="btn btn-primary" href={whatsappLink('Hola Serviserc, deseo información sobre el convenio con UCH')} target="_blank" rel="noopener noreferrer">
+              Solicitar información
             </a>
-          </div>
+          </aside>
+
+          <section className="info-panel">
+            <h2>Carreras disponibles</h2>
+            <p>
+              Estas son las carreras comunicadas en el convenio con la Universidad de Ciencias y Humanidades.
+            </p>
+            <div className="career-grid">
+              {agreement.careers.map((career) => (
+                <div key={career} className="career-card">
+                  {career}
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
       </section>
     </main>
