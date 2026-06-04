@@ -3,7 +3,7 @@ import { secondaryServices, services } from '@/data/services';
 export const footerContent = {
   company: {
     description:
-      'Consultoría empresarial especializada en servicios contables, tributarios, laborales y documentarios para emprendedores, pymes y empresas en Perú.',
+      'Consultoría empresarial especializada en servicios contables, tributarios, laborales y de imprenta para emprendedores, pymes y empresas en Perú.',
     contact: {
       whatsapp: '989 342 085',
       phone: '(01) 657 8198',
@@ -19,7 +19,7 @@ export const footerContent = {
       })),
     },
     {
-      title: 'Otros servicios',
+      title: 'Imprenta',
       links: secondaryServices.map((service) => ({
         label: service,
         href: '/servicios/',
