@@ -3,7 +3,7 @@ import { ServiceCard } from '@/components/ServiceCard';
 import { agreement } from '@/data/agreement';
 import { locations } from '@/data/locations';
 import { secondaryServices, services } from '@/data/services';
-import { whatsappLink } from '@/lib/site';
+import { asset, whatsappLink } from '@/lib/site';
 
 export default function HomePage() {
   const featuredServices = services.slice(0, 6);
@@ -59,7 +59,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="image-panel">
-            <img src="/img/1406932329-2048x2048.webp" alt="Equipo de asesoría SERVISERC" />
+            <img src={asset('/img/1406932329-2048x2048.webp')} alt="Equipo de asesoría SERVISERC" />
           </div>
         </div>
       </section>
@@ -67,7 +67,7 @@ export default function HomePage() {
       <section className="section">
         <div className="container agreement-grid">
           <div className="image-panel">
-            <img src="/img/97712-493.webp" alt="Servicios empresariales SERVISERC" />
+            <img src={asset('/img/97712-493.webp')} alt="Servicios empresariales SERVISERC" />
           </div>
           <div className="agreement-card">
             <h2>{agreement.title}</h2>
