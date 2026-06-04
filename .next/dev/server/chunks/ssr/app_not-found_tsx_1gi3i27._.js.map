@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///mnt/tkoh/Proyectos/ME/landing-page-serviserc/app/not-found.tsx"],"sourcesContent":["import Link from 'next/link';\n\nexport default function NotFound() {\n  return (\n    <main className=\"section section-muted\">\n      <div className=\"container detail-box\">\n        <h1>Contenido no encontrado</h1>\n        <p className=\"section-copy\">La página que buscas no existe o fue movida.</p>\n        <Link className=\"btn btn-primary\" href=\"/\" style={{ marginTop: 24 }}>\n          Volver al inicio\n        </Link>\n      </div>\n    </main>\n  );\n}\n"],"names":["NotFound","className","href","style","marginTop"],"mappings":";;;;;AAAA;;;AAEe,SAASA;IACtB,qBACE,6WAAC;QAAKC,WAAU;kBACd,cAAA,6WAAC;YAAIA,WAAU;;8BACb,6WAAC;8BAAG;;;;;;8BACJ,6WAAC;oBAAEA,WAAU;8BAAe;;;;;;8BAC5B,6WAAC,yTAAI;oBAACA,WAAU;oBAAkBC,MAAK;oBAAIC,OAAO;wBAAEC,WAAW;oBAAG;8BAAG;;;;;;;;;;;;;;;;;AAM7E"}}]
+}
