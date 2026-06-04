@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import './globals.css';
-import { siteConfig, whatsappLink } from '@/lib/site';
+import { asset, siteConfig, whatsappLink } from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <header className="header">
           <div className="container navbar">
             <Link className="brand" href="/">
-              <img className="brand-mark" src="/img/172728779273.webp" alt="Logo SERVISERC" />
+              <img className="brand-mark" src={asset('/img/172728779273.webp')} alt="Logo SERVISERC" />
               <span>SERVISERC</span>
             </Link>
             <nav className="nav-links" aria-label="Navegación principal">
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </header>
         {children}
         <a className="whatsapp-float" href={whatsappLink()} target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-          <img src="/img/Whatsapp_37229.webp" alt="WhatsApp" />
+          <img src={asset('/img/Whatsapp_37229.webp')} alt="WhatsApp" />
         </a>
         <footer className="footer">
           <div className="container">
