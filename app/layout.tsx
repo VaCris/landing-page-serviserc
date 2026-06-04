@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import './globals.css';
+import { Footer } from '@/components/Footer';
 import { asset, siteConfig, whatsappLink } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -60,11 +61,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <a className="whatsapp-float" href={whatsappLink()} target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
           <img src={asset('/img/Whatsapp_37229.webp')} alt="WhatsApp" />
         </a>
-        <footer className="footer">
-          <div className="container">
-            <p>Copyright © 2024 SERVISERC S.A.C. Todos los derechos reservados.</p>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
