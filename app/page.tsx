@@ -10,7 +10,14 @@ export default function HomePage() {
 
   return (
     <main>
-      <section className="hero">
+      <section
+        className="hero"
+        style={{
+          backgroundImage: `linear-gradient(90deg, rgb(7 29 61 / 90%), rgb(7 29 61 / 60%), rgb(216 35 42 / 35%)), url(${asset('/img/97712-493.webp')})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         <div className="container hero-content">
           <span className="hero-kicker">Consultoría empresarial</span>
           <h1 className="hero-title">Haz crecer tu negocio, haz crecer tu imagen</h1>
