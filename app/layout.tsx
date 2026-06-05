@@ -4,6 +4,7 @@ import './visual-upgrades.css';
 import './image-modal-overrides.css';
 import './uch-hero-overrides.css';
 import './agreement-compact-overrides.css';
+import './service-detail-overrides.css';
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
 import { asset, siteConfig, whatsappLink } from '@/lib/site';
