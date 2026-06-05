@@ -71,26 +71,26 @@ export default function AgreementPage() {
           </div>
 
           <section className="info-panel careers-panel">
-            <span className="panel-kicker">Carreras y orientación</span>
+            <span className="hero-kicker" style={{ background: '#d8232a', color: '#ffffff' }}>Carreras y orientación</span>
             <h2>Elige una carrera y solicita información</h2>
             <p>
               La imagen del convenio ya contiene el listado de carreras. Por eso usamos este espacio para guiar al visitante hacia la consulta y evitar repetir la misma información.
             </p>
-            <div className="agreement-step-list">
+
+            <div className="process-grid" style={{ gridTemplateColumns: '1fr', marginTop: 28 }}>
               {agreementSteps.map((step, index) => (
-                <article key={step.title} className="agreement-step-card">
+                <article key={step.title} className="process-card">
                   <span>{String(index + 1).padStart(2, '0')}</span>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p>{step.text}</p>
-                  </div>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
                 </article>
               ))}
             </div>
-            <div className="agreement-side-cta">
-              <strong>¿Quieres consultar por una carrera?</strong>
+
+            <div className="agreement-card" style={{ marginTop: 28 }}>
+              <h3>¿Quieres consultar por una carrera?</h3>
               <p>Indícanos la carrera de tu interés y la sede donde deseas recibir orientación.</p>
-              <a className="btn btn-primary" href={whatsappLink('Hola Serviserc, quiero información sobre una carrera del convenio UCH')} target="_blank" rel="noopener noreferrer">
+              <a className="btn btn-secondary" href={whatsappLink('Hola Serviserc, quiero información sobre una carrera del convenio UCH')} target="_blank" rel="noopener noreferrer" style={{ marginTop: 18 }}>
                 Consultar por WhatsApp
               </a>
             </div>
