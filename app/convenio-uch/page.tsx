@@ -1,12 +1,38 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { JsonLd } from '@/components/JsonLd';
 import { ZoomableImage } from '@/components/ZoomableImage';
 import { agreement } from '@/data/agreement';
-import { asset, whatsappLink } from '@/lib/site';
+import { absoluteAsset, absoluteUrl, asset, siteConfig, whatsappLink } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Convenio UCH',
-  description: 'Información sobre el convenio de SERVISERC S.A.C. con la Universidad de Ciencias y Humanidades.',
+  title: 'Convenio UCH en Lima',
+  description: 'Información sobre el convenio de SERVISERC S.A.C. con la Universidad de Ciencias y Humanidades para carreras y beneficios en Lima.',
+  alternates: {
+    canonical: absoluteUrl('/convenio-uch/'),
+  },
+  keywords: [
+    'Convenio UCH',
+    'Universidad de Ciencias y Humanidades',
+    'SERVISERC convenio',
+    'carreras UCH Lima',
+    'descuentos UCH',
+  ],
+  openGraph: {
+    title: 'Convenio UCH | SERVISERC S.A.C.',
+    description: 'Información sobre carreras, beneficios y orientación del convenio UCH con SERVISERC S.A.C.',
+    url: absoluteUrl('/convenio-uch/'),
+    images: [
+      {
+        url: absoluteAsset('/img/uch-1.webp'),
+        width: 1200,
+        height: 630,
+        alt: 'Convenio UCH SERVISERC',
+      },
+    ],
+    locale: siteConfig.locale,
+    type: 'website',
+  },
 };
 
 const agreementSteps = [
@@ -27,6 +53,22 @@ const agreementSteps = [
 export default function AgreementPage() {
   return (
     <main>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'EducationalOccupationalProgram',
+          name: 'Convenio UCH SERVISERC',
+          description: agreement.description,
+          url: absoluteUrl('/convenio-uch/'),
+          provider: {
+            '@id': `${siteConfig.url}/#organization`,
+          },
+          areaServed: {
+            '@type': 'City',
+            name: 'Lima',
+          },
+        }}
+      />
       <section
         className="uch-hero"
         style={{
