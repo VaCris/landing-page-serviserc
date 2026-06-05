@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ZoomableImage } from '@/components/ZoomableImage';
 import { agreement } from '@/data/agreement';
 import { asset, whatsappLink } from '@/lib/site';
 
@@ -47,7 +48,7 @@ export default function AgreementPage() {
             </div>
           </div>
           <div className="uch-hero-visual">
-            <img src={asset('/img/uch-2.webp')} alt="Convenio SERVISERC con Universidad de Ciencias y Humanidades" />
+            <ZoomableImage src={asset('/img/uch-2.webp')} alt="Convenio SERVISERC con Universidad de Ciencias y Humanidades" />
           </div>
         </div>
       </section>
@@ -73,7 +74,7 @@ export default function AgreementPage() {
       <section className="section section-muted section-separated">
         <div className="container agreement-careers-layout">
           <div className="agreement-careers-image">
-            <img src={asset('/img/convenio-uch.webp')} alt="Carreras disponibles del convenio UCH" />
+            <ZoomableImage src={asset('/img/convenio-uch.webp')} alt="Carreras disponibles del convenio UCH" />
           </div>
 
           <section className="info-panel careers-panel">
