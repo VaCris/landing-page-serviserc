@@ -8,8 +8,8 @@ type ZoomableImageProps = {
   className?: string;
 };
 
-const FIT_ZOOM = 0.72;
-const MIN_ZOOM = 0.6;
+const FIT_ZOOM = 1;
+const MIN_ZOOM = 0.72;
 const MAX_ZOOM = 2.4;
 const ZOOM_STEP = 0.2;
 
