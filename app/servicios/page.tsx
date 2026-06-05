@@ -1,12 +1,40 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { JsonLd } from '@/components/JsonLd';
 import { ServiceCard } from '@/components/ServiceCard';
 import { services } from '@/data/services';
-import { asset, whatsappLink } from '@/lib/site';
+import { servicesItemListJsonLd } from '@/lib/seo';
+import { absoluteAsset, absoluteUrl, asset, siteConfig, whatsappLink } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Servicios',
-  description: 'Servicios contables, tributarios, laborales, documentarios y empresariales de SERVISERC S.A.C.',
+  title: 'Servicios Contables, Tributarios y Laborales en Lima',
+  description: 'Servicios contables, tributarios, laborales, documentarios y empresariales para emprendedores, pymes y empresas en Lima, Perú.',
+  alternates: {
+    canonical: absoluteUrl('/servicios/'),
+  },
+  keywords: [
+    'servicios contables Lima',
+    'asesoría tributaria Lima',
+    'asesoría laboral para empresas',
+    'constitución de empresas Perú',
+    'facturación electrónica SUNAT',
+    ...siteConfig.keywords,
+  ],
+  openGraph: {
+    title: 'Servicios Contables, Tributarios y Laborales en Lima | SERVISERC S.A.C.',
+    description: 'Asesoría contable, tributaria, laboral y empresarial para emprendedores, pymes y empresas en Lima.',
+    url: absoluteUrl('/servicios/'),
+    images: [
+      {
+        url: absoluteAsset('/img/servicios-generales.webp'),
+        width: 1200,
+        height: 630,
+        alt: 'Servicios contables y tributarios de SERVISERC',
+      },
+    ],
+    locale: siteConfig.locale,
+    type: 'website',
+  },
 };
 
 const processSteps = [
@@ -27,6 +55,7 @@ const processSteps = [
 export default function ServicesPage() {
   return (
     <main>
+      <JsonLd data={servicesItemListJsonLd()} />
       <section
         className="services-hero services-hero-image"
         style={{
