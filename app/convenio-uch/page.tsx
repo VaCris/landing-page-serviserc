@@ -30,7 +30,7 @@ export default function AgreementPage() {
       <section
         className="uch-hero"
         style={{
-          backgroundImage: `linear-gradient(110deg, rgb(5 18 38 / 94%), rgb(7 29 61 / 82%) 48%, rgb(216 35 42 / 38%)), url(${asset('/img/uch-2.webp')})`,
+          backgroundImage: `linear-gradient(110deg, rgb(5 18 38 / 94%), rgb(7 29 61 / 82%) 48%, rgb(216 35 42 / 38%)), url(${asset('/img/uch-1.webp')})`,
         }}
       >
         <div className="container uch-hero-grid uch-hero-background-layout">
