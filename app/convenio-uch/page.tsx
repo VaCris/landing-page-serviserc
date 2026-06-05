@@ -42,7 +42,7 @@ export default function AgreementPage() {
             </div>
           </div>
           <div className="agreement-poster">
-            <img src={asset('/img/convenio-uch.png')} alt="Convenio SERVISERC con Universidad de Ciencias y Humanidades" />
+            <img src={asset('/img/uch-2.webp')} alt="Convenio SERVISERC con Universidad de Ciencias y Humanidades" />
           </div>
         </div>
       </section>
@@ -67,7 +67,7 @@ export default function AgreementPage() {
       <section className="section section-muted">
         <div className="container agreement-careers-layout">
           <div className="agreement-careers-image">
-            <img src={asset('/img/convenio-uch.png')} alt="Carreras disponibles del convenio UCH" />
+            <img src={asset('/img/convenio-uch.webp')} alt="Carreras disponibles del convenio UCH" />
           </div>
 
           <section className="info-panel careers-panel">
@@ -95,33 +95,6 @@ export default function AgreementPage() {
               </a>
             </div>
           </section>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container agreement-info-grid">
-          <aside className="info-panel">
-            <h2>Informes</h2>
-            <p>{agreement.note}</p>
-            <ul className="info-list">
-              <li>Consulta disponibilidad de descuentos especiales.</li>
-              <li>Recibe orientación sobre carreras y sedes de atención.</li>
-              <li>Solicita información desde WhatsApp o presencialmente.</li>
-            </ul>
-            <a className="btn btn-primary" href={whatsappLink('Hola Serviserc, deseo información sobre el convenio con UCH')} target="_blank" rel="noopener noreferrer">
-              Solicitar información
-            </a>
-          </aside>
-
-          <div className="agreement-card">
-            <h3>Atención SERVISERC</h3>
-            <p>
-              Acércate a nuestras sedes o escríbenos por WhatsApp para recibir información sobre el convenio, carreras disponibles y beneficios vigentes.
-            </p>
-            <Link className="btn btn-secondary" href="/#sedes" style={{ marginTop: 18 }}>
-              Ver ubicación de sedes
-            </Link>
-          </div>
         </div>
       </section>
     </main>

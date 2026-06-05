@@ -74,7 +74,7 @@ export default function HomePage() {
       <section className="section">
         <div className="container agreement-grid">
           <div className="image-panel">
-            <img src={asset('/img/97712-493.webp')} alt="Servicios empresariales SERVISERC" />
+            <img src={asset('/img/uch-2.webp')} alt="Servicios empresariales SERVISERC" />
           </div>
           <div className="agreement-card">
             <h2>{agreement.title}</h2>
