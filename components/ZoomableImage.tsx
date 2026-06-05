@@ -8,17 +8,18 @@ type ZoomableImageProps = {
   className?: string;
 };
 
-const MIN_ZOOM = 1;
-const MAX_ZOOM = 2.6;
+const FIT_ZOOM = 0.72;
+const MIN_ZOOM = 0.6;
+const MAX_ZOOM = 2.4;
 const ZOOM_STEP = 0.2;
 
 export function ZoomableImage({ src, alt, className }: ZoomableImageProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [zoom, setZoom] = useState(1);
+  const [zoom, setZoom] = useState(FIT_ZOOM);
 
   const closeModal = () => {
     setIsOpen(false);
-    setZoom(1);
+    setZoom(FIT_ZOOM);
   };
 
   const zoomIn = () => {
@@ -36,7 +37,7 @@ export function ZoomableImage({ src, alt, className }: ZoomableImageProps) {
       if (event.key === 'Escape') closeModal();
       if (event.key === '+' || event.key === '=') zoomIn();
       if (event.key === '-') zoomOut();
-      if (event.key === '0') setZoom(1);
+      if (event.key === '0') setZoom(FIT_ZOOM);
     };
 
     document.body.classList.add('image-modal-open');
@@ -64,8 +65,8 @@ export function ZoomableImage({ src, alt, className }: ZoomableImageProps) {
               <button type="button" onClick={zoomOut} disabled={zoom <= MIN_ZOOM} aria-label="Alejar imagen">
                 −
               </button>
-              <button type="button" onClick={() => setZoom(1)} disabled={zoom === 1} aria-label="Restablecer zoom">
-                100%
+              <button type="button" onClick={() => setZoom(FIT_ZOOM)} disabled={zoom === FIT_ZOOM} aria-label="Ajustar imagen">
+                Ajustar
               </button>
               <button type="button" onClick={zoomIn} disabled={zoom >= MAX_ZOOM} aria-label="Acercar imagen">
                 +
