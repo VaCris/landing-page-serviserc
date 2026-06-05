@@ -27,8 +27,13 @@ const agreementSteps = [
 export default function AgreementPage() {
   return (
     <main>
-      <section className="uch-hero">
-        <div className="container uch-hero-grid">
+      <section
+        className="uch-hero"
+        style={{
+          backgroundImage: `linear-gradient(110deg, rgb(5 18 38 / 94%), rgb(7 29 61 / 82%) 48%, rgb(216 35 42 / 38%)), url(${asset('/img/uch-2.webp')})`,
+        }}
+      >
+        <div className="container uch-hero-grid uch-hero-background-layout">
           <div className="uch-hero-content">
             <span className="hero-kicker">Convenio educativo</span>
             <h1 className="agreement-hero-title">{agreement.title}</h1>
@@ -46,9 +51,6 @@ export default function AgreementPage() {
                 Ver sedes
               </Link>
             </div>
-          </div>
-          <div className="uch-hero-visual">
-            <ZoomableImage src={asset('/img/uch-2.webp')} alt="Convenio SERVISERC con Universidad de Ciencias y Humanidades" />
           </div>
         </div>
       </section>
