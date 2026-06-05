@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ServiceCard } from '@/components/ServiceCard';
 import { services } from '@/data/services';
-import { whatsappLink } from '@/lib/site';
+import { asset, whatsappLink } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Servicios',
@@ -27,7 +27,12 @@ const processSteps = [
 export default function ServicesPage() {
   return (
     <main>
-      <section className="services-hero">
+      <section
+        className="services-hero services-hero-image"
+        style={{
+          backgroundImage: `linear-gradient(115deg, rgb(5 18 38 / 94%), rgb(7 29 61 / 82%) 52%, rgb(216 35 42 / 35%)), url(${asset('/img/servicios-generales.webp')})`,
+        }}
+      >
         <div className="container services-hero-grid">
           <div>
             <span className="hero-kicker">Servicios SERVISERC</span>
