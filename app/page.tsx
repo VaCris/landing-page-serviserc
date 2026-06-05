@@ -13,10 +13,10 @@ export default function HomePage() {
       <section
         className="home-hero"
         style={{
-          backgroundImage: `linear-gradient(120deg, rgb(5 18 38 / 96%), rgb(7 29 61 / 88%) 46%, rgb(216 35 42 / 48%)), url(${asset('/img/97712-493.webp')})`,
+          backgroundImage: `linear-gradient(120deg, rgb(5 18 38 / 94%), rgb(7 29 61 / 82%) 54%, rgb(216 35 42 / 36%)), url(${asset('/img/97712-493.webp')})`,
         }}
       >
-        <div className="container home-hero-grid">
+        <div className="container home-hero-grid home-hero-simple">
           <div className="home-hero-content">
             <span className="hero-kicker">Consultoría empresarial</span>
             <h1 className="hero-title">Haz crecer tu negocio, haz crecer tu imagen</h1>
@@ -30,32 +30,6 @@ export default function HomePage() {
               <a className="btn btn-secondary" href={whatsappLink()} target="_blank" rel="noopener noreferrer">
                 Contactar por WhatsApp
               </a>
-            </div>
-          </div>
-
-          <div className="home-hero-panel" aria-label="Resumen de servicios SERVISERC">
-            <div className="hero-panel-card hero-panel-card-main">
-              <span>Atención integral</span>
-              <strong>Contable · Tributaria · Laboral</strong>
-              <p>Ordenamos la gestión de tu negocio para que avances con mayor seguridad.</p>
-            </div>
-            <div className="hero-panel-grid">
-              <div className="hero-mini-card">
-                <strong>01</strong>
-                <span>Formalización</span>
-              </div>
-              <div className="hero-mini-card">
-                <strong>02</strong>
-                <span>Declaraciones</span>
-              </div>
-              <div className="hero-mini-card">
-                <strong>03</strong>
-                <span>Libros contables</span>
-              </div>
-              <div className="hero-mini-card">
-                <strong>04</strong>
-                <span>Asesoría SUNAT</span>
-              </div>
             </div>
           </div>
         </div>
