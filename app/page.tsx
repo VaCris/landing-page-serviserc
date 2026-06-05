@@ -69,7 +69,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="image-panel image-panel-soft">
-            <img src={asset('/img/1406932329-2048x2048.webp')} alt="Equipo de asesoría SERVISERC" />
+            <img src={asset('/img/sobre-nosotros.webp')} alt="Equipo de asesoría SERVISERC" />
           </div>
         </div>
       </section>
