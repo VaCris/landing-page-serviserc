@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import './globals.css';
 import { Footer } from '@/components/Footer';
+import { Navbar } from '@/components/Navbar';
 import { asset, siteConfig, whatsappLink } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -30,33 +30,11 @@ export const metadata: Metadata = {
   ],
 };
 
-const navItems = [
-  { href: '/', label: 'Inicio' },
-  { href: '/servicios/', label: 'Servicios' },
-  { href: '/#nosotros', label: 'Sobre Nosotros' },
-  { href: '/convenio-uch/', label: 'Convenio UCH' },
-  { href: '/#sedes', label: 'Sedes' },
-];
-
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
       <body>
-        <header className="header">
-          <div className="container navbar">
-            <Link className="brand" href="/">
-              <img className="brand-mark" src={asset('/img/172728779273.webp')} alt="Logo SERVISERC" />
-              <span>SERVISERC</span>
-            </Link>
-            <nav className="nav-links" aria-label="Navegación principal">
-              {navItems.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </header>
+        <Navbar />
         {children}
         <a className="whatsapp-float" href={whatsappLink()} target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
           <img src={asset('/img/Whatsapp_37229.webp')} alt="WhatsApp" />
