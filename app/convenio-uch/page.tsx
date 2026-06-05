@@ -12,15 +12,15 @@ export const metadata: Metadata = {
 const agreementSteps = [
   {
     title: 'Consulta el convenio',
-    text: 'Escríbenos por WhatsApp o acércate a una sede de SERVISERC para solicitar información vigente.',
+    text: 'Solicita información vigente por WhatsApp o en nuestras sedes.',
   },
   {
-    title: 'Conoce las opciones académicas',
-    text: 'Te orientamos sobre las carreras disponibles y los beneficios comunicados por la universidad.',
+    title: 'Elige una carrera',
+    text: 'Revisa las opciones académicas disponibles en el convenio.',
   },
   {
-    title: 'Recibe acompañamiento',
-    text: 'Te ayudamos a resolver tus dudas y a identificar la sede más conveniente para recibir atención.',
+    title: 'Recibe orientación',
+    text: 'Te guiamos sobre beneficios, sedes y próximos pasos.',
   },
 ];
 
@@ -79,30 +79,28 @@ export default function AgreementPage() {
             <ZoomableImage src={asset('/img/convenio-uch.webp')} alt="Carreras disponibles del convenio UCH" />
           </div>
 
-          <section className="info-panel careers-panel">
+          <section className="info-panel careers-panel careers-panel-compact">
             <span className="hero-kicker" style={{ background: '#d8232a', color: '#ffffff' }}>Orientación académica</span>
-            <h2>Información sobre carreras y beneficios</h2>
+            <h2>Consulta carreras y beneficios</h2>
             <p>
-              Consulta las opciones disponibles del convenio UCH y recibe orientación sobre beneficios, sedes de atención y pasos para solicitar mayor información.
+              Escríbenos para recibir información sobre carreras, descuentos especiales y sedes de atención.
             </p>
 
-            <div className="process-grid" style={{ gridTemplateColumns: '1fr', marginTop: 28 }}>
+            <div className="agreement-compact-list">
               {agreementSteps.map((step, index) => (
-                <article key={step.title} className="process-card">
+                <article key={step.title} className="agreement-compact-item">
                   <span>{String(index + 1).padStart(2, '0')}</span>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.text}</p>
+                  </div>
                 </article>
               ))}
             </div>
 
-            <div className="agreement-card agreement-card-red" style={{ marginTop: 28 }}>
-              <h3>¿Deseas más información?</h3>
-              <p>Escríbenos indicando la carrera de tu interés y te orientaremos según la información disponible del convenio.</p>
-              <a className="btn btn-secondary" href={whatsappLink('Hola Serviserc, quiero información sobre una carrera del convenio UCH')} target="_blank" rel="noopener noreferrer" style={{ marginTop: 18 }}>
-                Consultar por WhatsApp
-              </a>
-            </div>
+            <a className="btn btn-primary compact-cta" href={whatsappLink('Hola Serviserc, quiero información sobre una carrera del convenio UCH')} target="_blank" rel="noopener noreferrer">
+              Consultar por WhatsApp
+            </a>
           </section>
         </div>
       </section>
