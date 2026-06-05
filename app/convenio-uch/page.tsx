@@ -14,12 +14,12 @@ const agreementSteps = [
     text: 'Escríbenos por WhatsApp o acércate a una sede de SERVISERC para solicitar información vigente.',
   },
   {
-    title: 'Revisa las carreras',
-    text: 'La imagen del convenio muestra las carreras disponibles comunicadas por la Universidad de Ciencias y Humanidades.',
+    title: 'Conoce las opciones académicas',
+    text: 'Te orientamos sobre las carreras disponibles y los beneficios comunicados por la universidad.',
   },
   {
-    title: 'Solicita orientación',
-    text: 'Te indicamos dónde consultar beneficios, descuentos y requisitos según la información disponible.',
+    title: 'Recibe acompañamiento',
+    text: 'Te ayudamos a resolver tus dudas y a identificar la sede más conveniente para recibir atención.',
   },
 ];
 
@@ -71,10 +71,10 @@ export default function AgreementPage() {
           </div>
 
           <section className="info-panel careers-panel">
-            <span className="hero-kicker" style={{ background: '#d8232a', color: '#ffffff' }}>Carreras y orientación</span>
-            <h2>Elige una carrera y solicita información</h2>
+            <span className="hero-kicker" style={{ background: '#d8232a', color: '#ffffff' }}>Orientación académica</span>
+            <h2>Información sobre carreras y beneficios</h2>
             <p>
-              La imagen del convenio ya contiene el listado de carreras. Por eso usamos este espacio para guiar al visitante hacia la consulta y evitar repetir la misma información.
+              Consulta las opciones disponibles del convenio UCH y recibe orientación sobre beneficios, sedes de atención y pasos para solicitar mayor información.
             </p>
 
             <div className="process-grid" style={{ gridTemplateColumns: '1fr', marginTop: 28 }}>
@@ -88,8 +88,8 @@ export default function AgreementPage() {
             </div>
 
             <div className="agreement-card" style={{ marginTop: 28 }}>
-              <h3>¿Quieres consultar por una carrera?</h3>
-              <p>Indícanos la carrera de tu interés y la sede donde deseas recibir orientación.</p>
+              <h3>¿Deseas más información?</h3>
+              <p>Escríbenos indicando la carrera de tu interés y te orientaremos según la información disponible del convenio.</p>
               <a className="btn btn-secondary" href={whatsappLink('Hola Serviserc, quiero información sobre una carrera del convenio UCH')} target="_blank" rel="noopener noreferrer" style={{ marginTop: 18 }}>
                 Consultar por WhatsApp
               </a>
