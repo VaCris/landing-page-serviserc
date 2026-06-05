@@ -20,8 +20,7 @@
 }
 
 .image-modal-toolbar {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 3;
   display: flex;
   align-items: center;
@@ -77,21 +76,26 @@
 .image-modal-content {
   position: relative;
   width: 100%;
+  height: 100%;
   max-height: none;
-  overflow: auto;
+  overflow: hidden;
   border-radius: 0;
   background: #f8fafc;
   box-shadow: none;
   display: grid;
-  place-items: start center;
-  padding: 24px;
+  place-items: center;
+  padding: 18px;
 }
 
 .image-modal-content img {
-  width: min(100%, 760px);
+  width: auto;
+  max-width: 100%;
   height: auto;
-  transform-origin: top center;
+  max-height: 100%;
+  object-fit: contain;
+  transform-origin: center center;
   transition: transform 160ms ease;
+  will-change: transform;
 }
 
 @media (max-width: 640px) {
@@ -117,6 +121,6 @@
   }
 
   .image-modal-content {
-    padding: 14px;
+    padding: 10px;
   }
 }
