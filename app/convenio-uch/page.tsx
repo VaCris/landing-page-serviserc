@@ -26,12 +26,17 @@ const agreementSteps = [
 export default function AgreementPage() {
   return (
     <main>
-      <section className="agreement-hero">
-        <div className="container agreement-hero-grid">
-          <div>
+      <section className="uch-hero">
+        <div className="container uch-hero-grid">
+          <div className="uch-hero-content">
             <span className="hero-kicker">Convenio educativo</span>
             <h1 className="agreement-hero-title">{agreement.title}</h1>
             <p className="agreement-hero-copy">{agreement.description}</p>
+            <div className="uch-hero-badges">
+              <span>Descuentos especiales</span>
+              <span>Orientación en sedes</span>
+              <span>Información académica</span>
+            </div>
             <div className="hero-actions">
               <a className="btn btn-secondary" href={whatsappLink('Hola Serviserc, necesito información sobre el convenio UCH')} target="_blank" rel="noopener noreferrer">
                 Consultar convenio
@@ -41,14 +46,15 @@ export default function AgreementPage() {
               </Link>
             </div>
           </div>
-          <div className="agreement-poster">
+          <div className="uch-hero-visual">
             <img src={asset('/img/uch-2.webp')} alt="Convenio SERVISERC con Universidad de Ciencias y Humanidades" />
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-separated">
         <div className="container">
+          <span className="section-eyebrow">Beneficios</span>
           <h2 className="section-title">Beneficios del convenio</h2>
           <p className="section-copy">
             Una alianza pensada para acercar oportunidades académicas, descuentos especiales e información clara para clientes, familias y emprendedores.
@@ -64,7 +70,7 @@ export default function AgreementPage() {
         </div>
       </section>
 
-      <section className="section section-muted">
+      <section className="section section-muted section-separated">
         <div className="container agreement-careers-layout">
           <div className="agreement-careers-image">
             <img src={asset('/img/convenio-uch.webp')} alt="Carreras disponibles del convenio UCH" />
@@ -87,7 +93,7 @@ export default function AgreementPage() {
               ))}
             </div>
 
-            <div className="agreement-card" style={{ marginTop: 28 }}>
+            <div className="agreement-card agreement-card-red" style={{ marginTop: 28 }}>
               <h3>¿Deseas más información?</h3>
               <p>Escríbenos indicando la carrera de tu interés y te orientaremos según la información disponible del convenio.</p>
               <a className="btn btn-secondary" href={whatsappLink('Hola Serviserc, quiero información sobre una carrera del convenio UCH')} target="_blank" rel="noopener noreferrer" style={{ marginTop: 18 }}>
