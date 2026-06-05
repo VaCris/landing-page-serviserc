@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { JsonLd } from '@/components/JsonLd';
 import { getServiceBySlug, services } from '@/data/services';
-import { asset, whatsappLink } from '@/lib/site';
+import { serviceJsonLd } from '@/lib/seo';
+import { absoluteAsset, absoluteUrl, asset, siteConfig, whatsappLink } from '@/lib/site';
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -15,12 +17,52 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!service) {
     return {
       title: 'Servicio no encontrado',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
+  const title = `${service.title} en Lima`;
+  const description = `${service.excerpt} Atención para emprendedores, pymes y empresas en Lima, Perú.`;
+
   return {
-    title: service.title,
-    description: service.excerpt,
+    title,
+    description,
+    alternates: {
+      canonical: absoluteUrl(`/servicios/${service.slug}/`),
+    },
+    keywords: [
+      service.title,
+      `${service.title} Lima`,
+      `${service.title} Perú`,
+      'SERVISERC S.A.C.',
+      'asesoría contable Lima',
+      'asesoría tributaria Lima',
+      ...siteConfig.keywords,
+    ],
+    openGraph: {
+      title: `${title} | SERVISERC S.A.C.`,
+      description,
+      url: absoluteUrl(`/servicios/${service.slug}/`),
+      images: [
+        {
+          url: absoluteAsset(service.image),
+          width: 1200,
+          height: 630,
+          alt: service.title,
+        },
+      ],
+      locale: siteConfig.locale,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | SERVISERC S.A.C.`,
+      description,
+      images: [absoluteAsset(service.image)],
+    },
   };
 }
 
@@ -51,6 +93,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
   return (
     <main>
+      <JsonLd data={serviceJsonLd(service)} />
       <section
         className="service-detail-hero enhanced-service-hero"
         style={{
