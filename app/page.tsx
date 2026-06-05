@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ServiceCard } from '@/components/ServiceCard';
 import { agreement } from '@/data/agreement';
 import { locations } from '@/data/locations';
-import { secondaryServices, services } from '@/data/services';
+import { services } from '@/data/services';
 import { asset, whatsappLink } from '@/lib/site';
 
 export default function HomePage() {
@@ -83,22 +83,6 @@ export default function HomePage() {
             <Link className="btn btn-secondary" href="/convenio-uch/" style={{ marginTop: 18 }}>
               Ver convenio
             </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-muted">
-        <div className="container">
-          <h2 className="section-title">Otros servicios</h2>
-          <p className="section-copy">
-            También ofrecemos comprobantes de pago, documentos comerciales y piezas publicitarias.
-          </p>
-          <div className="grid-3" style={{ marginTop: 30 }}>
-            {secondaryServices.map((service) => (
-              <div key={service} className="detail-box">
-                <strong>{service}</strong>
-              </div>
-            ))}
           </div>
         </div>
       </section>
