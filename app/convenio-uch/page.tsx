@@ -8,6 +8,21 @@ export const metadata: Metadata = {
   description: 'Información sobre el convenio de SERVISERC S.A.C. con la Universidad de Ciencias y Humanidades.',
 };
 
+const agreementSteps = [
+  {
+    title: 'Consulta el convenio',
+    text: 'Escríbenos por WhatsApp o acércate a una sede de SERVISERC para solicitar información vigente.',
+  },
+  {
+    title: 'Revisa las carreras',
+    text: 'La imagen del convenio muestra las carreras disponibles comunicadas por la Universidad de Ciencias y Humanidades.',
+  },
+  {
+    title: 'Solicita orientación',
+    text: 'Te indicamos dónde consultar beneficios, descuentos y requisitos según la información disponible.',
+  },
+];
+
 export default function AgreementPage() {
   return (
     <main>
@@ -56,16 +71,28 @@ export default function AgreementPage() {
           </div>
 
           <section className="info-panel careers-panel">
-            <h2>Carreras disponibles</h2>
+            <span className="panel-kicker">Carreras y orientación</span>
+            <h2>Elige una carrera y solicita información</h2>
             <p>
-              Estas son las carreras comunicadas en el convenio con la Universidad de Ciencias y Humanidades.
+              La imagen del convenio ya contiene el listado de carreras. Por eso usamos este espacio para guiar al visitante hacia la consulta y evitar repetir la misma información.
             </p>
-            <div className="career-grid">
-              {agreement.careers.map((career) => (
-                <div key={career} className="career-card">
-                  {career}
-                </div>
+            <div className="agreement-step-list">
+              {agreementSteps.map((step, index) => (
+                <article key={step.title} className="agreement-step-card">
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.text}</p>
+                  </div>
+                </article>
               ))}
+            </div>
+            <div className="agreement-side-cta">
+              <strong>¿Quieres consultar por una carrera?</strong>
+              <p>Indícanos la carrera de tu interés y la sede donde deseas recibir orientación.</p>
+              <a className="btn btn-primary" href={whatsappLink('Hola Serviserc, quiero información sobre una carrera del convenio UCH')} target="_blank" rel="noopener noreferrer">
+                Consultar por WhatsApp
+              </a>
             </div>
           </section>
         </div>
