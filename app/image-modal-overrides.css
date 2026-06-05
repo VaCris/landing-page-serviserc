@@ -12,7 +12,7 @@
   width: min(860px, calc(100vw - 32px));
   height: min(640px, calc(100vh - 64px));
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto minmax(0, 1fr);
   overflow: hidden;
   border-radius: 24px;
   background: #ffffff;
@@ -77,22 +77,26 @@
   position: relative;
   width: 100%;
   height: 100%;
+  min-height: 0;
   max-height: none;
   overflow: hidden;
   border-radius: 0;
   background: #f8fafc;
   box-shadow: none;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
 }
 
-.image-modal-content img {
-  width: auto;
-  max-width: 90%;
-  height: auto;
-  max-height: 90%;
+.image-modal-window .image-modal-content img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
   object-fit: contain;
+  border-radius: 0;
   transform-origin: center center;
   transition: transform 160ms ease;
   will-change: transform;
@@ -126,10 +130,5 @@
 
   .image-modal-content {
     padding: 12px;
-  }
-
-  .image-modal-content img {
-    max-width: 92%;
-    max-height: 92%;
   }
 }
