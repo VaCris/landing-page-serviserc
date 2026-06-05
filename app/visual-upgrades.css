@@ -181,9 +181,20 @@ main {
 }
 
 .agreement-card-red {
+  color: #ffffff;
   background:
     radial-gradient(circle at 85% 16%, rgb(255 255 255 / 13%), transparent 28%),
     linear-gradient(135deg, var(--brand-red-dark), var(--brand-red));
+}
+
+.agreement-card-red h2,
+.agreement-card-red h3,
+.agreement-card-red strong {
+  color: #ffffff;
+}
+
+.agreement-card-red p {
+  color: rgb(255 255 255 / 86%);
 }
 
 .uch-hero {
@@ -269,6 +280,98 @@ main {
   box-shadow: 0 12px 30px rgb(216 35 42 / 24%);
 }
 
+.zoomable-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  cursor: zoom-in;
+  overflow: hidden;
+  font: inherit;
+}
+
+.zoomable-image img {
+  width: 100%;
+  height: auto;
+}
+
+.zoomable-image > span {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgb(7 29 61 / 88%);
+  color: #ffffff;
+  font-size: .85rem;
+  font-weight: 900;
+  box-shadow: 0 12px 28px rgb(0 0 0 / 24%);
+}
+
+.zoomable-image:hover > span {
+  background: var(--brand-red);
+}
+
+.image-modal-open {
+  overflow: hidden;
+}
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.image-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgb(2 8 20 / 82%);
+  backdrop-filter: blur(10px);
+  cursor: zoom-out;
+}
+
+.image-modal-content {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 30px 100px rgb(0 0 0 / 45%);
+}
+
+.image-modal-content img {
+  width: 100%;
+  height: auto;
+}
+
+.image-modal-close {
+  position: sticky;
+  top: 14px;
+  left: calc(100% - 58px);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  margin: 14px 14px -58px auto;
+  border: 0;
+  border-radius: 999px;
+  background: var(--brand-red);
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgb(0 0 0 / 24%);
+}
+
 @media (max-width: 1000px) {
   .home-hero-grid,
   .uch-hero-grid {
@@ -307,5 +410,21 @@ main {
   .uch-hero-badges span {
     width: 100%;
     text-align: center;
+  }
+
+  .zoomable-image > span {
+    right: 10px;
+    bottom: 10px;
+    padding: 9px 12px;
+    font-size: .78rem;
+  }
+
+  .image-modal {
+    padding: 12px;
+  }
+
+  .image-modal-content {
+    max-height: calc(100vh - 24px);
+    border-radius: 18px;
   }
 }
