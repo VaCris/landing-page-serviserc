@@ -3,11 +3,11 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { services } from '@/data/services';
 import { asset, whatsappLink } from '@/lib/site';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
-  { href: '/servicios/', label: 'Servicios' },
   { href: '/#nosotros', label: 'Sobre Nosotros' },
   { href: '/convenio-uch/', label: 'Convenio UCH' },
   { href: '/#sedes', label: 'Sedes' },
@@ -16,9 +16,15 @@ const navItems = [
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  const closeMenus = () => {
+    setIsOpen(false);
+    setIsServicesOpen(false);
+  };
 
   useEffect(() => {
-    setIsOpen(false);
+    closeMenus();
   }, [pathname]);
 
   useEffect(() => {
@@ -32,13 +38,35 @@ export function Navbar() {
   return (
     <header className="header">
       <div className="container navbar">
-        <Link className="brand" href="/" onClick={() => setIsOpen(false)}>
+        <Link className="brand" href="/" onClick={closeMenus}>
           <img className="brand-mark" src={asset('/img/172728779273.webp')} alt="Logo SERVISERC" />
           <span>SERVISERC</span>
         </Link>
 
         <nav className="nav-links" aria-label="Navegación principal">
-          {navItems.map((item) => (
+          <Link href="/">Inicio</Link>
+
+          <div className="nav-dropdown">
+            <Link className="nav-dropdown-trigger" href="/servicios/">
+              Servicios
+              <span aria-hidden="true">▾</span>
+            </Link>
+            <div className="nav-dropdown-menu">
+              <Link className="nav-dropdown-featured" href="/servicios/">
+                <strong>Todos los servicios</strong>
+                <span>Ver soluciones contables, tributarias y empresariales.</span>
+              </Link>
+              <div className="nav-dropdown-list">
+                {services.map((service) => (
+                  <Link key={service.slug} href={`/servicios/${service.slug}/`}>
+                    {service.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {navItems.slice(1).map((item) => (
             <Link key={item.href} href={item.href}>
               {item.label}
             </Link>
@@ -65,12 +93,34 @@ export function Navbar() {
 
       <div className={`mobile-menu ${isOpen ? 'is-open' : ''}`} id="mobile-menu">
         <nav className="mobile-menu-panel" aria-label="Navegación móvil">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
+          <Link href="/" onClick={closeMenus}>
+            Inicio
+          </Link>
+
+          <div className="mobile-services-group">
+            <button type="button" className="mobile-services-toggle" aria-expanded={isServicesOpen} onClick={() => setIsServicesOpen((current) => !current)}>
+              Servicios
+              <span aria-hidden="true">{isServicesOpen ? '−' : '+'}</span>
+            </button>
+
+            <div className={`mobile-services-list ${isServicesOpen ? 'is-open' : ''}`}>
+              <Link href="/servicios/" onClick={closeMenus}>
+                Todos los servicios
+              </Link>
+              {services.map((service) => (
+                <Link key={service.slug} href={`/servicios/${service.slug}/`} onClick={closeMenus}>
+                  {service.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {navItems.slice(1).map((item) => (
+            <Link key={item.href} href={item.href} onClick={closeMenus}>
               {item.label}
             </Link>
           ))}
-          <a className="btn btn-primary" href={whatsappLink()} target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+          <a className="btn btn-primary" href={whatsappLink()} target="_blank" rel="noopener noreferrer" onClick={closeMenus}>
             Contactar por WhatsApp
           </a>
         </nav>
