@@ -1,0 +1,44 @@
+.uch-hero {
+  min-height: min(760px, calc(100vh - 78px));
+  display: grid;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.uch-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 28%, rgb(216 35 42 / 24%), transparent 28%),
+    linear-gradient(90deg, rgb(5 18 38 / 44%), rgb(5 18 38 / 18%) 46%, rgb(5 18 38 / 52%));
+  pointer-events: none;
+}
+
+.uch-hero-background-layout {
+  grid-template-columns: minmax(0, 760px);
+}
+
+.uch-hero-content {
+  position: relative;
+  z-index: 1;
+  padding: clamp(28px, 4vw, 42px);
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 34px;
+  background: rgb(5 18 38 / 58%);
+  box-shadow: 0 30px 90px rgb(0 0 0 / 24%);
+  backdrop-filter: blur(14px);
+}
+
+@media (max-width: 640px) {
+  .uch-hero {
+    min-height: auto;
+    background-position: center top;
+  }
+
+  .uch-hero-content {
+    border-radius: 24px;
+  }
+}
