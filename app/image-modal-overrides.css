@@ -9,8 +9,8 @@
 .image-modal-window {
   position: relative;
   z-index: 1;
-  width: min(920px, calc(100vw - 32px));
-  height: min(720px, calc(100vh - 64px));
+  width: min(860px, calc(100vw - 32px));
+  height: min(640px, calc(100vh - 64px));
   display: grid;
   grid-template-rows: auto 1fr;
   overflow: hidden;
@@ -84,14 +84,14 @@
   box-shadow: none;
   display: grid;
   place-items: center;
-  padding: 18px;
+  padding: 26px;
 }
 
 .image-modal-content img {
   width: auto;
-  max-width: 100%;
+  max-width: 82%;
   height: auto;
-  max-height: 100%;
+  max-height: 82%;
   object-fit: contain;
   transform-origin: center center;
   transition: transform 160ms ease;
@@ -101,7 +101,7 @@
 @media (max-width: 640px) {
   .image-modal-window {
     width: calc(100vw - 20px);
-    height: min(620px, calc(100vh - 40px));
+    height: min(560px, calc(100vh - 40px));
     border-radius: 18px;
   }
 
@@ -121,6 +121,11 @@
   }
 
   .image-modal-content {
-    padding: 10px;
+    padding: 14px;
+  }
+
+  .image-modal-content img {
+    max-width: 86%;
+    max-height: 86%;
   }
 }
