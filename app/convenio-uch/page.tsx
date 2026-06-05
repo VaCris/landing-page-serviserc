@@ -27,7 +27,7 @@ export default function AgreementPage() {
             </div>
           </div>
           <div className="agreement-poster">
-            <img src={asset('/img/97712-493.webp')} alt="Convenio SERVISERC con UCH" />
+            <img src={asset('/img/convenio-uch.png')} alt="Convenio SERVISERC con Universidad de Ciencias y Humanidades" />
           </div>
         </div>
       </section>
@@ -36,7 +36,7 @@ export default function AgreementPage() {
         <div className="container">
           <h2 className="section-title">Beneficios del convenio</h2>
           <p className="section-copy">
-            Una sección pensada para comunicar mejor la alianza, orientar a los interesados y llevarlos a consultar por WhatsApp o en sede.
+            Una alianza pensada para acercar oportunidades académicas, descuentos especiales e información clara para clientes, familias y emprendedores.
           </p>
           <div className="agreement-summary">
             {agreement.highlights.map((item) => (
@@ -50,6 +50,28 @@ export default function AgreementPage() {
       </section>
 
       <section className="section section-muted">
+        <div className="container agreement-careers-layout">
+          <div className="agreement-careers-image">
+            <img src={asset('/img/convenio-uch.png')} alt="Carreras disponibles del convenio UCH" />
+          </div>
+
+          <section className="info-panel careers-panel">
+            <h2>Carreras disponibles</h2>
+            <p>
+              Estas son las carreras comunicadas en el convenio con la Universidad de Ciencias y Humanidades.
+            </p>
+            <div className="career-grid">
+              {agreement.careers.map((career) => (
+                <div key={career} className="career-card">
+                  {career}
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="container agreement-info-grid">
           <aside className="info-panel">
             <h2>Informes</h2>
@@ -64,19 +86,15 @@ export default function AgreementPage() {
             </a>
           </aside>
 
-          <section className="info-panel">
-            <h2>Carreras disponibles</h2>
+          <div className="agreement-card">
+            <h3>Atención SERVISERC</h3>
             <p>
-              Estas son las carreras comunicadas en el convenio con la Universidad de Ciencias y Humanidades.
+              Acércate a nuestras sedes o escríbenos por WhatsApp para recibir información sobre el convenio, carreras disponibles y beneficios vigentes.
             </p>
-            <div className="career-grid">
-              {agreement.careers.map((career) => (
-                <div key={career} className="career-card">
-                  {career}
-                </div>
-              ))}
-            </div>
-          </section>
+            <Link className="btn btn-secondary" href="/#sedes" style={{ marginTop: 18 }}>
+              Ver ubicación de sedes
+            </Link>
+          </div>
         </div>
       </section>
     </main>
