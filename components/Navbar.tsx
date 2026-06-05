@@ -52,10 +52,6 @@ export function Navbar() {
               <span aria-hidden="true">▾</span>
             </Link>
             <div className="nav-dropdown-menu">
-              <Link className="nav-dropdown-featured" href="/servicios/">
-                <strong>Todos los servicios</strong>
-                <span>Ver soluciones contables, tributarias y empresariales.</span>
-              </Link>
               <div className="nav-dropdown-list">
                 {services.map((service) => (
                   <Link key={service.slug} href={`/servicios/${service.slug}/`}>
@@ -104,9 +100,6 @@ export function Navbar() {
             </button>
 
             <div className={`mobile-services-list ${isServicesOpen ? 'is-open' : ''}`}>
-              <Link href="/servicios/" onClick={closeMenus}>
-                Todos los servicios
-              </Link>
               {services.map((service) => (
                 <Link key={service.slug} href={`/servicios/${service.slug}/`} onClick={closeMenus}>
                   {service.title}
