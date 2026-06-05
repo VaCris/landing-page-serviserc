@@ -11,20 +11,23 @@
 }
 
 .nav-dropdown-trigger span {
-  font-size: .78rem;
+  font-size: .72rem;
   line-height: 1;
 }
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 16px);
+  top: calc(100% + 18px);
   left: 50%;
-  width: min(720px, calc(100vw - 32px));
-  padding: 16px;
-  border-radius: 26px;
+  width: min(640px, calc(100vw - 32px));
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 24px;
   border: 1px solid rgb(12 47 95 / 10%);
-  background: rgb(255 255 255 / 96%);
-  box-shadow: 0 28px 90px rgb(7 29 61 / 18%);
+  background: rgb(255 255 255 / 98%);
+  box-shadow: 0 26px 80px rgb(7 29 61 / 16%);
   backdrop-filter: blur(18px);
   opacity: 0;
   visibility: hidden;
@@ -51,12 +54,17 @@
 }
 
 .nav-dropdown-featured {
-  display: grid;
-  gap: 6px;
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  gap: 12px;
+  padding: 18px;
   border-radius: 20px;
   color: #ffffff;
-  background: linear-gradient(135deg, var(--brand-blue-dark), var(--brand-blue));
+  background:
+    radial-gradient(circle at 88% 18%, rgb(216 35 42 / 32%), transparent 32%),
+    linear-gradient(135deg, var(--brand-blue-dark), var(--brand-blue));
 }
 
 .nav-dropdown-featured::after,
@@ -65,34 +73,38 @@
 }
 
 .nav-dropdown-featured strong {
-  font-size: 1.05rem;
+  font-size: 1rem;
+  line-height: 1.25;
 }
 
 .nav-dropdown-featured span {
   color: rgb(255 255 255 / 78%);
-  font-size: .92rem;
-  line-height: 1.45;
+  font-size: .86rem;
+  line-height: 1.5;
 }
 
 .nav-dropdown-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-  margin-top: 12px;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin-top: 0;
 }
 
 .nav-dropdown-list a {
-  padding: 12px 13px;
-  border-radius: 16px;
-  background: rgb(12 47 95 / 5%);
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 9px 12px;
+  border-radius: 13px;
+  background: transparent;
   color: var(--brand-blue-dark);
-  font-size: .9rem;
+  font-size: .86rem;
   line-height: 1.25;
   white-space: normal;
 }
 
 .nav-dropdown-list a:hover {
-  background: rgb(216 35 42 / 10%);
+  background: rgb(216 35 42 / 9%);
   color: var(--brand-red-dark);
 }
 
