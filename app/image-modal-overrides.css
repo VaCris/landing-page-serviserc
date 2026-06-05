@@ -1,0 +1,122 @@
+.image-modal {
+  padding: clamp(16px, 4vw, 42px);
+}
+
+.image-modal-backdrop {
+  background: rgb(2 8 20 / 68%);
+}
+
+.image-modal-window {
+  position: relative;
+  z-index: 1;
+  width: min(920px, calc(100vw - 32px));
+  height: min(720px, calc(100vh - 64px));
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 30px 100px rgb(0 0 0 / 42%);
+}
+
+.image-modal-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px;
+  border-bottom: 1px solid rgb(12 47 95 / 10%);
+  background: rgb(255 255 255 / 94%);
+  backdrop-filter: blur(12px);
+}
+
+.image-modal-toolbar span {
+  margin-right: auto;
+  color: var(--brand-blue-dark);
+  font-weight: 900;
+  font-size: .9rem;
+}
+
+.image-modal-toolbar button {
+  min-width: 42px;
+  height: 38px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 13px;
+  background: rgb(12 47 95 / 8%);
+  color: var(--brand-blue-dark);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.image-modal-toolbar button:hover:not(:disabled) {
+  background: var(--brand-red);
+  color: #ffffff;
+}
+
+.image-modal-toolbar button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.image-modal-toolbar .image-modal-close {
+  position: static;
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  margin: 0;
+  background: var(--brand-red);
+  color: #ffffff;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.image-modal-content {
+  position: relative;
+  width: 100%;
+  max-height: none;
+  overflow: auto;
+  border-radius: 0;
+  background: #f8fafc;
+  box-shadow: none;
+  display: grid;
+  place-items: start center;
+  padding: 24px;
+}
+
+.image-modal-content img {
+  width: min(100%, 760px);
+  height: auto;
+  transform-origin: top center;
+  transition: transform 160ms ease;
+}
+
+@media (max-width: 640px) {
+  .image-modal-window {
+    width: calc(100vw - 20px);
+    height: min(620px, calc(100vh - 40px));
+    border-radius: 18px;
+  }
+
+  .image-modal-toolbar {
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .image-modal-toolbar button {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+  }
+
+  .image-modal-toolbar span {
+    font-size: .8rem;
+  }
+
+  .image-modal-content {
+    padding: 14px;
+  }
+}
