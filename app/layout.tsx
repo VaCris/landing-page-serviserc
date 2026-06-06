@@ -5,6 +5,7 @@ import './image-modal-overrides.css';
 import './uch-hero-overrides.css';
 import './agreement-compact-overrides.css';
 import './service-detail-overrides.css';
+import './service-detail-editorial-overrides.css';
 import './navbar-dropdown-overrides.css';
 import './service-card-visual-overrides.css';
 import './home-editorial-overrides.css';
