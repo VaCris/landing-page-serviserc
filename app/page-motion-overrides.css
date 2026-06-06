@@ -1,36 +1,5 @@
-.motion-ready {
-  opacity: 0;
-  transform: translateY(22px);
-  transition:
-    opacity 620ms ease,
-    transform 620ms cubic-bezier(.2, .8, .2, 1);
-  transition-delay: var(--motion-delay, 0ms);
-  will-change: opacity, transform;
-}
-
-.motion-ready.motion-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.service-card-visual.motion-ready {
-  transform: translateY(18px) scale(.985);
-}
-
-.service-card-visual.motion-ready.motion-visible {
-  transform: translateY(0) scale(1);
-}
-
-.service-card-visual.motion-ready.motion-visible:hover {
-  transform: translateY(-6px) scale(1);
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .motion-ready,
-  .service-card-visual.motion-ready,
-  .service-card-visual.motion-ready.motion-visible:hover {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  * {
+    scroll-behavior: auto !important;
   }
 }
