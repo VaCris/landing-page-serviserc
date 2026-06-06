@@ -23,6 +23,10 @@ export function Navbar() {
     setIsOpen(false);
     setIsServicesOpen(false);
     setIsDesktopServicesOpen(false);
+
+    if (typeof document !== 'undefined' && document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
   };
 
   useEffect(() => {
