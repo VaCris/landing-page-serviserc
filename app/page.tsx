@@ -9,7 +9,7 @@ export default function HomePage() {
   const featuredServices = services.slice(0, 6);
 
   return (
-    <main>
+    <main className="home-page">
       <section
         className="home-hero"
         style={{
@@ -35,20 +35,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section section-separated" id="servicios">
-        <div className="container section-heading-row">
-          <div>
-            <h2 className="section-title">Servicios principales</h2>
-            <p className="section-copy">
-              Asesoría especializada para ordenar, formalizar y fortalecer la gestión de tu negocio.
-            </p>
+      <section className="section section-separated home-editorial-section" id="servicios">
+        <div className="container home-services-wrap">
+          <div className="section-heading-row">
+            <div>
+              <span className="section-eyebrow">Servicios</span>
+              <h2 className="section-title">Servicios principales</h2>
+              <p className="section-copy">
+                Asesoría especializada para ordenar, formalizar y fortalecer la gestión de tu negocio.
+              </p>
+            </div>
+            <Link className="btn btn-primary" href="/servicios/">
+              Ver todos los servicios
+            </Link>
           </div>
-          <Link className="btn btn-primary" href="/servicios/">
-            Ver todos los servicios
-          </Link>
-        </div>
-        <div className="container">
-          <div className="grid-3">
+
+          <div className="home-featured-services-grid">
             {featuredServices.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}
@@ -56,11 +58,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section section-muted section-separated" id="nosotros">
-        <div className="container about-grid">
-          <div>
+      <section className="editorial-split-section" id="nosotros">
+        <div className="container editorial-split-layout">
+          <div className="editorial-copy">
             <span className="section-eyebrow">Sobre SERVISERC</span>
-            <h2 className="section-title">Sobre nosotros</h2>
+            <h2 className="section-title">Acompañamos la gestión de tu negocio con orden y claridad</h2>
             <p className="section-copy">
               En SERVISERC S.A.C. brindamos soluciones contables integrales para empresas de diversos tamaños y sectores. Nuestro equipo ofrece un servicio personalizado y eficiente para cubrir necesidades tributarias, laborales, contables y empresariales.
             </p>
@@ -68,30 +70,44 @@ export default function HomePage() {
               Nuestra misión es facilitar la gestión de cada negocio, apoyar el cumplimiento de normativas vigentes y optimizar los procesos contables con una atención cercana y confiable.
             </p>
           </div>
-          <div className="image-panel image-panel-soft">
-            <img src={asset('/img/sobre-nosotros.webp')} alt="Equipo de asesoría SERVISERC" />
+
+          <div className="editorial-image-stack">
+            <div className="editorial-image-main">
+              <img src={asset('/img/sobre-nosotros.webp')} alt="Equipo de asesoría SERVISERC" />
+            </div>
+            <div className="editorial-image-badge">
+              <strong>Atención especializada</strong>
+              <span>Contabilidad, tributación, gestión laboral y soporte documentario para negocios en crecimiento.</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section section-separated">
-        <div className="container agreement-grid home-agreement-card">
-          <div className="image-panel image-panel-soft">
-            <img src={asset('/img/uch-2.webp')} alt="Convenio SERVISERC con UCH" />
-          </div>
-          <div className="agreement-card agreement-card-red">
-            <span className="section-eyebrow light">Convenio educativo</span>
-            <h2>{agreement.title}</h2>
-            <p>{agreement.description}</p>
-            <p>{agreement.note}</p>
-            <Link className="btn btn-secondary" href="/convenio-uch/" style={{ marginTop: 18 }}>
-              Ver convenio
-            </Link>
+      <section
+        className="agreement-band"
+        style={{
+          backgroundImage: `url(${asset('/img/uch-2.webp')})`,
+        }}
+      >
+        <div className="container">
+          <div className="agreement-band-content">
+            <span className="section-eyebrow">Convenio educativo</span>
+            <h2 className="agreement-band-title">{agreement.title}</h2>
+            <p className="agreement-band-copy">{agreement.description}</p>
+            <p className="agreement-band-note">{agreement.note}</p>
+            <div className="hero-actions">
+              <Link className="btn btn-secondary" href="/convenio-uch/">
+                Ver convenio
+              </Link>
+              <a className="btn btn-primary" href={whatsappLink('Hola Serviserc, necesito información sobre el convenio UCH')} target="_blank" rel="noopener noreferrer">
+                Consultar por WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section section-muted section-separated" id="sedes">
+      <section className="locations-band section-separated" id="sedes">
         <div className="container section-heading-row">
           <div>
             <span className="section-eyebrow">Ubicaciones</span>
