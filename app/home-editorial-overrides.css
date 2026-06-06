@@ -2,6 +2,14 @@
   overflow: hidden;
 }
 
+.home-page .section {
+  padding-block: clamp(88px, 11vw, 138px);
+}
+
+.home-page .section-heading-row {
+  margin-bottom: clamp(42px, 6vw, 68px);
+}
+
 .home-editorial-section {
   position: relative;
 }
@@ -24,7 +32,7 @@
 .home-featured-services-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: clamp(18px, 2vw, 28px);
+  gap: clamp(24px, 3vw, 38px);
 }
 
 .home-featured-services-grid .service-card-visual {
@@ -34,7 +42,7 @@
 .home-featured-services-grid .service-card-visual:nth-child(1),
 .home-featured-services-grid .service-card-visual:nth-child(2) {
   grid-column: span 6;
-  min-height: clamp(340px, 32vw, 420px);
+  min-height: clamp(360px, 34vw, 440px);
 }
 
 .home-featured-services-grid .service-card-visual:nth-child(1) .service-title,
@@ -45,12 +53,12 @@
 
 .home-featured-services-grid .service-card-visual:nth-child(5),
 .home-featured-services-grid .service-card-visual:nth-child(6) {
-  min-height: clamp(280px, 26vw, 340px);
+  min-height: clamp(300px, 28vw, 360px);
 }
 
 .editorial-split-section {
   position: relative;
-  padding: clamp(78px, 10vw, 118px) 0;
+  padding: clamp(98px, 12vw, 152px) 0;
   background: #ffffff;
 }
 
@@ -70,7 +78,7 @@
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
-  gap: clamp(34px, 6vw, 76px);
+  gap: clamp(44px, 7vw, 96px);
   align-items: center;
 }
 
@@ -84,7 +92,7 @@
 
 .editorial-image-stack {
   position: relative;
-  min-height: clamp(360px, 44vw, 520px);
+  min-height: clamp(380px, 46vw, 550px);
 }
 
 .editorial-image-main {
@@ -126,7 +134,7 @@
 
 .agreement-band {
   position: relative;
-  min-height: clamp(520px, 64vw, 720px);
+  min-height: clamp(580px, 68vw, 780px);
   display: grid;
   align-items: center;
   color: #ffffff;
@@ -156,7 +164,7 @@
 
 .agreement-band-content {
   max-width: 650px;
-  padding: clamp(78px, 11vw, 128px) 0;
+  padding: clamp(96px, 12vw, 150px) 0;
 }
 
 .agreement-band-content .section-eyebrow {
@@ -188,7 +196,7 @@
 
 .locations-band {
   position: relative;
-  padding: clamp(74px, 10vw, 116px) 0;
+  padding: clamp(96px, 12vw, 150px) 0;
   background:
     linear-gradient(180deg, var(--brand-gray), #ffffff 44%),
     radial-gradient(circle at 80% 20%, rgb(216 35 42 / 8%), transparent 28%);
@@ -227,6 +235,10 @@
 }
 
 @media (max-width: 640px) {
+  .home-page .section {
+    padding-block: 68px;
+  }
+
   .home-featured-services-grid {
     grid-template-columns: 1fr;
   }
