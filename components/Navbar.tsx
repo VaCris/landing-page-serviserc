@@ -17,10 +17,12 @@ export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState(false);
 
   const closeMenus = () => {
     setIsOpen(false);
     setIsServicesOpen(false);
+    setIsDesktopServicesOpen(false);
   };
 
   useEffect(() => {
@@ -44,17 +46,21 @@ export function Navbar() {
         </Link>
 
         <nav className="nav-links" aria-label="Navegación principal">
-          <Link href="/">Inicio</Link>
+          <Link href="/" onClick={closeMenus}>Inicio</Link>
 
-          <div className="nav-dropdown">
-            <Link className="nav-dropdown-trigger" href="/servicios/">
+          <div
+            className={`nav-dropdown ${isDesktopServicesOpen ? 'is-open' : ''}`}
+            onMouseEnter={() => setIsDesktopServicesOpen(true)}
+            onMouseLeave={() => setIsDesktopServicesOpen(false)}
+          >
+            <Link className="nav-dropdown-trigger" href="/servicios/" onFocus={() => setIsDesktopServicesOpen(true)} onClick={closeMenus}>
               Servicios
               <span aria-hidden="true">▾</span>
             </Link>
             <div className="nav-dropdown-menu">
               <div className="nav-dropdown-list">
                 {services.map((service) => (
-                  <Link key={service.slug} href={`/servicios/${service.slug}/`}>
+                  <Link key={service.slug} href={`/servicios/${service.slug}/`} onClick={closeMenus}>
                     {service.title}
                   </Link>
                 ))}
@@ -63,13 +69,13 @@ export function Navbar() {
           </div>
 
           {navItems.slice(1).map((item) => (
-            <Link key={item.href} href={item.href}>
+            <Link key={item.href} href={item.href} onClick={closeMenus}>
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <a className="nav-cta" href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+        <a className="nav-cta" href={whatsappLink()} target="_blank" rel="noopener noreferrer" onClick={closeMenus}>
           WhatsApp
         </a>
 
