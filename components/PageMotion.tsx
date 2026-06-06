@@ -1,5 +1,6 @@
 'use client';
 
+import { animate } from 'framer-motion';
 import { useEffect } from 'react';
 
 const motionSelector = [
@@ -22,26 +23,59 @@ const motionSelector = [
   '.related-service-card',
 ].join(',');
 
+const easeOut = [0.22, 1, 0.36, 1] as const;
+
 export function PageMotion() {
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll<HTMLElement>(motionSelector));
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    elements.forEach((element, index) => {
-      element.classList.add('motion-ready');
-      element.style.setProperty('--motion-delay', `${Math.min(index % 6, 5) * 70}ms`);
+    if (prefersReducedMotion) {
+      elements.forEach((element) => {
+        element.style.opacity = '1';
+        element.style.transform = 'none';
+      });
+      return;
+    }
+
+    elements.forEach((element) => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(24px) scale(.985)';
+      element.style.willChange = 'opacity, transform';
     });
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('motion-visible');
-            observer.unobserve(entry.target);
-          }
+          if (!entry.isIntersecting) return;
+
+          const element = entry.target as HTMLElement;
+          const index = elements.indexOf(element);
+          const delay = Math.min(index % 6, 5) * 0.065;
+
+          animate(
+            element,
+            {
+              opacity: [0, 1],
+              y: [24, 0],
+              scale: [0.985, 1],
+            },
+            {
+              duration: 0.72,
+              delay,
+              ease: easeOut,
+            }
+          ).then(() => {
+            element.style.opacity = '1';
+            element.style.transform = '';
+            element.style.willChange = '';
+          });
+
+          observer.unobserve(element);
         });
       },
       {
-        threshold: 0.12,
+        threshold: 0.14,
         rootMargin: '0px 0px -8% 0px',
       }
     );
