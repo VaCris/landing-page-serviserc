@@ -7,9 +7,11 @@ import './agreement-compact-overrides.css';
 import './service-detail-overrides.css';
 import './navbar-dropdown-overrides.css';
 import './service-card-visual-overrides.css';
+import './page-motion-overrides.css';
 import { JsonLd } from '@/components/JsonLd';
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
+import { PageMotion } from '@/components/PageMotion';
 import { organizationJsonLd, websiteJsonLd } from '@/lib/seo';
 import { absoluteAsset, asset, siteConfig, whatsappLink } from '@/lib/site';
 
@@ -84,6 +86,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="es-PE">
       <body>
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
+        <PageMotion />
         <Navbar />
         {children}
         <a className="whatsapp-float" href={whatsappLink()} target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
