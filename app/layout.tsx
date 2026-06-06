@@ -7,6 +7,7 @@ import './agreement-compact-overrides.css';
 import './service-detail-overrides.css';
 import './navbar-dropdown-overrides.css';
 import './service-card-visual-overrides.css';
+import './home-editorial-overrides.css';
 import './page-motion-overrides.css';
 import { JsonLd } from '@/components/JsonLd';
 import { Footer } from '@/components/Footer';
