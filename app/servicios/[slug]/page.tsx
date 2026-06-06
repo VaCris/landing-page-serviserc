@@ -92,7 +92,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const relatedServices = services.filter((item) => item.slug !== service.slug).slice(0, 3);
 
   return (
-    <main>
+    <main className="service-detail-page">
       <JsonLd data={serviceJsonLd(service)} />
       <section
         className="service-detail-hero enhanced-service-hero"
@@ -122,9 +122,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      <section className="section section-separated">
-        <div className="container service-detail-grid">
-          <article className="service-main-panel">
+      <section className="section service-detail-editorial-section">
+        <div className="container service-detail-editorial-layout">
+          <article className="service-detail-intro">
             <span className="section-eyebrow">Descripción</span>
             <h2>{service.title}</h2>
             <p>{service.description}</p>
@@ -139,21 +139,21 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             </div>
           </article>
 
-          <aside className="service-side-panel">
+          <aside className="service-includes-panel">
             <h3>Qué incluye</h3>
             <ul>
               {service.includes.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <a className="btn btn-primary" href={whatsappLink(`Hola Serviserc, deseo cotizar ${service.title}`)} target="_blank" rel="noopener noreferrer">
+            <a className="btn btn-secondary" href={whatsappLink(`Hola Serviserc, deseo cotizar ${service.title}`)} target="_blank" rel="noopener noreferrer">
               Solicitar información
             </a>
           </aside>
         </div>
       </section>
 
-      <section className="section section-muted section-separated">
+      <section className="section service-process-band">
         <div className="container">
           <div className="section-heading-row">
             <div>
@@ -177,20 +177,30 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      <section className="section section-separated">
-        <div className="container service-cta-panel">
-          <div>
-            <span className="section-eyebrow light">Atención SERVISERC</span>
+      <section
+        className="service-cta-full"
+        style={{
+          backgroundImage: `url(${asset(service.image)})`,
+        }}
+      >
+        <div className="container">
+          <div className="service-cta-full-content">
+            <span className="section-eyebrow">Atención SERVISERC</span>
             <h2>¿Necesitas este servicio?</h2>
             <p>Escríbenos por WhatsApp y recibe orientación según la situación de tu negocio.</p>
+            <div className="hero-actions">
+              <a className="btn btn-secondary" href={whatsappLink(`Hola Serviserc, quiero asesoría sobre ${service.title}`)} target="_blank" rel="noopener noreferrer">
+                Contactar ahora
+              </a>
+              <Link className="btn btn-outline" href="/servicios/">
+                Ver otros servicios
+              </Link>
+            </div>
           </div>
-          <a className="btn btn-secondary" href={whatsappLink(`Hola Serviserc, quiero asesoría sobre ${service.title}`)} target="_blank" rel="noopener noreferrer">
-            Contactar ahora
-          </a>
         </div>
       </section>
 
-      <section className="section section-muted section-separated">
+      <section className="section service-related-section">
         <div className="container">
           <div className="section-heading-row">
             <div>
