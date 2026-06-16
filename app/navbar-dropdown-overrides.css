@@ -17,63 +17,115 @@
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 16px);
+
+  top: 100%;
+
   left: 50%;
-  width: min(420px, calc(100vw - 32px));
-  padding: 12px;
-  border-radius: 22px;
-  border: 1px solid rgb(12 47 95 / 10%);
-  background: rgb(255 255 255 / 98%);
-  box-shadow: 0 24px 70px rgb(7 29 61 / 16%);
-  backdrop-filter: blur(18px);
+  transform: translateX(-50%);
+
+  width: min(1280px, calc(100vw - 48px));
+
+  padding: 32px;
+
+  background: #ffffff;
+
+  border-top: 1px solid rgb(7 29 61 / 6%);
+  border-bottom: 1px solid rgb(7 29 61 / 6%);
+  border-left: none;
+  border-right: none;
+
+  border-radius: 0;
+
+  box-shadow: none;
+  backdrop-filter: none;
+
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translate(-50%, -8px);
-  transition: opacity 170ms ease, transform 170ms ease, visibility 170ms ease;
+
+  transition:
+    opacity .2s ease,
+    visibility .2s ease;
 }
 
 .nav-dropdown.is-open .nav-dropdown-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, 20px);
 }
 
 .nav-dropdown-menu::before {
   content: '';
   position: absolute;
-  top: -16px;
+  top: -20px;
   left: 0;
   width: 100%;
-  height: 16px;
+  height: 20px;
 }
 
-.nav-dropdown-list {
+.mega-menu-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 4px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
-.nav-dropdown-list a::after {
+.mega-menu-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-menu-column h4 {
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  color: var(--brand-red-dark);
+
+  border-bottom: 1px solid rgb(12 47 95 / 8%);
+}
+
+.mega-menu-column a {
+  display: flex;
+  align-items: center;
+
+  min-height: 46px;
+
+  padding: 10px 12px;
+
+  border-radius: 14px;
+
+  color: var(--brand-blue-dark);
+
+  font-size: .9rem;
+  font-weight: 800;
+
+  transition: all .18s ease;
+}
+
+.mega-menu-column a::after {
   display: none;
 }
 
-.nav-dropdown-list a {
-  display: flex;
-  align-items: center;
-  min-height: 36px;
-  padding: 9px 12px;
-  border-radius: 13px;
-  color: var(--brand-blue-dark);
-  font-size: .86rem;
-  font-weight: 850;
-  line-height: 1.25;
-  white-space: normal;
+.mega-menu-column a:hover {
+  background: rgb(216 35 42 / 7%);
+  color: var(--brand-red-dark);
+  transform: translateX(4px);
 }
 
-.nav-dropdown-list a:hover {
-  background: rgb(216 35 42 / 9%);
+.mega-menu-footer {
+  margin-top: 18px;
+  padding-top: 18px;
+
+  border-top: 1px solid rgb(12 47 95 / 8%);
+}
+
+.mega-menu-footer a {
+  font-weight: 900;
   color: var(--brand-red-dark);
 }
 
@@ -93,37 +145,47 @@
 
 .mobile-services-toggle {
   width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 15px 16px;
+
   border: 0;
   border-radius: 18px;
+
   background: var(--brand-blue-dark);
-  color: #ffffff;
+  color: #fff;
+
   font: inherit;
   font-weight: 900;
+
   cursor: pointer;
 }
 
 .mobile-services-toggle span {
   width: 28px;
   height: 28px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 999px;
+
   background: rgb(255 255 255 / 14%);
-  color: #ffffff;
 }
 
 .mobile-services-list {
   display: none;
-  max-height: 330px;
-  overflow-y: auto;
+
   gap: 6px;
+
   padding: 8px;
+
   border-radius: 18px;
+
   background: rgb(12 47 95 / 5%);
 }
 
@@ -133,21 +195,31 @@
 
 .mobile-services-list a {
   padding: 12px 14px !important;
+
   border-radius: 14px !important;
-  background: #ffffff !important;
+
+  background: #fff !important;
+
   color: var(--brand-blue-dark) !important;
+
   font-size: .9rem;
-  line-height: 1.35;
+
   box-shadow: 0 8px 18px rgb(7 29 61 / 5%);
 }
 
 .mobile-services-list a:hover {
-  background: rgb(216 35 42 / 9%) !important;
+  background: rgb(216 35 42 / 8%) !important;
   color: var(--brand-red-dark) !important;
 }
 
 @media (max-width: 900px) {
   .nav-dropdown-menu {
     display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .mega-menu-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

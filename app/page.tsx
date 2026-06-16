@@ -19,9 +19,9 @@ export default function HomePage() {
         <div className="container home-hero-grid home-hero-simple">
           <div className="home-hero-content">
             <span className="hero-kicker">Consultoría empresarial</span>
-            <h1 className="hero-title">Haz crecer tu negocio, haz crecer tu imagen</h1>
+            <h1 className="hero-title">Asesoría contable, tributaria y laboral para el crecimiento de tu negocio</h1>
             <p className="hero-copy">
-              Servicios contables, laborales, tributarios y documentarios para pequeñas empresas, emprendedores y negocios en crecimiento.
+              Te ayudamos a mantener tu empresa en orden, cumplir con tus obligaciones y tomar mejores decisiones para crecer con seguridad.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-primary" href="/servicios/">
@@ -86,7 +86,7 @@ export default function HomePage() {
       <section
         className="agreement-band"
         style={{
-          backgroundImage: `url(${asset('/img/uch-2.webp')})`,
+          backgroundImage: `url(${asset('/img/uch-1.webp')})`,
         }}
       >
         <div className="container">

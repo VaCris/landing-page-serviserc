@@ -1,7 +1,7 @@
 export type Service = {
   slug: string;
   title: string;
-  category: 'principal' | 'documentario' | 'publicitario';
+  categories: ('contable' | 'tributario' | 'empresarial')[];
   excerpt: string;
   description: string;
   image: string;
@@ -13,7 +13,7 @@ export const services: Service[] = [
   {
     slug: 'constitucion-de-empresas',
     title: 'Constitución de Empresas',
-    category: 'principal',
+    categories: ['empresarial'],
     excerpt: 'Te ayudamos a formalizar tu empresa de manera rápida, ordenada y segura.',
     description: 'Acompañamos el proceso de constitución de empresas para personas naturales o jurídicas que desean iniciar operaciones cumpliendo los requisitos formales y tributarios.',
     image: '/img/constitucion-de-empresas.webp',
@@ -23,7 +23,7 @@ export const services: Service[] = [
   {
     slug: 'asesoria-contable-laboral-tributaria',
     title: 'Asesoría Contable, Laboral y Tributaria',
-    category: 'principal',
+    categories: ['contable'],
     excerpt: 'Asesoría especializada para cumplir correctamente tus obligaciones contables, laborales y tributarias.',
     description: 'Brindamos soporte integral para pequeñas y microempresas que necesitan mantener su contabilidad en regla y cumplir sus obligaciones ante las entidades correspondientes.',
     image: '/img/asesoria-contable-laboral-tributaria.webp',
@@ -33,7 +33,7 @@ export const services: Service[] = [
   {
     slug: 'planeamiento-tributario',
     title: 'Planeamiento Tributario',
-    category: 'principal',
+    categories: ['tributario'],
     excerpt: 'Estrategias para optimizar la carga fiscal de tu negocio dentro del marco legal.',
     description: 'Evaluamos la situación tributaria de tu empresa y proponemos acciones para organizar mejor tus obligaciones, anticipar riesgos y mejorar la toma de decisiones.',
     image: '/img/planeamiento-tributario.webp',
@@ -43,7 +43,7 @@ export const services: Service[] = [
   {
     slug: 'contabilidad-computarizada-electronica',
     title: 'Contabilidad Computarizada y Electrónica',
-    category: 'principal',
+    categories: ['contable'],
     excerpt: 'Implementación y gestión contable con herramientas digitales para mayor precisión.',
     description: 'Ordenamos y procesamos la información contable usando medios computarizados y electrónicos, facilitando el control documental y la elaboración de reportes.',
     image: '/img/contabilidad-computarizada-electronica.webp',
@@ -53,7 +53,7 @@ export const services: Service[] = [
   {
     slug: 'facturacion-electronica',
     title: 'Facturación Electrónica',
-    category: 'principal',
+    categories: ['contable'],
     excerpt: 'Automatizamos y orientamos el proceso de emisión de comprobantes electrónicos.',
     description: 'Te ayudamos a organizar la facturación electrónica de tu negocio para mantener un mejor control de comprobantes y cumplir con las exigencias tributarias.',
     image: '/img/facturacion-electronica.webp',
@@ -63,7 +63,7 @@ export const services: Service[] = [
   {
     slug: 'libros-contables',
     title: 'Actualización y Llenado de Libros Contables',
-    category: 'principal',
+    categories: ['contable'],
     excerpt: 'Mantenemos tus libros contables actualizados según las normativas vigentes.',
     description: 'Nos encargamos de la actualización, revisión y llenado de libros contables para que la empresa tenga su documentación ordenada y disponible.',
     image: '/img/libros-contables.webp',
@@ -73,7 +73,7 @@ export const services: Service[] = [
   {
     slug: 'devolucion-igv',
     title: 'Solicitud de Devolución del IGV',
-    category: 'principal',
+    categories: ['tributario'],
     excerpt: 'Gestionamos solicitudes de devolución por detracciones, retenciones y otros conceptos.',
     description: 'Orientamos y acompañamos la preparación de solicitudes de devolución del IGV cuando corresponde, revisando la documentación y los sustentos necesarios.',
     image: '/img/devolucion-igv.webp',
@@ -83,7 +83,7 @@ export const services: Service[] = [
   {
     slug: 'reclamacion-apelacion-sunat',
     title: 'Reclamación y Apelación ante SUNAT',
-    category: 'principal',
+    categories: ['tributario'],
     excerpt: 'Asistencia para solicitudes de reclamación ante SUNAT y el Tribunal Fiscal.',
     description: 'Brindamos soporte en la preparación y presentación de solicitudes de reclamación y apelación vinculadas a procedimientos tributarios.',
     image: '/img/reclamacion-apelacion-sunat.webp',
@@ -93,7 +93,7 @@ export const services: Service[] = [
   {
     slug: 'legalizacion-libros-contables',
     title: 'Venta de Libros Contables y Legalización',
-    category: 'principal',
+    categories: ['contable'],
     excerpt: 'Atención para libros contables, venta y orientación para legalización.',
     description: 'Ofrecemos soporte relacionado con libros contables, su adquisición y la orientación necesaria para mantener documentación formal.',
     image: '/img/venta-y-legalizacion-de-libros-contables.webp',

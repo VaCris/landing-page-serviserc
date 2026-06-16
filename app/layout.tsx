@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { Inter, Manrope } from 'next/font/google';
 import './globals.css';
 import './visual-upgrades.css';
 import './image-modal-overrides.css';
@@ -16,6 +17,18 @@ import { Navbar } from '@/components/Navbar';
 import { PageMotion } from '@/components/PageMotion';
 import { organizationJsonLd, websiteJsonLd } from '@/lib/seo';
 import { absoluteAsset, asset, siteConfig, whatsappLink } from '@/lib/site';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+});
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  display: 'swap',
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -86,7 +99,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es-PE">
-      <body>
+      <body className={`${inter.variable} ${manrope.variable}`}>
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <PageMotion />
         <Navbar />

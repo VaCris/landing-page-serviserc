@@ -13,8 +13,15 @@ const navItems = [
   { href: '/#sedes', label: 'Sedes' },
 ];
 
+const serviceGroups = {
+  contable: services.filter((service) => service.categories.includes('contable')),
+  tributario: services.filter((service) => service.categories.includes('tributario')),
+  empresarial: services.filter((service) => service.categories.includes('empresarial')),
+};
+
 export function Navbar() {
   const pathname = usePathname();
+
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState(false);
@@ -24,7 +31,10 @@ export function Navbar() {
     setIsServicesOpen(false);
     setIsDesktopServicesOpen(false);
 
-    if (typeof document !== 'undefined' && document.activeElement instanceof HTMLElement) {
+    if (
+      typeof document !== 'undefined' &&
+      document.activeElement instanceof HTMLElement
+    ) {
       document.activeElement.blur();
     }
   };
@@ -44,42 +54,113 @@ export function Navbar() {
   return (
     <header className="header">
       <div className="container navbar">
-        <Link className="brand" href="/" onClick={closeMenus}>
-          <img className="brand-mark" src={asset('/img/172728779273.webp')} alt="Logo SERVISERC" />
+        <Link
+          className="brand"
+          href="/"
+          scroll={true}
+          onClick={closeMenus}
+        >
+          <img
+            className="brand-mark"
+            src={asset('/img/172728779273.webp')}
+            alt="Logo SERVISERC"
+          />
           <span>SERVISERC</span>
         </Link>
 
         <nav className="nav-links" aria-label="Navegación principal">
-          <Link href="/" onClick={closeMenus}>Inicio</Link>
+          <Link href="/" scroll={true} onClick={closeMenus}>
+            Inicio
+          </Link>
 
           <div
-            className={`nav-dropdown ${isDesktopServicesOpen ? 'is-open' : ''}`}
+            className={`nav-dropdown ${isDesktopServicesOpen ? 'is-open' : ''
+              }`}
             onMouseEnter={() => setIsDesktopServicesOpen(true)}
             onMouseLeave={() => setIsDesktopServicesOpen(false)}
           >
-            <Link className="nav-dropdown-trigger" href="/servicios/" onFocus={() => setIsDesktopServicesOpen(true)} onClick={closeMenus}>
+            <Link
+              className="nav-dropdown-trigger"
+              href="/servicios/"
+              scroll={true}
+              onFocus={() => setIsDesktopServicesOpen(true)}
+            >
               Servicios
               <span aria-hidden="true">▾</span>
             </Link>
-            <div className="nav-dropdown-menu">
-              <div className="nav-dropdown-list">
-                {services.map((service) => (
-                  <Link key={service.slug} href={`/servicios/${service.slug}/`} onClick={closeMenus}>
-                    {service.title}
-                  </Link>
-                ))}
+
+            <div className="nav-dropdown-menu mega-menu">
+              <div className="mega-menu-grid">
+                <div className="mega-menu-column">
+                  <h4>Contables</h4>
+
+                  {serviceGroups.contable.map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={`/servicios/${service.slug}/`}
+                      onClick={closeMenus}
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="mega-menu-column">
+                  <h4>Tributarios</h4>
+
+                  {serviceGroups.tributario.map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={`/servicios/${service.slug}/`}
+                      onClick={closeMenus}
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="mega-menu-column">
+                  <h4>Empresariales</h4>
+
+                  {serviceGroups.empresarial.map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={`/servicios/${service.slug}/`}
+                      onClick={closeMenus}
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mega-menu-footer">
+                <Link href="/servicios/" onClick={closeMenus}>
+                  Ver todos los servicios →
+                </Link>
               </div>
             </div>
           </div>
 
           {navItems.slice(1).map((item) => (
-            <Link key={item.href} href={item.href} onClick={closeMenus}>
+            <Link
+              key={item.href}
+              href={item.href}
+              scroll={true}
+              onClick={closeMenus}
+            >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <a className="nav-cta" href={whatsappLink()} target="_blank" rel="noopener noreferrer" onClick={closeMenus}>
+        <a
+          className="nav-cta"
+          href={whatsappLink()}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={closeMenus}
+        >
           WhatsApp
         </a>
 
@@ -97,21 +178,43 @@ export function Navbar() {
         </button>
       </div>
 
-      <div className={`mobile-menu ${isOpen ? 'is-open' : ''}`} id="mobile-menu">
-        <nav className="mobile-menu-panel" aria-label="Navegación móvil">
+      <div
+        className={`mobile-menu ${isOpen ? 'is-open' : ''}`}
+        id="mobile-menu"
+      >
+        <nav
+          className="mobile-menu-panel"
+          aria-label="Navegación móvil"
+        >
           <Link href="/" onClick={closeMenus}>
             Inicio
           </Link>
 
           <div className="mobile-services-group">
-            <button type="button" className="mobile-services-toggle" aria-expanded={isServicesOpen} onClick={() => setIsServicesOpen((current) => !current)}>
+            <button
+              type="button"
+              className="mobile-services-toggle"
+              aria-expanded={isServicesOpen}
+              onClick={() =>
+                setIsServicesOpen((current) => !current)
+              }
+            >
               Servicios
-              <span aria-hidden="true">{isServicesOpen ? '−' : '+'}</span>
+              <span aria-hidden="true">
+                {isServicesOpen ? '−' : '+'}
+              </span>
             </button>
 
-            <div className={`mobile-services-list ${isServicesOpen ? 'is-open' : ''}`}>
+            <div
+              className={`mobile-services-list ${isServicesOpen ? 'is-open' : ''
+                }`}
+            >
               {services.map((service) => (
-                <Link key={service.slug} href={`/servicios/${service.slug}/`} onClick={closeMenus}>
+                <Link
+                  key={service.slug}
+                  href={`/servicios/${service.slug}/`}
+                  onClick={closeMenus}
+                >
                   {service.title}
                 </Link>
               ))}
@@ -119,11 +222,22 @@ export function Navbar() {
           </div>
 
           {navItems.slice(1).map((item) => (
-            <Link key={item.href} href={item.href} onClick={closeMenus}>
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={closeMenus}
+            >
               {item.label}
             </Link>
           ))}
-          <a className="btn btn-primary" href={whatsappLink()} target="_blank" rel="noopener noreferrer" onClick={closeMenus}>
+
+          <a
+            className="btn btn-primary"
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenus}
+          >
             Contactar por WhatsApp
           </a>
         </nav>
