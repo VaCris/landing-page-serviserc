@@ -21,7 +21,7 @@ export default function HomePage() {
             <span className="hero-kicker">Consultoría empresarial</span>
             <h1 className="hero-title">Asesoría contable, tributaria y laboral para el crecimiento de tu negocio</h1>
             <p className="hero-copy">
-              Te ayudamos a mantener tu empresa en orden, cumplir con tus obligaciones y tomar mejores decisiones para crecer con seguridad.
+              Te ayudamos a mantener tu empresa en orden, cumplir con tus obligaciones y tomar mejores decisiones con seguridad.
             </p>
             <div className="hero-actions">
               <Link className="btn btn-primary" href="/servicios/">
