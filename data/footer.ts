@@ -40,5 +40,5 @@ export const footerContent = {
     'San Isidro — Paseo de la República 3557 OF. 701 - Lima',
     'Carabayllo — Jr. Huaylas Mz.E Lt.20 Urb. Chavín de Huantar 1',
   ],
-  bottom: '© 2024 SERVISERC S.A.C. Todos los derechos reservados.',
+  bottom: '© 2026 SERVISERC S.A.C. Todos los derechos reservados.',
 };
