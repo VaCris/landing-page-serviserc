@@ -68,7 +68,7 @@ export default function HomePage() {
           <div className="editorial-copy">
             <h2 className="section-title">Acompañamos la gestión de tu negocio con orden y claridad</h2>
             <p className="section-copy">
-              En SERVISERC S.A.C., contamos con soluciones contables integrales para empresas de todos los tipos. Con más de 3 años de experiencia, nuestro equipo ofrece servicios especializados.
+              En nuestro estudio contable, contamos con soluciones contables integrales para empresas de todos los tipos. Con más de 3 años de experiencia, nuestro equipo ofrece servicios especializados.
             </p>
             <p className="section-copy" style={{ marginTop: 18 }}>
               Nuestra misión es facilitar la gestión de cada negocio, apoyar el cumplimiento de normativas vigentes y optimizar los procesos contables con una atención cercana y confiable.
