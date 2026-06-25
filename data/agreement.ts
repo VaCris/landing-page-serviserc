@@ -2,7 +2,7 @@ export const agreement = {
   title: 'Convenio con la Universidad de Ciencias y Humanidades',
   partner: 'UCH',
   description:
-    'mantiene un convenio informativo con la Universidad de Ciencias y Humanidades para acercar oportunidades académicas y descuentos especiales a sus colaboradores y emprededores que visiten nuestras sedes',
+    'Mantenemos un convenio informativo con la Universidad de Ciencias y Humanidades para acercar oportunidades académicas y descuentos especiales a sus colaboradores y emprededores que visiten nuestras sedes',
   highlights: [
     {
       title: 'Hasta 30% en carreras universitarias',
