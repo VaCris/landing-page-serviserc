@@ -2,7 +2,7 @@ export const agreement = {
   title: 'Convenio con la Universidad de Ciencias y Humanidades',
   partner: 'UCH',
   description:
-    'Mantenemos un convenio formativo con la Universidad de Ciencias y Humanidades para acercar oportunidades académicas y descuentos especiales a sus colaboradores y emprededores que visiten nuestras sedes',
+    'Mantenemos un convenio formativo con la Universidad de Ciencias y Humanidades para acercar oportunidades académicas y descuentos especiales a sus colaboradores y emprededores que visiten nuestras instalaciones.',
   highlights: [
     {
       title: 'Hasta 30% en carreras universitarias',
@@ -42,7 +42,7 @@ export const agreement = {
     { number: 5, name: 'Estudios Generales', image: 'https://www.uch.edu.pe/assets/sources/demo-mini-facultades.webp', careers: [] },
   ],
   note:
-    'Los descuentos no son acumulables con otras promociones vigentes. Para activar el beneficio, solicita tu carta de presentación en SERVISERC S.A.C.',
+    'Estos beneficios no pueden combinarse con otras ofertas disponibles actualmente. Si deseas acceder al descuento, acércate a una de nuestras sedes para obtener tu carta de presentación.',
   address: 'Av. Universitaria Norte 5175 - Urb. Industrial Molitalia - Los Olivos',
   web: 'https://www.uch.edu.pe',
   email: 'informes@uch.edu.pe',
