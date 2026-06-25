@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { JsonLd } from '@/components/JsonLd';
-import { ZoomableImage } from '@/components/ZoomableImage';
 import { agreement } from '@/data/agreement';
 import { absoluteAsset, absoluteUrl, asset, siteConfig, whatsappLink } from '@/lib/site';
+import ActiveFacultySection from './active-faculty-section';
+import './uch-careers-overrides.css';
 
 export const metadata: Metadata = {
   title: 'Convenio UCH en Lima',
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     url: absoluteUrl('/convenio-uch/'),
     images: [
       {
-        url: absoluteAsset('/img/uch-1.webp'),
+        url: absoluteAsset('/img/uch-1.avif'),
         width: 1200,
         height: 630,
         alt: 'Convenio UCH SERVISERC',
@@ -72,7 +73,7 @@ export default function AgreementPage() {
       <section
         className="uch-hero"
         style={{
-          backgroundImage: `linear-gradient(110deg, rgb(5 18 38 / 94%), rgb(7 29 61 / 82%) 48%, rgb(216 35 42 / 38%)), url(${asset('/img/uch-1.webp')})`,
+          backgroundImage: `linear-gradient(110deg, rgb(5 18 38 / 94%), rgb(7 29 61 / 82%) 48%, rgb(216 35 42 / 38%)), url(${asset('/img/uch-2.avif')})`,
         }}
       >
         <div className="container uch-hero-grid uch-hero-background-layout">
@@ -80,11 +81,6 @@ export default function AgreementPage() {
             <span className="hero-kicker">Convenio educativo</span>
             <h1 className="agreement-hero-title">{agreement.title}</h1>
             <p className="agreement-hero-copy">{agreement.description}</p>
-            <div className="uch-hero-badges">
-              <span>Descuentos especiales</span>
-              <span>Orientación en sedes</span>
-              <span>Información académica</span>
-            </div>
             <div className="hero-actions">
               <a className="btn btn-secondary" href={whatsappLink('Hola Serviserc, necesito información sobre el convenio UCH')} target="_blank" rel="noopener noreferrer">
                 Consultar convenio
@@ -101,9 +97,6 @@ export default function AgreementPage() {
         <div className="container">
           <span className="section-eyebrow">Beneficios</span>
           <h2 className="section-title">Beneficios del convenio</h2>
-          <p className="section-copy">
-            Una alianza pensada para acercar oportunidades académicas, descuentos especiales e información clara para clientes, familias y emprendedores.
-          </p>
           <div className="agreement-summary">
             {agreement.highlights.map((item) => (
               <div key={item.title} className="summary-item">
@@ -115,35 +108,46 @@ export default function AgreementPage() {
         </div>
       </section>
 
-      <section className="section section-muted section-separated">
-        <div className="container agreement-careers-layout">
-          <div className="agreement-careers-image">
-            <ZoomableImage src={asset('/img/convenio-uch.webp')} alt="Carreras disponibles del convenio UCH" />
+      <section className="section section-separated">
+        <div className="container">
+          <ActiveFacultySection faculties={agreement.faculties} />
+        </div>
+      </section>
+
+      <section className="uch-corp-footer-wrapper">
+        <div className="uch-corp-wave">
+          <svg viewBox="0 0 1440 100" preserveAspectRatio="none" fill="currentColor">
+            <path d="M0,60 C360,120 1080,0 1440,60 L1440,0 L0,0 Z" />
+          </svg>
+        </div>
+        <div className="container agreement-corp-info">
+          <div className="agreement-corp-text">
+            <h3>Sobre el convenio</h3>
+            <p>{agreement.note}</p>
           </div>
-
-          <section className="info-panel careers-panel careers-panel-compact">
-            <span className="hero-kicker" style={{ background: '#d8232a', color: '#ffffff' }}>Orientación académica</span>
-            <h2>Consulta carreras y beneficios</h2>
-            <p>
-              Escríbenos para recibir información sobre carreras, descuentos especiales y sedes de atención.
-            </p>
-
-            <div className="agreement-compact-list">
-              {agreementSteps.map((step, index) => (
-                <article key={step.title} className="agreement-compact-item">
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p>{step.text}</p>
-                  </div>
-                </article>
-              ))}
+          <div className="agreement-corp-columns">
+            <div>
+              <strong>Dirección principal</strong>
+              <p>{agreement.address}</p>
             </div>
-
-            <a className="btn btn-primary compact-cta" href={whatsappLink('Hola Serviserc, quiero información sobre una carrera del convenio UCH')} target="_blank" rel="noopener noreferrer">
-              Consultar por WhatsApp
-            </a>
-          </section>
+            <div>
+              <strong>Contacto</strong>
+              <p>
+                <a href={`tel:${agreement.phone}`}>{agreement.phone}</a>
+              </p>
+              <p>
+                <a href={`mailto:${agreement.email}`}>{agreement.email}</a>
+              </p>
+              <p>
+                <a href={agreement.web} target="_blank" rel="noopener noreferrer">{agreement.web}</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="uch-corp-wave-bottom">
+          <svg viewBox="0 0 1440 100" preserveAspectRatio="none" fill="currentColor">
+            <path d="M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z" />
+          </svg>
         </div>
       </section>
     </main>
