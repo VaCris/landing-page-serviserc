@@ -16,11 +16,19 @@ const socials = [
 export function Footer() {
   return (
     <footer className="site-footer">
+      <div className="b2b-arch-separator top">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" fill="currentColor">
+          <path d="M0,100 Q50,0 100,100 Z" />
+        </svg>
+      </div>
       <div className="container footer-grid">
         <div className="footer-company">
           <Link className="footer-brand" href="/">
-            <img src={asset('/img/172728779273.webp')} alt="Logo SERVISERC" />
-            <span>SERVISERC</span>
+            <img src={asset('/img/logo-serviserc.webp')} alt="Logo SERVISERC" />
+            <div className="brand-text">
+              <span className="brand-tagline">Consultoría Empresarial</span>
+              <span className="brand-name">SERVISERC S.A.C.</span>
+            </div>
           </Link>
           <p>{footerContent.company.description}</p>
           <div className="footer-contact">

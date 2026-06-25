@@ -23,13 +23,11 @@ export function Navbar() {
   const pathname = usePathname();
 
   const [isOpen, setIsOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState(false);
 
   const closeMenus = () => {
     setIsOpen(false);
-    setIsServicesOpen(false);
-    setIsDesktopServicesOpen(false);
+    const details = document.querySelector('details.mobile-services-group') as HTMLDetailsElement | null;
+    if (details) details.open = false;
 
     if (
       typeof document !== 'undefined' &&
@@ -62,10 +60,13 @@ export function Navbar() {
         >
           <img
             className="brand-mark"
-            src={asset('/img/172728779273.webp')}
+            src={asset('/img/logo-serviserc.webp')}
             alt="Logo SERVISERC"
           />
-          <span>SERVISERC</span>
+          <div className="brand-text">
+            <span className="brand-tagline">Consultoría Empresarial</span>
+            <span className="brand-name">SERVISERC S.A.C.</span>
+          </div>
         </Link>
 
         <nav className="nav-links" aria-label="Navegación principal">
@@ -73,17 +74,12 @@ export function Navbar() {
             Inicio
           </Link>
 
-          <div
-            className={`nav-dropdown ${isDesktopServicesOpen ? 'is-open' : ''
-              }`}
-            onMouseEnter={() => setIsDesktopServicesOpen(true)}
-            onMouseLeave={() => setIsDesktopServicesOpen(false)}
-          >
+          {/* ponytail: CSS :hover instead of React state for desktop dropdown */}
+          <div className="nav-dropdown">
             <Link
               className="nav-dropdown-trigger"
               href="/servicios/"
               scroll={true}
-              onFocus={() => setIsDesktopServicesOpen(true)}
             >
               Servicios
               <span aria-hidden="true">▾</span>
@@ -190,25 +186,14 @@ export function Navbar() {
             Inicio
           </Link>
 
-          <div className="mobile-services-group">
-            <button
-              type="button"
-              className="mobile-services-toggle"
-              aria-expanded={isServicesOpen}
-              onClick={() =>
-                setIsServicesOpen((current) => !current)
-              }
-            >
+          {/* ponytail: native <details> instead of React state for mobile accordion */}
+          <details className="mobile-services-group">
+            <summary className="mobile-services-toggle" style={{ listStyle: 'none' }}>
               Servicios
-              <span aria-hidden="true">
-                {isServicesOpen ? '−' : '+'}
-              </span>
-            </button>
+              <span aria-hidden="true">▾</span>
+            </summary>
 
-            <div
-              className={`mobile-services-list ${isServicesOpen ? 'is-open' : ''
-                }`}
-            >
+            <div className="mobile-services-list">
               {services.map((service) => (
                 <Link
                   key={service.slug}
@@ -219,7 +204,7 @@ export function Navbar() {
                 </Link>
               ))}
             </div>
-          </div>
+          </details>
 
           {navItems.slice(1).map((item) => (
             <Link

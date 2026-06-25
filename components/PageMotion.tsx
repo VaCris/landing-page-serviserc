@@ -21,6 +21,11 @@ const motionSelector = [
   '.service-side-panel',
   '.service-cta-panel',
   '.related-service-card',
+  '.faq-item',
+  '.faq-split-sidebar',
+  '.interactive-locations-sidebar',
+  '.interactive-locations-map-wrapper',
+  '.agreement-band-content',
 ].join(',');
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
