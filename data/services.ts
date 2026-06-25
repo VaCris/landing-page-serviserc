@@ -92,23 +92,6 @@ export const services: Service[] = [
   },
 ];
 
-export const secondaryServices = [
-  'Facturas',
-  'Boletas',
-  'Nota de Crédito / Débito',
-  'Guías de Remisión',
-  'Guías de Transportista',
-  'Notas de Pedido',
-  'Recibos de Ingresos o Egresos',
-  'Letra de Cambio',
-  'Recibos',
-  'Volantes',
-  'Dípticos',
-  'Trípticos',
-  'Brochures',
-  'Hojas Membretadas',
-];
-
 export function getServiceBySlug(slug: string) {
   return services.find((service) => service.slug === slug);
 }
