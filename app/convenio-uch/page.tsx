@@ -82,9 +82,6 @@ export default function AgreementPage() {
             <h1 className="agreement-hero-title">{agreement.title}</h1>
             <p className="agreement-hero-copy">{agreement.description}</p>
             <div className="hero-actions">
-              <a className="btn btn-secondary" href={whatsappLink('Hola Serviserc, necesito información sobre el convenio UCH')} target="_blank" rel="noopener noreferrer">
-                Consultar convenio
-              </a>
               <Link className="btn btn-outline" href="/#sedes">
                 Ver sedes
               </Link>
