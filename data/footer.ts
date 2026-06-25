@@ -1,4 +1,4 @@
-import { secondaryServices, services } from '@/data/services';
+import { services } from '@/data/services';
 
 export const footerContent = {
   company: {
@@ -16,13 +16,6 @@ export const footerContent = {
       links: services.slice(0, 8).map((service) => ({
         label: service.title,
         href: `/servicios/${service.slug}/`,
-      })),
-    },
-    {
-      title: 'Otros servicios',
-      links: secondaryServices.map((service) => ({
-        label: service,
-        href: '/servicios/',
       })),
     },
     {
