@@ -68,7 +68,7 @@ export default function HomePage() {
           <div className="editorial-copy">
             <h2 className="section-title">Acompañamos la gestión de tu negocio con orden y claridad</h2>
             <p className="section-copy">
-              En nuestro estudio contable, contamos con soluciones contables integrales para empresas de todos los tipos. Con más de 3 años de experiencia, nuestro equipo ofrece servicios especializados.
+              En nuestra consultora empresarial ofrece servicios contables integrales adaptados a todo tipo de organizaciones. Respaldados por más de 3 años de experiencia, nuestro equipo brinda asesoramiento especializado para el crecimiento de tu empresa.
             </p>
             <p className="section-copy" style={{ marginTop: 18 }}>
               Nuestra misión es facilitar la gestión de cada negocio, apoyar el cumplimiento de normativas vigentes y optimizar los procesos contables con una atención cercana y confiable.
@@ -102,14 +102,10 @@ export default function HomePage() {
           <div className="agreement-band-content">
             <span className="section-eyebrow">Convenio educativo</span>
             <h2 className="agreement-band-title">{agreement.title}</h2>
-            <p className="agreement-band-copy">{agreement.description}</p>
             <div className="hero-actions">
               <Link className="btn btn-secondary" href="/convenio-uch/">
                 Ver convenio
               </Link>
-              <a className="btn btn-primary" href={whatsappLink('Hola Serviserc, necesito información sobre el convenio UCH')} target="_blank" rel="noopener noreferrer">
-                Consultar por WhatsApp
-              </a>
             </div>
           </div>
         </div>
