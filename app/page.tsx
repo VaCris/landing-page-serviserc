@@ -68,7 +68,7 @@ export default function HomePage() {
           <div className="editorial-copy">
             <h2 className="section-title">Acompañamos la gestión de tu negocio con orden y claridad</h2>
             <p className="section-copy">
-              En Consultoria Empresarial SERVISERC S.A.C. te brindamos soluciones contables integrales para empresas Mypes, Pymes y corporaciones de distintos sectores. Nuestro equipo ofrece un servicio personalizado y eficiente para cubrir necesidades tributarias, laborales, contables y empresariales.
+              En SERVISERC S.A.C., contamos con soluciones contables integrales para empresas de todos los tipos. Con más de 3 años de experiencia, nuestro equipo ofrece servicios especializados adaptados a tus necesidades.
             </p>
             <p className="section-copy" style={{ marginTop: 18 }}>
               Nuestra misión es facilitar la gestión de cada negocio, apoyar el cumplimiento de normativas vigentes y optimizar los procesos contables con una atención cercana y confiable.
@@ -151,7 +151,7 @@ export default function HomePage() {
             <details name="home-faq" className="faq-item">
               <summary>¿Cómo funciona su servicio de asesoría contable mensual?</summary>
               <div className="faq-content">
-                <p>Nuestro servicio incluye la declaración de impuestos mensuales (PDT 621, PLAME), elaboración de planillas, registro de compras y ventas, y entrega de estados financieros periódicos para la toma de decisiones.</p>
+                <p>Nuestro servicio incluye la declaración de impuestos mensuales (PDT 621, PLAME), elaboración de planillas, registro de compras y ventas, y entrega de estados financieros periódic[...]
               </div>
             </details>
             <details name="home-faq" className="faq-item">
@@ -163,7 +163,7 @@ export default function HomePage() {
             <details name="home-faq" className="faq-item">
               <summary>¿El servicio es presencial o virtual?</summary>
               <div className="faq-content">
-                <p>Ofrecemos un servicio híbrido. Toda la documentación e informes se manejan digitalmente a nivel nacional de forma ágil, pero también contamos con sedes físicas para atención presencial.</p>
+                <p>Ofrecemos un servicio híbrido. Toda la documentación e informes se manejan digitalmente a nivel nacional de forma ágil, pero también contamos con sedes físicas para atención p[...]
               </div>
             </details>
           </div>
