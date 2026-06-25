@@ -4,7 +4,7 @@ export const siteConfig = {
   description: 'Servicios de contabilidad, asesoría tributaria, laboral y empresarial para pequeñas y microempresas en Lima, Perú.',
   url: 'https://vacris.github.io/landing-page-serviserc',
   whatsapp: '51989342085',
-  email: 'consultoriaempresarialserviserc@gmail.com',
+  email: 'contabilidad.losolivos@serviserc.com',
   locale: 'es_PE',
   country: 'PE',
   region: 'Lima',
