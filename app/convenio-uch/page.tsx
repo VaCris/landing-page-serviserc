@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     'descuentos UCH',
   ],
   openGraph: {
-    title: 'Convenio UCH | SERVISERC S.A.C.',
+    title: 'Convenio UCH | Consultora Empresarial SERVISERC S.A.C.',
     description: 'Información sobre carreras, beneficios y orientación del convenio UCH con SERVISERC S.A.C.',
     url: absoluteUrl('/convenio-uch/'),
     images: [

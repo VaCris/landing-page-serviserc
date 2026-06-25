@@ -14,7 +14,7 @@ export const agreement = {
     },
     {
       title: 'Beneficio fácil de activar',
-      text: 'Solo necesitas una carta de presentación de SERVISERC S.A.C. Preséntala en cualquier oficina de la UCH y el descuento se aplica de inmediato.',
+      text: 'Solo necesitas una carta de presentación de nuestro estudio contable. Preséntala en cualquier oficina de la UCH y el descuento se aplica de inmediato.',
     },
   ],
   careers: [
