@@ -68,7 +68,7 @@ export default function HomePage() {
           <div className="editorial-copy">
             <h2 className="section-title">Acompañamos la gestión de tu negocio con orden y claridad</h2>
             <p className="section-copy">
-              En SERVISERC S.A.C., contamos con soluciones contables integrales para empresas de todos los tipos. Con más de 3 años de experiencia, nuestro equipo ofrece servicios especializados adaptados a tus necesidades.
+              En SERVISERC S.A.C., contamos con soluciones contables integrales para empresas de todos los tipos. Con más de 3 años de experiencia, nuestro equipo ofrece servicios especializados ada[...]
             </p>
             <p className="section-copy" style={{ marginTop: 18 }}>
               Nuestra misión es facilitar la gestión de cada negocio, apoyar el cumplimiento de normativas vigentes y optimizar los procesos contables con una atención cercana y confiable.
@@ -136,34 +136,34 @@ export default function HomePage() {
           </div>
 
           <div className="faq-grid">
-            <details name="home-faq" className="faq-item">
+            <details className="faq-item">
               <summary>¿Qué tipo de empresas asesoran?</summary>
               <div className="faq-content">
                 <p>Brindamos asesoría a Mypes, Pymes y corporaciones en diversos sectores. Trabajamos con empresas en el Régimen MYPE Tributario, Régimen Especial y Régimen General.</p>
               </div>
             </details>
-            <details name="home-faq" className="faq-item">
+            <details className="faq-item">
               <summary>¿Realizan la constitución de empresas desde cero?</summary>
               <div className="faq-content">
                 <p>Sí, nos encargamos de todo el proceso de formalización: desde la reserva de nombre en SUNARP, elaboración de minuta, hasta la obtención del RUC y activación en SUNAT.</p>
               </div>
             </details>
-            <details name="home-faq" className="faq-item">
+            <details className="faq-item">
               <summary>¿Cómo funciona su servicio de asesoría contable mensual?</summary>
               <div className="faq-content">
-                <p>Nuestro servicio incluye la declaración de impuestos mensuales (PDT 621, PLAME), elaboración de planillas, registro de compras y ventas, y entrega de estados financieros periódic[...]
+                <p>Nuestro servicio incluye la declaración de impuestos mensuales (PDT 621, PLAME), elaboración de planillas, registro de compras y ventas, y entrega de estados financieros peri[...]
               </div>
             </details>
-            <details name="home-faq" className="faq-item">
+            <details className="faq-item">
               <summary>¿Atienden fiscalizaciones o requerimientos de SUNAT?</summary>
               <div className="faq-content">
                 <p>Absolutamente. Contamos con amplia experiencia respondiendo a cartas inductivas, esquelas de citación y procesos de fiscalización de SUNAT de manera eficiente y legal.</p>
               </div>
             </details>
-            <details name="home-faq" className="faq-item">
+            <details className="faq-item">
               <summary>¿El servicio es presencial o virtual?</summary>
               <div className="faq-content">
-                <p>Ofrecemos un servicio híbrido. Toda la documentación e informes se manejan digitalmente a nivel nacional de forma ágil, pero también contamos con sedes físicas para atención p[...]
+                <p>Ofrecemos un servicio híbrido. Toda la documentación e informes se manejan digitalmente a nivel nacional de forma ágil, pero también contamos con sedes físicas para atenci[...]
               </div>
             </details>
           </div>
