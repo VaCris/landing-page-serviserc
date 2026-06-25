@@ -37,13 +37,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       service.title,
       `${service.title} Lima`,
       `${service.title} Perú`,
-      'SERVISERC S.A.C.',
+      'Consultoría Empresarial SERVISERC S.A.C.',
       'asesoría contable Lima',
       'asesoría tributaria Lima',
       ...siteConfig.keywords,
     ],
     openGraph: {
-      title: `${title} | SERVISERC S.A.C.`,
+      title: `${title} | Consultoría Empresarial SERVISERC S.A.C.`,
       description,
       url: absoluteUrl(`/servicios/${service.slug}/`),
       images: [
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${title} | SERVISERC S.A.C.`,
+      title: `${title} | Consultoría Empresarial SERVISERC S.A.C.`,
       description,
       images: [absoluteAsset(service.image)],
     },
@@ -94,22 +94,20 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   return (
     <main className="service-detail-page">
       <JsonLd data={serviceJsonLd(service)} />
-      <section
-        className="service-detail-hero enhanced-service-hero"
+      <section 
+        className="b2b-service-hero"
         style={{
-          backgroundImage: `linear-gradient(115deg, rgb(5 18 38 / 94%), rgb(7 29 61 / 78%) 48%, rgb(216 35 42 / 36%)), url(${asset(service.image)})`,
+          backgroundImage: `linear-gradient(115deg, rgb(5 18 38 / 94%), rgb(7 29 61 / 85%) 58%, rgb(216 35 42 / 40%)), url(${asset(service.image)})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       >
+        <div className="b2b-hero-bg"></div>
         <div className="container service-hero-layout">
           <div className="service-hero-content">
             <span className="hero-kicker">Servicio SERVISERC</span>
             <h1 className="service-detail-title">{service.title}</h1>
             <p className="hero-copy">{service.excerpt}</p>
-            <div className="service-hero-tags">
-              <span>Asesoría personalizada</span>
-              <span>Atención empresarial</span>
-              <span>Soporte documentario</span>
-            </div>
             <div className="hero-actions">
               <a className="btn btn-primary" href={whatsappLink(`Hola Serviserc, necesito información sobre ${service.title}`)} target="_blank" rel="noopener noreferrer">
                 Consultar por WhatsApp
@@ -120,35 +118,59 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             </div>
           </div>
         </div>
+        <div className="b2b-slant-separator">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" fill="currentColor">
+            <polygon points="0,100 100,0 100,100" />
+          </svg>
+        </div>
       </section>
 
       <section className="section service-detail-editorial-section">
         <div className="container service-detail-editorial-layout">
-          <article className="service-detail-intro">
-            <span className="section-eyebrow">Descripción</span>
-            <h2>{service.title}</h2>
-            <p>{service.description}</p>
+          <article className="b2b-service-document">
+            <div className="b2b-doc-section">
+              <h2 className="b2b-doc-title">Panorama General</h2>
+              <p className="b2b-doc-text">{service.description}</p>
+            </div>
 
-            <div className="service-benefit-grid">
-              {service.benefits.map((benefit) => (
-                <div key={benefit} className="service-benefit-card">
-                  <span>✓</span>
-                  <p>{benefit}</p>
-                </div>
-              ))}
+            <div className="b2b-doc-section">
+              <h2 className="b2b-doc-title">Nuestro Enfoque</h2>
+              <div className="b2b-approach-grid">
+                {service.benefits.map((benefit) => (
+                  <div key={benefit} className="b2b-approach-item">
+                    <div className="b2b-check"></div>
+                    <p>{benefit}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="b2b-doc-section">
+              <h2 className="b2b-doc-title">Entregables del Servicio</h2>
+              <ul className="b2b-deliverables-list">
+                {service.includes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           </article>
 
-          <aside className="service-includes-panel">
-            <h3>Qué incluye</h3>
-            <ul>
-              {service.includes.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <a className="btn btn-secondary" href={whatsappLink(`Hola Serviserc, deseo cotizar ${service.title}`)} target="_blank" rel="noopener noreferrer">
-              Solicitar información
-            </a>
+          <aside className="b2b-expert-sidebar">
+            <div className="b2b-expert-card">
+              <div className="b2b-expert-header">
+                <div className="b2b-expert-avatar">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                </div>
+                <div className="b2b-expert-info">
+                  <h3>Socio Consultor</h3>
+                  <span>Especialista SERVISERC</span>
+                </div>
+              </div>
+              <p>¿Tienes dudas sobre cómo implementar esto en tu empresa? Hablemos directamente.</p>
+              <a className="btn btn-primary b2b-expert-btn" href={whatsappLink(`Hola Serviserc, deseo hablar con un experto sobre ${service.title}`)} target="_blank" rel="noopener noreferrer">
+                Agendar Consulta
+              </a>
+            </div>
           </aside>
         </div>
       </section>
@@ -183,6 +205,11 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           backgroundImage: `url(${asset(service.image)})`,
         }}
       >
+        <div className="b2b-chevron-separator top">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" fill="currentColor">
+            <polygon points="0,0 100,0 50,100" />
+          </svg>
+        </div>
         <div className="container">
           <div className="service-cta-full-content">
             <span className="section-eyebrow">Atención SERVISERC</span>

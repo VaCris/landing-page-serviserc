@@ -59,11 +59,12 @@ export default function ServicesPage() {
       <section
         className="services-hero services-hero-image"
         style={{
+          position: 'relative',
           backgroundImage: `linear-gradient(115deg, rgb(5 18 38 / 94%), rgb(7 29 61 / 82%) 52%, rgb(216 35 42 / 35%)), url(${asset('/img/servicios-generales.webp')})`,
         }}
       >
-        <div className="container services-hero-grid">
-          <div>
+        <div className="container">
+          <div style={{ maxWidth: '800px' }}>
             <span className="hero-kicker">Servicios SERVISERC</span>
             <h1 className="service-detail-title">Soluciones para ordenar, formalizar y hacer crecer tu negocio</h1>
             <p className="hero-copy">
@@ -78,33 +79,42 @@ export default function ServicesPage() {
               </Link>
             </div>
           </div>
-          <div className="services-hero-panel">
-            <strong>Atención integral</strong>
-            <p>Servicios pensados para reducir errores, mejorar el control documental y cumplir obligaciones ante entidades correspondientes.</p>
-            <div className="services-stats">
-              <span>Contable</span>
-              <span>Tributario</span>
-              <span>Laboral</span>
-              <span>Documentario</span>
-            </div>
-          </div>
+        </div>
+        <div className="b2b-slant-separator" style={{ color: 'var(--brand-blue-dark)' }}>
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" fill="currentColor">
+            <polygon points="0,100 100,0 100,100" />
+          </svg>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container section-heading-row">
-          <div>
-            <h2 className="section-title">Servicios principales</h2>
-            <p className="section-copy">
-              Cada servicio cuenta con una página de detalle para explicar qué incluye, sus beneficios y cómo podemos ayudarte.
-            </p>
+      <div className="b2b-trust-bar">
+        <div className="container b2b-trust-grid">
+          <div className="b2b-trust-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            <strong>Absoluta Confidencialidad</strong>
           </div>
-          <a className="btn btn-primary" href={whatsappLink('Hola Serviserc, deseo asesoría sobre un servicio')} target="_blank" rel="noopener noreferrer">
-            Solicitar asesoría
-          </a>
+          <div className="b2b-trust-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            <strong>Atención de Socios Expertos</strong>
+          </div>
+          <div className="b2b-trust-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            <strong>Diagnóstico Preciso</strong>
+          </div>
         </div>
+      </div>
+
+      <section className="section">
         <div className="container">
-          <div className="services-grid">
+          <div className="section-heading-row" style={{ marginBottom: '40px' }}>
+            <div>
+              <h2 className="section-title">Todos nuestros servicios</h2>
+              <p className="section-copy">
+                Soluciones integrales para ordenar, formalizar y escalar tu empresa con seguridad.
+              </p>
+            </div>
+          </div>
+          <div className="b2b-services-grid">
             {services.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}
@@ -112,10 +122,16 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section section-muted">
+      <section className="section section-muted" style={{ position: 'relative' }}>
+        <div className="b2b-chevron-separator top">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" fill="currentColor">
+            <polygon points="0,0 100,0 50,100" />
+          </svg>
+        </div>
         <div className="container">
           <div className="section-heading-row">
             <div>
+              <span className="section-eyebrow">Nuestro Método</span>
               <h2 className="section-title">Cómo trabajamos</h2>
               <p className="section-copy">
                 Un proceso simple para entender tu caso, ordenar la información y acompañarte con claridad.
