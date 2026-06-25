@@ -1,0 +1,682 @@
+/* ═══════════════════════════════════════════
+   UCH CAREERS - Layout matching reference
+   ═══════════════════════════════════════════ */
+
+.agreement-careers-vertical {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.2fr) minmax(200px, .5fr) minmax(320px, 1fr);
+  gap: 40px;
+  align-items: start;
+  overflow: visible;
+  transition: grid-template-columns 0.4s ease;
+}
+
+.agreement-careers-vertical.is-reversed {
+  grid-template-columns: minmax(320px, 1fr) minmax(200px, .5fr) minmax(320px, 1.2fr);
+}
+
+.agreement-careers-vertical.is-reversed .agreement-careers-image-col {
+  order: 3;
+}
+
+.agreement-careers-vertical.is-reversed .agreement-careers-timeline {
+  order: 2;
+}
+
+.agreement-careers-vertical.is-reversed .agreement-careers-panel {
+  order: 1;
+}
+
+/* Reverse timeline orientation */
+.agreement-careers-vertical.is-reversed .agreement-career-row {
+  grid-template-columns: 1fr 4px 24px;
+}
+
+.agreement-careers-vertical.is-reversed .agreement-career-name {
+  text-align: right;
+  order: 1;
+}
+
+.agreement-careers-vertical.is-reversed .agreement-career-line {
+  order: 2;
+}
+
+.agreement-careers-vertical.is-reversed .agreement-career-num {
+  justify-content: flex-start;
+  text-align: left;
+  order: 3;
+}
+
+/* Ocultar acordeón mobile en desktop */
+.agreement-careers-mobile-wrapper {
+  display: none;
+}
+
+/* ─── COLUMNA IZQUIERDA: Imagen fija ─── */
+.agreement-careers-image-col {
+  position: relative;
+}
+
+.agreement-careers-image-main {
+  position: sticky;
+  top: 100px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: transparent;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.agreement-careers-image-main img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  filter: brightness(1.02);
+  border-radius: 28px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.agreement-careers-image-main {
+  position: relative;
+}
+
+.agreement-careers-overlay-num {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgb(255 255 255 / 95%);
+  line-height: 1;
+  text-shadow: 0 8px 36px rgb(7 29 61 / 55%);
+  pointer-events: none;
+  z-index: 2;
+  transition: all 0.35s ease;
+}
+
+.agreement-careers-letter {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  font-size: clamp(8rem, 15vw, 15rem);
+  font-family: serif;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.18);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+  transition: all 0.35s ease;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.agreement-careers-img-transition {
+  animation: fadeIn 0.45s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ─── COLUMNA CENTRO: Línea de tiempo ─── */
+.agreement-careers-timeline {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-top: 24px;
+}
+
+.agreement-careers-stack {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+}
+
+/* Removed old vertical line */
+
+.agreement-career-row {
+  display: grid;
+  grid-template-columns: 24px 4px 1fr;
+  gap: 16px;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 16px 0;
+  border-radius: 0;
+  transition: all 0.25s ease;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.agreement-career-row:hover {
+  background: rgb(7 29 61 / 3%);
+}
+
+.agreement-career-num {
+  font-weight: 900;
+  color: var(--brand-blue-dark);
+  font-size: 1.2rem;
+  text-align: right;
+  min-height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.agreement-career-line {
+  width: 4px;
+  height: 100%;
+  background: rgba(12, 47, 95, 0.1);
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.agreement-career-row.is-active .agreement-career-line {
+  background: var(--brand-blue);
+  box-shadow: 0 0 10px rgba(12, 47, 95, 0.2);
+}
+
+.agreement-career-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  line-height: 1.4;
+  transition: color .2s, font-weight .2s;
+  display: block;
+  text-align: left;
+}
+
+.agreement-career-row.is-active .agreement-career-name {
+  color: var(--brand-blue-dark);
+  font-weight: 800;
+}
+
+/* ─── COLUMNA DERECHA: Panel ─── */
+.agreement-careers-panel {
+  position: relative;
+  padding: 80px 0 0 0;
+}
+
+.agreement-careers-panel-bg-num {
+  animation: fadeIn 0.4s ease;
+}
+
+.agreement-careers-panel-content {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.agreement-careers-panel-title {
+  margin: 0 0 24px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--brand-blue-dark);
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.agreement-careers-plain-list {
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: opacity 0.3s ease;
+}
+
+.agreement-careers-plain-list li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  padding: 8px 0;
+  color: var(--text-muted);
+  position: relative;
+  padding-left: 22px;
+  font-weight: 500;
+  transition: color 0.25s ease, padding-left 0.25s ease;
+}
+
+.agreement-careers-plain-list li:hover {
+  color: var(--brand-blue-dark);
+  padding-left: 26px;
+}
+
+.agreement-careers-plain-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  color: var(--brand-blue);
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
+.agreement-careers-plain-list li:not(:last-child) {
+  border-bottom: none;
+}
+
+.agreement-careers-desktop-cta {
+  background: var(--brand-red);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 99px;
+  font-weight: 800;
+  font-size: 1rem;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(216, 35, 42, 0.2);
+  margin-top: 10px;
+}
+
+.agreement-careers-desktop-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(216, 35, 42, 0.35);
+}
+
+/* Botón POSTULA AQUÍ */
+.agreement-careers-cta {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--brand-red);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 10px;
+  letter-spacing: .03em;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 16px rgb(216 35 42 / 25%);
+}
+
+.agreement-careers-cta:hover {
+  background: rgb(200 30 35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgb(216 35 42 / 35%);
+}
+
+/* ─── Tablet / laptops pequeñas ─── */
+@media (max-width: 1200px) {
+  .agreement-careers-vertical {
+    grid-template-columns: minmax(280px, 1fr) minmax(180px, .45fr) minmax(260px, 1fr);
+    gap: 40px;
+  }
+
+  .agreement-careers-overlay-num {
+    font-size: 3.5rem;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .agreement-careers-letter {
+    font-size: 8rem;
+    top: 0px;
+    right: 15px;
+  }
+
+  .agreement-careers-panel-bg-num {
+    font-size: 7rem;
+    top: -20px;
+  }
+}
+
+/* ─── Mobile: Acordeón ─── */
+@media (max-width: 900px) {
+  .agreement-careers-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Mostrar acordeón mobile */
+  .agreement-careers-mobile-wrapper {
+    display: block;
+  }
+
+  /* Ocultar columnas desktop */
+  .agreement-careers-image-col,
+  .agreement-careers-timeline,
+  .agreement-careers-panel {
+    display: none;
+  }
+
+  /* Ocultar columnas desktop */
+  .agreement-careers-image-col,
+  .agreement-careers-timeline,
+  .agreement-careers-panel {
+    display: none;
+  }
+
+  /* Mostrar solo el acordeón mobile */
+  .agreement-careers-mobile-content {
+    display: block;
+  }
+
+  .agreement-careers-mobile-item {
+    border-top: 1px solid rgb(12 47 95 / 12%);
+  }
+
+  .agreement-careers-mobile-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 18px 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .agreement-careers-mobile-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-right: auto;
+  }
+
+  .agreement-careers-mobile-num {
+    font-size: .85rem;
+    font-weight: 900;
+    color: var(--text-muted);
+    margin-right: 8px;
+  }
+
+  .agreement-careers-mobile-chevron {
+    width: 20px;
+    height: 20px;
+    color: var(--text-muted);
+    transition: transform .25s;
+    flex-shrink: 0;
+  }
+
+  .agreement-careers-mobile-item.is-active .agreement-careers-mobile-chevron {
+    transform: rotate(180deg);
+    color: var(--brand-red);
+  }
+
+  .agreement-careers-mobile-expand {
+    display: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .agreement-careers-mobile-item.is-active .agreement-careers-mobile-expand {
+    display: block;
+    animation: fadeIn 0.35s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .agreement-careers-mobile-image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    margin: 16px 16px 0;
+    box-shadow: 0 8px 24px rgba(7, 29, 61, 0.08);
+  }
+
+  .agreement-careers-mobile-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .agreement-careers-mobile-img-num {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: rgb(255 255 255 / 90%);
+    text-shadow: 0 4px 20px rgb(7 29 61 / 40%);
+  }
+
+  .agreement-careers-mobile-body {
+    padding: 16px 16px 20px;
+  }
+
+  .agreement-careers-mobile-title {
+    margin: 0 0 12px;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--brand-blue-dark);
+  }
+
+  .agreement-careers-mobile-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .agreement-careers-mobile-list li {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 7px 0;
+    color: var(--text-muted);
+  }
+
+  .agreement-careers-mobile-list li:not(:last-child) {
+    border-bottom: 1px solid rgb(12 47 95 / 7%);
+  }
+
+  .agreement-careers-mobile-cta {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 24px;
+    background: var(--brand-red);
+    color: #ffffff;
+    font-size: .9rem;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 8px;
+  }
+}
+
+/* ═══ INFO SECTION — Premium Full Width Wave ═══ */
+.uch-corp-footer-wrapper {
+  position: relative;
+  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-dark) 100%);
+  color: #fff;
+  margin-top: 100px;
+  padding-top: 100px;
+  padding-bottom: 120px;
+  overflow: hidden;
+}
+
+.uch-corp-footer-wrapper::after {
+  content: '';
+  position: absolute;
+  top: -100px; right: 0; bottom: 0; left: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.06) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.uch-corp-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.uch-corp-wave svg {
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 80px;
+  color: #ffffff;
+}
+
+.uch-corp-wave-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.uch-corp-wave-bottom svg {
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 80px;
+  color: #06172f;
+}
+
+.agreement-corp-info {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.agreement-corp-text {
+  position: relative;
+  z-index: 1;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.agreement-corp-text h3 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.agreement-corp-columns {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.agreement-corp-columns > div {
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.agreement-corp-columns strong {
+  display: block;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 12px;
+}
+
+.agreement-corp-columns p {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.agreement-corp-columns a {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-underline-offset: 4px;
+  font-weight: 600;
+  transition: text-decoration-color .2s, color .2s;
+}
+
+.agreement-corp-columns a:hover {
+  text-decoration-color: #fff;
+  color: #fff;
+}
+
+@media (max-width: 860px) {
+  .agreement-corp-info {
+    padding: 0 24px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .agreement-corp-columns {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ═══ BENEFICIOS — Clean Layout (No Cards) ═══ */
+.agreement-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 48px 32px;
+  margin-top: 40px;
+}
+
+.summary-item {
+  position: relative;
+  padding-left: 24px;
+}
+
+.summary-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--brand-red);
+  border-radius: 4px;
+}
+
+.summary-item strong {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--brand-blue-dark);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.summary-item span {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  display: block;
+}

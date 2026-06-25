@@ -48,7 +48,9 @@
     visibility .2s ease;
 }
 
-.nav-dropdown.is-open .nav-dropdown-menu {
+/* ponytail: native CSS hover instead of JS class */
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -164,6 +166,10 @@
   cursor: pointer;
 }
 
+.mobile-services-toggle::-webkit-details-marker {
+  display: none;
+}
+
 .mobile-services-toggle span {
   width: 28px;
   height: 28px;
@@ -178,18 +184,13 @@
 }
 
 .mobile-services-list {
-  display: none;
-
   gap: 6px;
-
   padding: 8px;
-
   border-radius: 18px;
-
   background: rgb(12 47 95 / 5%);
 }
 
-.mobile-services-list.is-open {
+details[open] .mobile-services-list {
   display: grid;
 }
 
