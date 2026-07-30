@@ -6,6 +6,27 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outDir = path.resolve(__dirname, '..', 'out');
 const prefix = '/landing-page-serviserc';
 
+function alreadyPrefixed() {
+  const htmlFiles = [
+    path.join(outDir, 'index.html'),
+    path.join(outDir, 'servicios', 'index.html'),
+  ];
+  for (const file of htmlFiles) {
+    if (fs.existsSync(file)) {
+      const content = fs.readFileSync(file, 'utf8');
+      if (content.includes(`href="${prefix}/`)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+if (alreadyPrefixed()) {
+  console.log('Postbuild: files already prefixed, skipping patch.');
+  process.exit(0);
+}
+
 function replaceInFile(filePath, replacements) {
   let content = fs.readFileSync(filePath, 'utf8');
   let modified = false;
